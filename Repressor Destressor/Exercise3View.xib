@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7531" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7520"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="ZbQ-Jq-RMl">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="1849"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="WEEK 3. EMOTIONS" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uQK-zt-9Q6">
+                    <rect key="frame" x="20" y="24" width="284" height="20"/>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
+                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" usesAttributedText="YES" translatesAutoresizingMaskIntoConstraints="NO" id="l51-F7-WUQ">
+                    <rect key="frame" x="16" y="52" width="288" height="317"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <attributedString key="attributedText">
+                        <fragment>
+                            <string key="content">Welcome to week 3 of “Just Be”. Last week you were paying attention to the feeling of ALIVENESS in your body. Another way of feeling alive is to </string>
+                            <attributes>
+                                <font key="NSFont" size="14" name="HelveticaNeue"/>
+                                <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                            </attributes>
+                        </fragment>
+                        <fragment content="experience your emotions">
+                            <attributes>
+                                <color key="NSColor" red="0.29019607843137257" green="0.56470588235294117" blue="0.15294117647058825" alpha="1" colorSpace="calibratedRGB"/>
+                                <font key="NSFont" size="14" name="HelveticaNeue"/>
+                                <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                            </attributes>
+                        </fragment>
+                        <fragment>
+                            <string key="content">. The ability to deeply feel love, pain, joy, disappointment, excitement, and sadness is unique to human beings. Emotions are the colors of life. </string>
+                            <attributes>
+                                <font key="NSFont" size="14" name="HelveticaNeue"/>
+                                <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                            </attributes>
+                        </fragment>
+                        <fragment content="When we do not have a healthy relationship with and acceptance of our emotions, we can become afraid of them">
+                            <attributes>
+                                <color key="NSColor" red="0.29019607843137257" green="0.56470588235294117" blue="0.15294117647058825" alpha="1" colorSpace="calibratedRGB"/>
+                                <font key="NSFont" size="14" name="HelveticaNeue"/>
+                                <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                            </attributes>
+                        </fragment>
+                        <fragment>
+                            <string key="content">. This creates many struggles and unhealthy ways of distracting oneself from feeling: mindlessly drinking, watching TV, eating. Psychologists say emotions are fleeting experiences. An emotion can be felt in the body as skin tingling, heart palpitation, or stomach squeezing. Those experiences remind that you are ALIVE. </string>
+                            <attributes>
+                                <font key="NSFont" size="14" name="HelveticaNeue"/>
+                                <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                            </attributes>
+                        </fragment>
+                    </attributedString>
+                    <textInputTraits key="textInputTraits"/>
+                </textView>
+                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" usesAttributedText="YES" translatesAutoresizingMaskIntoConstraints="NO" id="j9a-XC-onL">
+                    <rect key="frame" x="16" y="601" width="288" height="83"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <attributedString key="attributedText">
+                        <fragment>
+                            <string key="content">This is how Persian poet Rumi described being a human, inviting emotions in as unexpected visitors, remaining the owner without letting guests to take over. </string>
+                            <attributes>
+                                <font key="NSFont" size="14" name="HelveticaNeue"/>
+                                <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                            </attributes>
+                        </fragment>
+                    </attributedString>
+                    <textInputTraits key="textInputTraits"/>
+                </textView>
+                <textView clipsSubviews="YES" multipleTouchEnabled="YES" alpha="0.31999999284744263" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" usesAttributedText="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nz8-CE-NmJ">
+                    <rect key="frame" x="16" y="700" width="288" height="419"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <attributedString key="attributedText">
+                        <fragment>
+                            <string key="content">THE GUEST HOUSE 
+This being human is a guest house.
+Every morning a new arrival. 
+A joy, a depression, a meanness,
+some momentary awareness comes
+as an unexpected visitor. 
+Welcome and entertain them all!
+Even if they are a crowd of sorrows,
+who violently sweep your house
+empty of its furniture,
+still, treat each guest honorably.
+He may be clearing you out
+for some new delight.  The dark thought, the shame, the malice.
+meet them at the door laughing and invite them in. 
+Be grateful for whatever comes.
+because each has been sent
+as a guide from beyond.</string>
+                            <attributes>
+                                <color key="NSColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <font key="NSFont" size="14" name="HelveticaNeue-Italic"/>
+                                <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                            </attributes>
+                        </fragment>
+                    </attributedString>
+                    <textInputTraits key="textInputTraits"/>
+                </textView>
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" image="ex3_1" translatesAutoresizingMaskIntoConstraints="NO" id="rhr-ed-m6Y">
+                    <rect key="frame" x="60" y="385" width="200" height="200"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="200" id="6Cz-5L-Ld2"/>
+                        <constraint firstAttribute="height" constant="200" id="tws-TY-7aR"/>
+                    </constraints>
+                </imageView>
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" image="ex3_2" translatesAutoresizingMaskIntoConstraints="NO" id="Gia-ax-IuK">
+                    <rect key="frame" x="60" y="1135" width="200" height="160"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="160" id="nwz-Ba-TQS"/>
+                        <constraint firstAttribute="width" constant="200" id="piR-CW-rb5"/>
+                    </constraints>
+                </imageView>
+                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" usesAttributedText="YES" translatesAutoresizingMaskIntoConstraints="NO" id="s4K-Sm-X7W">
+                    <rect key="frame" x="16" y="1311" width="288" height="518"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <attributedString key="attributedText">
+                        <fragment content="This week, ">
+                            <attributes>
+                                <font key="NSFont" size="14" name="HelveticaNeue"/>
+                                <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                            </attributes>
+                        </fragment>
+                        <fragment content="the meditation practice will help you notice emotions in your body and breath">
+                            <attributes>
+                                <color key="NSColor" red="0.29019607843137257" green="0.56470588235294117" blue="0.15294117647058825" alpha="1" colorSpace="calibratedRGB"/>
+                                <font key="NSFont" size="14" name="HelveticaNeue"/>
+                                <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                            </attributes>
+                        </fragment>
+                        <fragment>
+                            <string key="content">. 
+A few useful tips:  
+• You can feel an emotion as a body sensation 
+• Do not judge yourself for feeling a particular way 
+• No need to rationalize or justify the validity of your emotion, simply let them be 
+• Allow the emotion to change, do not linger on it  
+• Accept your emotions as they are 
+Several times a day you will receive </string>
+                            <attributes>
+                                <font key="NSFont" size="14" name="HelveticaNeue"/>
+                                <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                            </attributes>
+                        </fragment>
+                        <fragment content="reminders to PAUSE">
+                            <attributes>
+                                <color key="NSColor" red="0.29019607843137257" green="0.56470588235294117" blue="0.15294117647058825" alpha="1" colorSpace="calibratedRGB"/>
+                                <font key="NSFont" size="14" name="HelveticaNeue"/>
+                                <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                            </attributes>
+                        </fragment>
+                        <fragment>
+                            <string key="content">.  
+• Pause whatever you are doing 
+• Bring awareness to your body and breath 
+• Accept whatever is going on 
+• Resume your activity with awareness</string>
+                            <attributes>
+                                <font key="NSFont" size="14" name="HelveticaNeue"/>
+                                <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                            </attributes>
+                        </fragment>
+                    </attributedString>
+                    <textInputTraits key="textInputTraits"/>
+                </textView>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="rhr-ed-m6Y" firstAttribute="top" secondItem="l51-F7-WUQ" secondAttribute="bottom" constant="16" id="3Mw-12-r4M"/>
+                <constraint firstItem="uQK-zt-9Q6" firstAttribute="top" secondItem="ZbQ-Jq-RMl" secondAttribute="top" constant="24" id="5j3-bQ-0TN"/>
+                <constraint firstItem="Gia-ax-IuK" firstAttribute="top" secondItem="nz8-CE-NmJ" secondAttribute="bottom" constant="16" id="9DI-9H-usJ"/>
+                <constraint firstItem="nz8-CE-NmJ" firstAttribute="top" secondItem="j9a-XC-onL" secondAttribute="bottom" constant="16" id="Hyf-dK-NFG"/>
+                <constraint firstItem="j9a-XC-onL" firstAttribute="leading" secondItem="ZbQ-Jq-RMl" secondAttribute="leading" constant="16" id="IRz-5V-7fW"/>
+                <constraint firstItem="l51-F7-WUQ" firstAttribute="leading" secondItem="ZbQ-Jq-RMl" secondAttribute="leading" constant="16" id="M6X-R8-Gfs"/>
+                <constraint firstItem="l51-F7-WUQ" firstAttribute="top" secondItem="uQK-zt-9Q6" secondAttribute="bottom" id="MWG-5f-f3v"/>
+                <constraint firstAttribute="trailing" secondItem="uQK-zt-9Q6" secondAttribute="trailing" constant="16" id="NAv-3l-6Tf"/>
+                <constraint firstAttribute="trailing" secondItem="nz8-CE-NmJ" secondAttribute="trailing" constant="16" id="QHV-QZ-3xJ"/>
+                <constraint firstItem="uQK-zt-9Q6" firstAttribute="leading" secondItem="ZbQ-Jq-RMl" secondAttribute="leading" constant="20" id="TOy-Th-8eo"/>
+                <constraint firstAttribute="trailing" secondItem="j9a-XC-onL" secondAttribute="trailing" constant="16" id="VXD-x5-vdu"/>
+                <constraint firstAttribute="trailing" secondItem="s4K-Sm-X7W" secondAttribute="trailing" constant="16" id="WAS-gq-3Om"/>
+                <constraint firstItem="j9a-XC-onL" firstAttribute="top" secondItem="rhr-ed-m6Y" secondAttribute="bottom" constant="16" id="Wjo-3x-Al5"/>
+                <constraint firstItem="s4K-Sm-X7W" firstAttribute="top" secondItem="Gia-ax-IuK" secondAttribute="bottom" constant="16" id="Xr6-is-xAF"/>
+                <constraint firstAttribute="trailing" secondItem="l51-F7-WUQ" secondAttribute="trailing" constant="16" id="dSM-Cg-BHa"/>
+                <constraint firstItem="l51-F7-WUQ" firstAttribute="top" secondItem="uQK-zt-9Q6" secondAttribute="bottom" constant="8" id="lbd-fq-iRq"/>
+                <constraint firstItem="nz8-CE-NmJ" firstAttribute="leading" secondItem="ZbQ-Jq-RMl" secondAttribute="leading" constant="16" id="mGn-bl-QLY"/>
+                <constraint firstAttribute="centerX" secondItem="nz8-CE-NmJ" secondAttribute="centerX" id="ol7-6h-2Hj"/>
+                <constraint firstItem="s4K-Sm-X7W" firstAttribute="leading" secondItem="ZbQ-Jq-RMl" secondAttribute="leading" constant="16" id="sPQ-Fp-Xxd"/>
+                <constraint firstAttribute="centerX" secondItem="Gia-ax-IuK" secondAttribute="centerX" id="uHA-kw-ge1"/>
+                <constraint firstAttribute="centerX" secondItem="rhr-ed-m6Y" secondAttribute="centerX" id="xxf-qy-vaJ"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <variation key="default">
+                <mask key="constraints">
+                    <exclude reference="MWG-5f-f3v"/>
+                </mask>
+            </variation>
+            <point key="canvasLocation" x="428" y="86.5"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="ex3_1" width="572" height="569"/>
+        <image name="ex3_2" width="400" height="298"/>
+    </resources>
+</document>

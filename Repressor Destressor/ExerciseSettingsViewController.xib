@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7531" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7520"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ExerciseSettingsViewController" customModule="Just_Be" customModuleProvider="target">
+            <connections>
+                <outlet property="dayLabel" destination="zxI-hL-SNb" id="1uR-jF-BMx"/>
+                <outlet property="dayOfWeek" destination="7hP-lH-YbK" id="Dda-Os-Cji"/>
+                <outlet property="nextButton" destination="PLH-PF-RXB" id="4zB-z6-7e1"/>
+                <outlet property="timeLabel" destination="nm2-7x-sgL" id="ZhB-xr-eSO"/>
+                <outlet property="timeOfDay" destination="snT-Kg-vpo" id="6i4-w2-nBd"/>
+                <outlet property="view" destination="iN0-l3-epB" id="Iwo-St-R2l"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="562" height="600"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="On what day would you like to receive your weekly exercise?" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zxI-hL-SNb">
+                    <rect key="frame" x="131" y="32" width="300" height="40"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="300" id="DIX-Sy-iBb"/>
+                        <constraint firstAttribute="height" constant="40" id="Sbe-4Q-7Mv"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="7hP-lH-YbK">
+                    <rect key="frame" x="16" y="96" width="530" height="29"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="28" id="bgp-wi-eQ9"/>
+                    </constraints>
+                    <segments>
+                        <segment title="Mon"/>
+                        <segment title="Tue"/>
+                        <segment title="Wed"/>
+                        <segment title="Thu"/>
+                        <segment title="Fri"/>
+                        <segment title="Sat"/>
+                        <segment title="Sun"/>
+                    </segments>
+                </segmentedControl>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="What time on that day?" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nm2-7x-sgL">
+                    <rect key="frame" x="131" y="162" width="300" height="20"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="20" id="DUT-bP-geN"/>
+                        <constraint firstAttribute="width" constant="300" id="kC9-ri-t03"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="time" minuteInterval="1" useCurrentDate="NO" translatesAutoresizingMaskIntoConstraints="NO" id="snT-Kg-vpo">
+                    <rect key="frame" x="131" y="206" width="300" height="162"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="300" id="36J-dl-VBK"/>
+                        <constraint firstAttribute="height" constant="162" id="q3H-CP-tc3"/>
+                    </constraints>
+                    <date key="date" timeIntervalSinceReferenceDate="-978217199.93621063">
+                        <!--1970-01-02 01:00:00 +0000-->
+                    </date>
+                </datePicker>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PLH-PF-RXB">
+                    <rect key="frame" x="16" y="400" width="530" height="44"/>
+                    <color key="backgroundColor" red="0.18880958019999999" green="1" blue="0.22477829020000001" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="44" id="5Xb-99-r5U"/>
+                        <constraint firstAttribute="width" secondItem="PLH-PF-RXB" secondAttribute="height" multiplier="146:11" id="bUl-xB-1dP"/>
+                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="44" id="eJH-vK-hdQ"/>
+                        <constraint firstAttribute="width" secondItem="PLH-PF-RXB" secondAttribute="height" multiplier="146:11" id="icm-2N-4R2"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                    <state key="normal" title="Next">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <variation key="default">
+                        <mask key="constraints">
+                            <exclude reference="bUl-xB-1dP"/>
+                            <exclude reference="eJH-vK-hdQ"/>
+                            <exclude reference="icm-2N-4R2"/>
+                        </mask>
+                    </variation>
+                    <variation key="heightClass=regular" misplaced="YES">
+                        <rect key="frame" x="8" y="762" width="584" height="30"/>
+                    </variation>
+                    <variation key="heightClass=regular-widthClass=regular" misplaced="YES">
+                        <rect key="frame" x="8" y="762" width="784" height="30"/>
+                    </variation>
+                    <connections>
+                        <action selector="next:" destination="-1" eventType="touchUpInside" id="UHh-j5-lAQ"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="7hP-lH-YbK" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="16" id="BHS-Pf-xbd"/>
+                <constraint firstItem="snT-Kg-vpo" firstAttribute="top" secondItem="nm2-7x-sgL" secondAttribute="bottom" constant="24" id="M2Z-EY-kX2"/>
+                <constraint firstAttribute="centerX" secondItem="7hP-lH-YbK" secondAttribute="centerX" id="NRU-T8-mP9"/>
+                <constraint firstItem="PLH-PF-RXB" firstAttribute="top" secondItem="snT-Kg-vpo" secondAttribute="bottom" constant="32" id="Nav-0Q-16g"/>
+                <constraint firstAttribute="centerX" secondItem="nm2-7x-sgL" secondAttribute="centerX" id="WEX-Ts-Lmq"/>
+                <constraint firstItem="nm2-7x-sgL" firstAttribute="top" secondItem="7hP-lH-YbK" secondAttribute="bottom" constant="38" id="Xl9-ky-aao"/>
+                <constraint firstAttribute="centerX" secondItem="zxI-hL-SNb" secondAttribute="centerX" id="Zyj-lI-Pye"/>
+                <constraint firstAttribute="centerX" secondItem="snT-Kg-vpo" secondAttribute="centerX" id="eIt-Qz-cr8"/>
+                <constraint firstAttribute="trailing" secondItem="7hP-lH-YbK" secondAttribute="trailing" constant="16" id="edY-32-1bS"/>
+                <constraint firstItem="7hP-lH-YbK" firstAttribute="top" secondItem="zxI-hL-SNb" secondAttribute="bottom" constant="24" id="gbE-RO-W1l"/>
+                <constraint firstItem="zxI-hL-SNb" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="32" id="tV4-Fo-c0e"/>
+                <constraint firstItem="PLH-PF-RXB" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="16" id="xye-EU-GVl"/>
+                <constraint firstAttribute="trailing" secondItem="PLH-PF-RXB" secondAttribute="trailing" constant="16" id="zjo-Or-6LF"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="416" y="355"/>
+        </view>
+    </objects>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination" type="retina4"/>
+    </simulatedMetricsContainer>
+</document>

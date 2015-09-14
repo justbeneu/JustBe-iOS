@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7531" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7520"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ExerciseViewController" customModule="Just_Be" customModuleProvider="target">
+            <connections>
+                <outlet property="completeButton" destination="IVc-Xz-N2I" id="5gh-iG-0fL"/>
+                <outlet property="containerHeightConstraint" destination="Xiy-Sy-Hup" id="Xn4-4s-O8N"/>
+                <outlet property="containerWidthConstraint" destination="rdM-Td-9Ff" id="8C6-1A-Iet"/>
+                <outlet property="scrollContainer" destination="nxy-kZ-7Yn" id="prV-rN-E8i"/>
+                <outlet property="scrollView" destination="8Fh-4u-H9d" id="kxz-po-Z8t"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8Fh-4u-H9d">
+                    <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nxy-kZ-7Yn">
+                            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                            <subviews>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IVc-Xz-N2I">
+                                    <rect key="frame" x="16" y="540" width="568" height="44"/>
+                                    <color key="backgroundColor" red="0.18880958019999999" green="1" blue="0.22477829020000001" alpha="1" colorSpace="calibratedRGB"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" secondItem="IVc-Xz-N2I" secondAttribute="height" multiplier="146:11" id="eNH-S4-RFS"/>
+                                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="44" id="jGS-cf-Ch0"/>
+                                        <constraint firstAttribute="height" constant="44" id="kqS-ZK-n4c"/>
+                                        <constraint firstAttribute="width" secondItem="IVc-Xz-N2I" secondAttribute="height" multiplier="146:11" id="uy1-C0-xPa"/>
+                                    </constraints>
+                                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                    <state key="normal" title="Complete Exercise">
+                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                    </state>
+                                    <variation key="default">
+                                        <mask key="constraints">
+                                            <exclude reference="jGS-cf-Ch0"/>
+                                            <exclude reference="uy1-C0-xPa"/>
+                                            <exclude reference="eNH-S4-RFS"/>
+                                        </mask>
+                                    </variation>
+                                    <variation key="heightClass=regular" misplaced="YES">
+                                        <rect key="frame" x="8" y="762" width="584" height="30"/>
+                                    </variation>
+                                    <variation key="heightClass=regular-widthClass=regular" misplaced="YES">
+                                        <rect key="frame" x="8" y="762" width="784" height="30"/>
+                                    </variation>
+                                    <connections>
+                                        <action selector="didTapCompleteExercise:" destination="-1" eventType="touchUpInside" id="Zv7-03-Gdm"/>
+                                    </connections>
+                                </button>
+                            </subviews>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstAttribute="bottom" secondItem="IVc-Xz-N2I" secondAttribute="bottom" constant="16" id="3fv-Tz-yDU"/>
+                                <constraint firstAttribute="height" constant="600" id="Xiy-Sy-Hup"/>
+                                <constraint firstAttribute="trailing" secondItem="IVc-Xz-N2I" secondAttribute="trailing" constant="16" id="hrc-QH-30a"/>
+                                <constraint firstItem="IVc-Xz-N2I" firstAttribute="leading" secondItem="nxy-kZ-7Yn" secondAttribute="leading" constant="16" id="in8-2E-qOR"/>
+                                <constraint firstAttribute="width" constant="600" id="rdM-Td-9Ff"/>
+                            </constraints>
+                        </view>
+                    </subviews>
+                    <constraints>
+                        <constraint firstAttribute="trailing" secondItem="nxy-kZ-7Yn" secondAttribute="trailing" id="CPz-o1-tqI"/>
+                        <constraint firstAttribute="bottom" secondItem="nxy-kZ-7Yn" secondAttribute="bottom" id="nS7-NA-K4Q"/>
+                        <constraint firstItem="nxy-kZ-7Yn" firstAttribute="leading" secondItem="8Fh-4u-H9d" secondAttribute="leading" id="owy-VX-5JB"/>
+                        <constraint firstItem="nxy-kZ-7Yn" firstAttribute="top" secondItem="8Fh-4u-H9d" secondAttribute="top" id="urm-5Y-ezw"/>
+                    </constraints>
+                </scrollView>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="8Fh-4u-H9d" secondAttribute="bottom" id="Juu-p0-RVl"/>
+                <constraint firstAttribute="trailing" secondItem="8Fh-4u-H9d" secondAttribute="trailing" id="blU-bD-a85"/>
+                <constraint firstItem="8Fh-4u-H9d" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="cAZ-IN-IuC"/>
+                <constraint firstItem="8Fh-4u-H9d" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="z5u-i3-S8y"/>
+            </constraints>
+            <point key="canvasLocation" x="389" y="358"/>
+        </view>
+    </objects>
+</document>

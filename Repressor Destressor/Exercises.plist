@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Exercises</key>
+	<array>
+		<dict>
+			<key>pebble_message</key>
+			<string>3 BREATHS: take a moment to feel your breath.</string>
+			<key>id</key>
+			<integer>1</integer>
+			<key>name</key>
+			<string>Week 1</string>
+			<key>meditation_id</key>
+			<integer>1</integer>
+			<key>view_name</key>
+			<string>Exercise1View</string>
+		</dict>
+		<dict>
+			<key>pebble_message</key>
+			<string>BODY FEEL: take a moment to feel life inside your body.</string>
+			<key>id</key>
+			<integer>2</integer>
+			<key>name</key>
+			<string>Week 2</string>
+			<key>meditation_id</key>
+			<integer>2</integer>
+			<key>view_name</key>
+			<string>Exercise2View</string>
+		</dict>
+		<dict>
+			<key>pebble_message</key>
+			<string>PAUSE: stop, feel body and breath, be aware.</string>
+			<key>id</key>
+			<integer>3</integer>
+			<key>name</key>
+			<string>Week 3</string>
+			<key>meditation_id</key>
+			<integer>3</integer>
+			<key>view_name</key>
+			<string>Exercise3View</string>
+		</dict>
+	</array>
+</dict>
+</plist>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6751" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="480" height="480"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background_swatch" translatesAutoresizingMaskIntoConstraints="NO" id="iNT-he-6Gc">
+                    <rect key="frame" x="0.0" y="0.0" width="480" height="480"/>
+                </imageView>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="lotus" translatesAutoresizingMaskIntoConstraints="NO" id="VHi-la-f5M">
+                    <rect key="frame" x="210" y="222" width="61" height="36"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="36" id="cw7-Kq-i0E"/>
+                        <constraint firstAttribute="width" constant="61" id="mrT-0v-bhC"/>
+                    </constraints>
+                </imageView>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="centerX" secondItem="VHi-la-f5M" secondAttribute="centerX" id="Aw2-6c-RuA"/>
+                <constraint firstItem="iNT-he-6Gc" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="P6c-1L-HTe"/>
+                <constraint firstItem="iNT-he-6Gc" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="ea5-kF-NP2"/>
+                <constraint firstAttribute="bottom" secondItem="iNT-he-6Gc" secondAttribute="bottom" id="q0s-Wa-Gxg"/>
+                <constraint firstAttribute="centerY" secondItem="VHi-la-f5M" secondAttribute="centerY" id="tBQ-1Z-PFh"/>
+                <constraint firstAttribute="trailing" secondItem="iNT-he-6Gc" secondAttribute="trailing" id="uJF-4f-5Kf"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="548" y="455"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="background_swatch" width="1" height="1"/>
+        <image name="lotus" width="61" height="36"/>
+    </resources>
+</document>

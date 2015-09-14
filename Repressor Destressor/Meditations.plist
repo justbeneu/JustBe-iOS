@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Meditations</key>
+	<array>
+		<dict>
+			<key>id</key>
+			<integer>1</integer>
+			<key>audio_filename</key>
+			<string>meditation_1.mp3</string>
+		</dict>
+		<dict>
+			<key>id</key>
+			<integer>2</integer>
+			<key>audio_filename</key>
+			<string>meditation_2.mp3</string>
+		</dict>
+		<dict>
+			<key>id</key>
+			<integer>3</integer>
+			<key>audio_filename</key>
+			<string>meditation_3.mp3</string>
+		</dict>
+	</array>
+</dict>
+</plist>

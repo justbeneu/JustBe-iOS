@@ -1,0 +1,16 @@
+PODS:
+  - Alamofire (1.2.0)
+  - ObjectMapper (0.8)
+  - PebbleKit (2.4)
+
+DEPENDENCIES:
+  - Alamofire (~> 1.2.0)
+  - ObjectMapper
+  - PebbleKit (~> 2.3)
+
+SPEC CHECKSUMS:
+  Alamofire: d765c5c1713aa64106b0228aaa600a1e6851f68d
+  ObjectMapper: e9474c104438856371fc8db188dd64fcb4773a11
+  PebbleKit: e8650801927bd7272da83c8a21fb94d2af24465b
+
+COCOAPODS: 0.36.3

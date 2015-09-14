@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7531" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7520"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="AtU-ra-h50">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="1344"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="WEEK 2. BODY SENSATIONS" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wrw-q8-5uT">
+                    <rect key="frame" x="20" y="24" width="284" height="20"/>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
+                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" usesAttributedText="YES" translatesAutoresizingMaskIntoConstraints="NO" id="PfT-Hx-3UI">
+                    <rect key="frame" x="16" y="52" width="288" height="417"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <attributedString key="attributedText">
+                        <fragment>
+                            <string key="content">Welcome to week 2 of “Just Be”. Last week you practiced paying attention to BREATH and how it FEELS in your body. This week, the practice is to bring attention to your </string>
+                            <attributes>
+                                <color key="NSColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="deviceRGB"/>
+                                <font key="NSFont" size="14" name="HelveticaNeue"/>
+                                <real key="NSKern" value="0.0"/>
+                                <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" defaultTabInterval="36">
+                                    <tabStops/>
+                                </paragraphStyle>
+                                <color key="NSStrokeColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="deviceRGB"/>
+                                <real key="NSStrokeWidth" value="0.0"/>
+                            </attributes>
+                        </fragment>
+                        <fragment content="physical experience of your BODY">
+                            <attributes>
+                                <color key="NSColor" red="0.29019607843137257" green="0.56470588235294117" blue="0.15294117647058825" alpha="1" colorSpace="calibratedRGB"/>
+                                <font key="NSFont" size="14" name="HelveticaNeue"/>
+                                <real key="NSKern" value="0.0"/>
+                                <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" defaultTabInterval="36">
+                                    <tabStops/>
+                                </paragraphStyle>
+                                <color key="NSStrokeColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="deviceRGB"/>
+                                <real key="NSStrokeWidth" value="0.0"/>
+                            </attributes>
+                        </fragment>
+                        <fragment>
+                            <string key="content">. You already attend to how you feel if you are hungry, cold or hot, uncomfortable, or in pain. Rarely do we pay attention to our body without any purpose. This week we will try something new. Your daily practice will be to </string>
+                            <attributes>
+                                <color key="NSColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="deviceRGB"/>
+                                <font key="NSFont" size="14" name="HelveticaNeue"/>
+                                <real key="NSKern" value="0.0"/>
+                                <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" defaultTabInterval="36">
+                                    <tabStops/>
+                                </paragraphStyle>
+                                <color key="NSStrokeColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="deviceRGB"/>
+                                <real key="NSStrokeWidth" value="0.0"/>
+                            </attributes>
+                        </fragment>
+                        <fragment content="notice LIFE inside your body">
+                            <attributes>
+                                <color key="NSColor" red="0.29019607843137257" green="0.56470588235294117" blue="0.15294117647058825" alpha="1" colorSpace="calibratedRGB"/>
+                                <font key="NSFont" size="14" name="HelveticaNeue"/>
+                                <real key="NSKern" value="0.0"/>
+                                <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" defaultTabInterval="36">
+                                    <tabStops/>
+                                </paragraphStyle>
+                                <color key="NSStrokeColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="deviceRGB"/>
+                                <real key="NSStrokeWidth" value="0.0"/>
+                            </attributes>
+                        </fragment>
+                        <fragment content=". The feeling of ">
+                            <attributes>
+                                <color key="NSColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="deviceRGB"/>
+                                <font key="NSFont" size="14" name="HelveticaNeue"/>
+                                <real key="NSKern" value="0.0"/>
+                                <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" defaultTabInterval="36">
+                                    <tabStops/>
+                                </paragraphStyle>
+                                <color key="NSStrokeColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="deviceRGB"/>
+                                <real key="NSStrokeWidth" value="0.0"/>
+                            </attributes>
+                        </fragment>
+                        <fragment content="ALIVENESS can be felt through BODY SENSATIONS">
+                            <attributes>
+                                <color key="NSColor" red="0.29019607843137257" green="0.56470588235294117" blue="0.15294117647058825" alpha="1" colorSpace="calibratedRGB"/>
+                                <font key="NSFont" size="14" name="HelveticaNeue"/>
+                                <real key="NSKern" value="0.0"/>
+                                <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" defaultTabInterval="36">
+                                    <tabStops/>
+                                </paragraphStyle>
+                                <color key="NSStrokeColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="deviceRGB"/>
+                                <real key="NSStrokeWidth" value="0.0"/>
+                            </attributes>
+                        </fragment>
+                        <fragment>
+                            <string key="content"> - any physical feeling in your body whether it is pleasant, unpleasant, or neutral. Examples of sensations can be feelings of cold or warmth, tingling, throbbing, pain, pulsation, the feeling of air on your skin, anything that allows you to FEEL your body without looking at it. Do not worry about the types of sensations you experience. </string>
+                            <attributes>
+                                <color key="NSColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="deviceRGB"/>
+                                <font key="NSFont" size="14" name="HelveticaNeue"/>
+                                <real key="NSKern" value="0.0"/>
+                                <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" defaultTabInterval="36">
+                                    <tabStops/>
+                                </paragraphStyle>
+                                <color key="NSStrokeColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="deviceRGB"/>
+                                <real key="NSStrokeWidth" value="0.0"/>
+                            </attributes>
+                        </fragment>
+                        <fragment content="It does not matter at this moment.">
+                            <attributes>
+                                <color key="NSColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="deviceRGB"/>
+                                <font key="NSFont" size="14" name="HelveticaNeue"/>
+                                <real key="NSKern" value="0.0"/>
+                                <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" defaultTabInterval="36">
+                                    <tabStops/>
+                                </paragraphStyle>
+                                <color key="NSStrokeColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="deviceRGB"/>
+                                <real key="NSStrokeWidth" value="0.0"/>
+                                <integer key="NSUnderline" value="1"/>
+                            </attributes>
+                        </fragment>
+                        <fragment content=" Simply observe them with curiosity, as if you are opening yourself to the feeling of ALIVENESS. ">
+                            <attributes>
+                                <color key="NSColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="deviceRGB"/>
+                                <font key="NSFont" size="14" name="HelveticaNeue"/>
+                                <real key="NSKern" value="0.0"/>
+                                <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" defaultTabInterval="36">
+                                    <tabStops/>
+                                </paragraphStyle>
+                                <color key="NSStrokeColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="deviceRGB"/>
+                                <real key="NSStrokeWidth" value="0.0"/>
+                            </attributes>
+                        </fragment>
+                    </attributedString>
+                    <textInputTraits key="textInputTraits"/>
+                </textView>
+                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" usesAttributedText="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vX9-4Y-w89">
+                    <rect key="frame" x="16" y="701" width="288" height="568"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <attributedString key="attributedText">
+                        <fragment content="This week, ">
+                            <attributes>
+                                <font key="NSFont" size="14" name="HelveticaNeue"/>
+                                <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                            </attributes>
+                        </fragment>
+                        <fragment content="the guided meditation will focus on body sensations">
+                            <attributes>
+                                <color key="NSColor" red="0.29019607843137257" green="0.56470588235294117" blue="0.15294117647058825" alpha="1" colorSpace="calibratedRGB"/>
+                                <font key="NSFont" size="14" name="HelveticaNeue"/>
+                                <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                            </attributes>
+                        </fragment>
+                        <fragment>
+                            <string key="content">. 
+• Remember to practice your meditation every day.  
+• Some days it may feel easier, others – more difficult. 
+• Give it TIME and lots of PATIENCE.  
+• Do not look for any particular experience in meditation (pleasant or unpleasant).  
+• “Good” meditation is no better than a “bad” meditation 
+Several times a day you will receive </string>
+                            <attributes>
+                                <font key="NSFont" size="14" name="HelveticaNeue"/>
+                                <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                            </attributes>
+                        </fragment>
+                        <fragment content="reminders to bring your attention to your body">
+                            <attributes>
+                                <color key="NSColor" red="0.29019607843137257" green="0.56470588235294117" blue="0.15294117647058825" alpha="1" colorSpace="calibratedRGB"/>
+                                <font key="NSFont" size="14" name="HelveticaNeue"/>
+                                <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                            </attributes>
+                        </fragment>
+                        <fragment>
+                            <string key="content">.  
+• If you are moving, FEEL your body moving 
+• If you are sitting, FEEL your body sitting 
+• If you are eating, FEEL your lips and stomach 
+• Do not worry about HOW it feels, there is no right or wrong way to feel it.  
+• No need to change or question your experience, just OBSERVE</string>
+                            <attributes>
+                                <font key="NSFont" size="14" name="HelveticaNeue"/>
+                                <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                            </attributes>
+                        </fragment>
+                    </attributedString>
+                    <textInputTraits key="textInputTraits"/>
+                </textView>
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" image="ex2_1" translatesAutoresizingMaskIntoConstraints="NO" id="6X9-wO-g4P">
+                    <rect key="frame" x="60" y="485" width="200" height="200"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="200" id="7TO-DB-fEm"/>
+                        <constraint firstAttribute="width" constant="200" id="FHP-vC-mAO"/>
+                    </constraints>
+                </imageView>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="Wrw-q8-5uT" firstAttribute="leading" secondItem="AtU-ra-h50" secondAttribute="leading" constant="20" id="2ax-i8-A2d"/>
+                <constraint firstItem="PfT-Hx-3UI" firstAttribute="top" secondItem="Wrw-q8-5uT" secondAttribute="bottom" constant="8" id="8sC-8m-Asu"/>
+                <constraint firstItem="vX9-4Y-w89" firstAttribute="leading" secondItem="AtU-ra-h50" secondAttribute="leading" constant="16" id="ArR-ai-LjE"/>
+                <constraint firstItem="Wrw-q8-5uT" firstAttribute="top" secondItem="AtU-ra-h50" secondAttribute="top" constant="24" id="E37-4m-a6F"/>
+                <constraint firstItem="6X9-wO-g4P" firstAttribute="top" secondItem="PfT-Hx-3UI" secondAttribute="bottom" constant="16" id="GZF-Wg-tik"/>
+                <constraint firstAttribute="trailing" secondItem="PfT-Hx-3UI" secondAttribute="trailing" constant="16" id="WUv-ec-kZN"/>
+                <constraint firstAttribute="trailing" secondItem="Wrw-q8-5uT" secondAttribute="trailing" constant="16" id="aiq-yn-ezH"/>
+                <constraint firstAttribute="centerX" secondItem="6X9-wO-g4P" secondAttribute="centerX" id="bTt-Eq-znk"/>
+                <constraint firstItem="PfT-Hx-3UI" firstAttribute="top" secondItem="Wrw-q8-5uT" secondAttribute="bottom" id="bi1-4Y-b0M"/>
+                <constraint firstAttribute="trailing" secondItem="vX9-4Y-w89" secondAttribute="trailing" constant="16" id="osW-cz-gRs"/>
+                <constraint firstItem="PfT-Hx-3UI" firstAttribute="leading" secondItem="AtU-ra-h50" secondAttribute="leading" constant="16" id="ruw-2v-K5O"/>
+                <constraint firstItem="vX9-4Y-w89" firstAttribute="top" secondItem="6X9-wO-g4P" secondAttribute="bottom" constant="16" id="wcN-H8-emt"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <variation key="default">
+                <mask key="constraints">
+                    <exclude reference="bi1-4Y-b0M"/>
+                </mask>
+            </variation>
+            <point key="canvasLocation" x="428" y="-166"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="ex2_1" width="453" height="512"/>
+    </resources>
+</document>

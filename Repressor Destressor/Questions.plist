@@ -1,0 +1,580 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Daily</key>
+	<array>
+		<dict>
+			<key>category</key>
+			<string>Life-satisfaction</string>
+			<key>id</key>
+			<integer>31</integer>
+			<key>text</key>
+			<string>Yesterday, I was satisfied with my life</string>
+			<key>type</key>
+			<string>Percent</string>
+		</dict>
+		<dict>
+			<key>category</key>
+			<string>Sleep</string>
+			<key>id</key>
+			<integer>32</integer>
+			<key>max</key>
+			<integer>16</integer>
+			<key>text</key>
+			<string>Tonight, I slept ... hours</string>
+			<key>type</key>
+			<string>Number</string>
+		</dict>
+		<dict>
+			<key>category</key>
+			<string>Sleep</string>
+			<key>id</key>
+			<integer>33</integer>
+			<key>range_text</key>
+			<integer>3</integer>
+			<key>text</key>
+			<string>Today, after my sleep, I felt</string>
+			<key>type</key>
+			<string>Percent</string>
+		</dict>
+		<dict>
+			<key>category</key>
+			<string>Sleep</string>
+			<key>id</key>
+			<integer>34</integer>
+			<key>range_text</key>
+			<integer>4</integer>
+			<key>text</key>
+			<string>Tonight, I had bad dreams</string>
+			<key>type</key>
+			<string>Percent</string>
+		</dict>
+		<dict>
+			<key>category</key>
+			<string>Sleep</string>
+			<key>id</key>
+			<integer>35</integer>
+			<key>range_text</key>
+			<integer>4</integer>
+			<key>text</key>
+			<string>Tonight, I had good dreams</string>
+			<key>type</key>
+			<string>Percent</string>
+		</dict>
+		<dict>
+			<key>category</key>
+			<string>Drinking</string>
+			<key>id</key>
+			<integer>36</integer>
+			<key>max</key>
+			<integer>15</integer>
+			<key>text</key>
+			<string>Yesterday, I had ... alcoholic drinks</string>
+			<key>type</key>
+			<string>Number</string>
+		</dict>
+		<dict>
+			<key>category</key>
+			<string>Smoking</string>
+			<key>id</key>
+			<integer>37</integer>
+			<key>max</key>
+			<integer>40</integer>
+			<key>text</key>
+			<string>Yesterday, I had ... cigarettes</string>
+			<key>type</key>
+			<string>Number</string>
+		</dict>
+		<dict>
+			<key>category</key>
+			<string>Physical-activity</string>
+			<key>id</key>
+			<integer>38</integer>
+			<key>max</key>
+			<integer>300</integer>
+			<key>text</key>
+			<string>Yesterday, I walked ... minutes</string>
+			<key>type</key>
+			<string>Number</string>
+		</dict>
+		<dict>
+			<key>category</key>
+			<string>Physical-activity</string>
+			<key>id</key>
+			<integer>39</integer>
+			<key>max</key>
+			<integer>300</integer>
+			<key>text</key>
+			<string>Yesterday, I exercised ... minutes</string>
+			<key>type</key>
+			<string>Number</string>
+		</dict>
+		<dict>
+			<key>category</key>
+			<string>Physical-activity</string>
+			<key>id</key>
+			<integer>40</integer>
+			<key>max</key>
+			<integer>300</integer>
+			<key>text</key>
+			<string>Yesterday, I sat in front of a TV/video game/surfed the net ... minutes</string>
+			<key>type</key>
+			<string>Number</string>
+		</dict>
+		<dict>
+			<key>category</key>
+			<string>Symptoms</string>
+			<key>id</key>
+			<integer>41</integer>
+			<key>range_text</key>
+			<string>NOT AT ALL to VERY MUCH SO</string>
+			<key>text</key>
+			<string>Yesterday, I had pain</string>
+			<key>type</key>
+			<string>Percent</string>
+		</dict>
+		<dict>
+			<key>category</key>
+			<string>Symptoms</string>
+			<key>id</key>
+			<integer>42</integer>
+			<key>range_text</key>
+			<string>NOT AT ALL to VERY MUCH SO</string>
+			<key>text</key>
+			<string>This pain bothered me</string>
+			<key>type</key>
+			<string>Percent</string>
+		</dict>
+		<dict>
+			<key>category</key>
+			<string>Stress-management</string>
+			<key>id</key>
+			<integer>43</integer>
+			<key>multi_select_options</key>
+			<array>
+				<string>Took deep breaths</string>
+				<string>Checked in with my body</string>
+				<string>Took a moment to slow down</string>
+				<string>Paid deliberate attention to my actions</string>
+			</array>
+			<key>text</key>
+			<string>Yesterday, I used these techniques to deal with my stress</string>
+			<key>type</key>
+			<string>Multiselect</string>
+		</dict>
+		<dict>
+			<key>category</key>
+			<string>Stress-management</string>
+			<key>id</key>
+			<integer>44</integer>
+			<key>multi_select_options</key>
+			<array>
+				<string>Socializing with my friends</string>
+				<string>Eating something delicious</string>
+				<string>Listening to music</string>
+				<string>Talking to people</string>
+				<string>Exercising or walking</string>
+				<string>Writing to friends</string>
+			</array>
+			<key>text</key>
+			<string>Yesterday, I tried to cheer myself up by</string>
+			<key>type</key>
+			<string>Multiselect</string>
+		</dict>
+	</array>
+	<key>Momentary</key>
+	<array>
+		<dict>
+			<key>category</key>
+			<string>Emotions</string>
+			<key>emotion</key>
+			<string>Upset</string>
+			<key>id</key>
+			<integer>0</integer>
+			<key>text</key>
+			<string>Right now I feel upset</string>
+			<key>type</key>
+			<string>Emotion</string>
+		</dict>
+		<dict>
+			<key>category</key>
+			<string>Emotions</string>
+			<key>emotion</key>
+			<string>Angry</string>
+			<key>id</key>
+			<integer>1</integer>
+			<key>text</key>
+			<string>Right now I feel angry</string>
+			<key>type</key>
+			<string>Emotion</string>
+		</dict>
+		<dict>
+			<key>category</key>
+			<string>Emotions</string>
+			<key>emotion</key>
+			<string>Sad</string>
+			<key>id</key>
+			<integer>2</integer>
+			<key>text</key>
+			<string>Right now I feel sad</string>
+			<key>type</key>
+			<string>Emotion</string>
+		</dict>
+		<dict>
+			<key>category</key>
+			<string>Emotions</string>
+			<key>emotion</key>
+			<string>Depressed</string>
+			<key>id</key>
+			<integer>3</integer>
+			<key>text</key>
+			<string>Right now I feel depressed</string>
+			<key>type</key>
+			<string>Emotion</string>
+		</dict>
+		<dict>
+			<key>category</key>
+			<string>Emotions</string>
+			<key>emotion</key>
+			<string>Nervous</string>
+			<key>id</key>
+			<integer>4</integer>
+			<key>text</key>
+			<string>Right now I feel nervous</string>
+			<key>type</key>
+			<string>Emotion</string>
+		</dict>
+		<dict>
+			<key>category</key>
+			<string>Emotions</string>
+			<key>emotion</key>
+			<string>Anxious</string>
+			<key>id</key>
+			<integer>5</integer>
+			<key>text</key>
+			<string>Right now I feel anxious</string>
+			<key>type</key>
+			<string>Emotion</string>
+		</dict>
+		<dict>
+			<key>category</key>
+			<string>Emotions</string>
+			<key>emotion</key>
+			<string>Happy</string>
+			<key>id</key>
+			<integer>6</integer>
+			<key>text</key>
+			<string>Right now I feel happy</string>
+			<key>type</key>
+			<string>Emotion</string>
+		</dict>
+		<dict>
+			<key>category</key>
+			<string>Emotions</string>
+			<key>emotion</key>
+			<string>Content</string>
+			<key>id</key>
+			<integer>7</integer>
+			<key>text</key>
+			<string>Right now I feel content</string>
+			<key>type</key>
+			<string>Emotion</string>
+		</dict>
+		<dict>
+			<key>category</key>
+			<string>Emotions</string>
+			<key>emotion</key>
+			<string>Excited</string>
+			<key>id</key>
+			<integer>8</integer>
+			<key>text</key>
+			<string>Right now I feel excited</string>
+			<key>type</key>
+			<string>Emotion</string>
+		</dict>
+		<dict>
+			<key>category</key>
+			<string>Emotions</string>
+			<key>emotion</key>
+			<string>Energetic</string>
+			<key>id</key>
+			<integer>9</integer>
+			<key>text</key>
+			<string>Right now I feel energetic</string>
+			<key>type</key>
+			<string>Emotion</string>
+		</dict>
+		<dict>
+			<key>category</key>
+			<string>Emotions</string>
+			<key>emotion</key>
+			<string>Relaxed</string>
+			<key>id</key>
+			<integer>10</integer>
+			<key>text</key>
+			<string>Right now I feel relaxed</string>
+			<key>type</key>
+			<string>Emotion</string>
+		</dict>
+		<dict>
+			<key>category</key>
+			<string>Emotions</string>
+			<key>emotion</key>
+			<string>Alert</string>
+			<key>id</key>
+			<integer>11</integer>
+			<key>text</key>
+			<string>Right now I feel alert</string>
+			<key>type</key>
+			<string>Emotion</string>
+		</dict>
+		<dict>
+			<key>category</key>
+			<string>Emotions</string>
+			<key>emotion</key>
+			<string>Stressed</string>
+			<key>id</key>
+			<integer>12</integer>
+			<key>text</key>
+			<string>Right now I feel stressed</string>
+			<key>type</key>
+			<string>Emotion</string>
+		</dict>
+		<dict>
+			<key>category</key>
+			<string>Ruminations</string>
+			<key>id</key>
+			<integer>13</integer>
+			<key>text</key>
+			<string>Right now, it is hard for me to switch off my negative thoughts</string>
+			<key>type</key>
+			<string>Percent</string>
+		</dict>
+		<dict>
+			<key>category</key>
+			<string>Ruminations</string>
+			<key>id</key>
+			<integer>14</integer>
+			<key>text</key>
+			<string>Right now, it is hard for me to focus on something other than my negative thoughts</string>
+			<key>type</key>
+			<string>Percent</string>
+		</dict>
+		<dict>
+			<key>category</key>
+			<string>Ruminations</string>
+			<key>id</key>
+			<integer>15</integer>
+			<key>text</key>
+			<string>Right now, I dwell on upsetting events</string>
+			<key>type</key>
+			<string>Percent</string>
+		</dict>
+		<dict>
+			<key>category</key>
+			<string>Self-compassion</string>
+			<key>id</key>
+			<integer>16</integer>
+			<key>text</key>
+			<string>Right now, I am kind to myself</string>
+			<key>type</key>
+			<string>Percent</string>
+		</dict>
+		<dict>
+			<key>category</key>
+			<string>Self-compassion</string>
+			<key>id</key>
+			<integer>17</integer>
+			<key>text</key>
+			<string>Right now, I am critical towards my flaws and weaknesses</string>
+			<key>type</key>
+			<string>Percent</string>
+		</dict>
+		<dict>
+			<key>category</key>
+			<string>Mindfulness</string>
+			<key>id</key>
+			<integer>18</integer>
+			<key>multi_select_options</key>
+			<array>
+				<string>Face</string>
+				<string>Head</string>
+				<string>Throat</string>
+				<string>Shoulder</string>
+				<string>Heart/chest</string>
+				<string>Stomach/digestion</string>
+				<string>Upper Back</string>
+				<string>Lower Back</string>
+				<string>Arms</string>
+				<string>Hands</string>
+				<string>Thigh</string>
+				<string>Knee</string>
+				<string>Feet/Ankle</string>
+			</array>
+			<key>text</key>
+			<string>Right now, I feel pleasant sensations in the following parts of my body</string>
+			<key>type</key>
+			<string>Multiselect</string>
+		</dict>
+		<dict>
+			<key>category</key>
+			<string>Mindfulness</string>
+			<key>id</key>
+			<integer>19</integer>
+			<key>range_text</key>
+			<integer>0</integer>
+			<key>text</key>
+			<string>Right now, I enjoy these pleasant sensations in my body</string>
+			<key>type</key>
+			<string>Percent</string>
+		</dict>
+		<dict>
+			<key>category</key>
+			<string>Mindfulness</string>
+			<key>id</key>
+			<integer>20</integer>
+			<key>range_text</key>
+			<integer>1</integer>
+			<key>text</key>
+			<string>Right now, I try to prolong these pleasant sensations in my body</string>
+			<key>type</key>
+			<string>Percent</string>
+		</dict>
+		<dict>
+			<key>category</key>
+			<string>Mindfulness</string>
+			<key>id</key>
+			<integer>21</integer>
+			<key>range_text</key>
+			<integer>2</integer>
+			<key>text</key>
+			<string>I think these pleasant sensations in my body will last</string>
+			<key>type</key>
+			<string>Percent</string>
+		</dict>
+		<dict>
+			<key>category</key>
+			<string>Mindfulness</string>
+			<key>id</key>
+			<integer>22</integer>
+			<key>multi_select_options</key>
+			<array>
+				<string>Face</string>
+				<string>Head</string>
+				<string>Throat</string>
+				<string>Shoulder</string>
+				<string>Heart/chest</string>
+				<string>Stomach/digestion</string>
+				<string>Upper Back</string>
+				<string>Lower Back</string>
+				<string>Arms</string>
+				<string>Hands</string>
+				<string>Thigh</string>
+				<string>Knee</string>
+				<string>Feet/Ankle</string>
+			</array>
+			<key>text</key>
+			<string>Right now, I feel unpleasant sensations in the following parts of my body</string>
+			<key>type</key>
+			<string>Multiselect</string>
+		</dict>
+		<dict>
+			<key>category</key>
+			<string>Mindfulness</string>
+			<key>id</key>
+			<integer>23</integer>
+			<key>range_text</key>
+			<integer>0</integer>
+			<key>text</key>
+			<string>Right now, these negative sensations in my body bother me</string>
+			<key>type</key>
+			<string>Percent</string>
+		</dict>
+		<dict>
+			<key>category</key>
+			<string>Mindfulness</string>
+			<key>id</key>
+			<integer>24</integer>
+			<key>range_text</key>
+			<integer>1</integer>
+			<key>text</key>
+			<string>Right now, I try to push away these negative sensations</string>
+			<key>type</key>
+			<string>Percent</string>
+		</dict>
+		<dict>
+			<key>category</key>
+			<string>Mindfulness</string>
+			<key>id</key>
+			<integer>25</integer>
+			<key>range_text</key>
+			<integer>1</integer>
+			<key>text</key>
+			<string>Right now, I accept these negative sensations as they are</string>
+			<key>type</key>
+			<string>Percent</string>
+		</dict>
+		<dict>
+			<key>category</key>
+			<string>Mindfulness</string>
+			<key>id</key>
+			<integer>26</integer>
+			<key>range_text</key>
+			<integer>2</integer>
+			<key>text</key>
+			<string>I think these negative sensations in my body will last</string>
+			<key>type</key>
+			<string>Percent</string>
+		</dict>
+		<dict>
+			<key>category</key>
+			<string>Mindfulness</string>
+			<key>id</key>
+			<integer>27</integer>
+			<key>range_text</key>
+			<integer>0</integer>
+			<key>text</key>
+			<string>Right now, I am lost in my emotions</string>
+			<key>type</key>
+			<string>Percent</string>
+		</dict>
+		<dict>
+			<key>category</key>
+			<string>Mindfulness</string>
+			<key>id</key>
+			<integer>28</integer>
+			<key>range_text</key>
+			<integer>1</integer>
+			<key>text</key>
+			<string>Right now, these emotions bother me</string>
+			<key>type</key>
+			<string>Percent</string>
+		</dict>
+		<dict>
+			<key>category</key>
+			<string>Mindfulness</string>
+			<key>id</key>
+			<integer>29</integer>
+			<key>range_text</key>
+			<integer>0</integer>
+			<key>text</key>
+			<string>Right now, I am lost in my thoughts</string>
+			<key>type</key>
+			<string>Percent</string>
+		</dict>
+		<dict>
+			<key>category</key>
+			<string>Mindfulness</string>
+			<key>id</key>
+			<integer>30</integer>
+			<key>range_text</key>
+			<integer>1</integer>
+			<key>text</key>
+			<string>Right now, these thoughts bother me</string>
+			<key>type</key>
+			<string>Percent</string>
+		</dict>
+	</array>
+</dict>
+</plist>

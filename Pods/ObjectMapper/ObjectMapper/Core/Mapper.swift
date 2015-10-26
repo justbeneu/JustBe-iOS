@@ -42,7 +42,7 @@ public final class Map {
 		// save key and value associated to it
 		currentKey = key
 		// break down the components of the key
-		currentValue = valueFor(key.componentsSeparatedByString("."), JSONDictionary)
+        currentValue = valueFor(key.componentsSeparatedByString("."), dictionary: JSONDictionary)
 		
 		return self
 	}
@@ -73,7 +73,7 @@ private func valueFor(keyPathComponents: [String], dictionary: [String : AnyObje
 
 		case let dict as [String : AnyObject] where keyPathComponents.count > 1:
 			let tail = Array(keyPathComponents[1..<keyPathComponents.count])
-			return valueFor(tail, dict)
+            return valueFor(tail, dictionary: dict)
 
 		default:
 			return object
@@ -259,10 +259,15 @@ public final class Mapper<N: Mappable> {
 		var err: NSError?
 		if NSJSONSerialization.isValidJSONObject(JSONDict) {
 			let options: NSJSONWritingOptions = prettyPrint ? .PrettyPrinted : .allZeros
-			let JSONData: NSData? = NSJSONSerialization.dataWithJSONObject(JSONDict, options: options, error: &err)
-			if let error = err {
-				println(error)
-			}
+            
+            var JSONData : NSData?
+            do {
+                let JSONData : NSData? = try NSJSONSerialization.dataWithJSONObject(JSONDict, options: options)
+            } catch {
+                if let error = err {
+                    print(err)
+                }
+            }
 
 			if let JSON = JSONData {
 				return NSString(data: JSON, encoding: NSUTF8StringEncoding) as! String
@@ -300,7 +305,12 @@ public final class Mapper<N: Mappable> {
 		let data = JSON.dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: true)
 		if let data = data {
 			var error: NSError?
-			let parsedJSON: AnyObject? = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.AllowFragments, error: &error)
+            let parsedJSON : AnyObject?
+            do {
+                let parsedJSON: AnyObject? = try NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.AllowFragments)
+            } catch {
+                print(error)
+            }
 			return parsedJSON
 		}
 

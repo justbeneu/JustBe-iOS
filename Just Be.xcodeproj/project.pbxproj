@@ -81,7 +81,7 @@
 		9BA23E081A8D21580037D161 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BA23E071A8D21580037D161 /* LoginViewController.swift */; };
 		9BA23E0D1A8D21580037D161 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9BA23E0C1A8D21580037D161 /* Images.xcassets */; };
 		9BA23E101A8D21580037D161 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9BA23E0E1A8D21580037D161 /* LaunchScreen.xib */; };
-		AB62D4D1C4A9399FF3859B20 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9ECCE9674E656F79BBAB952D /* Pods.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		AB62D4D1C4A9399FF3859B20 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9ECCE9674E656F79BBAB952D /* Pods.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -439,6 +439,7 @@
 		9BA23DF81A8D21580037D161 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftUpdateCheck = 0700;
 				LastUpgradeCheck = 0610;
 				ORGANIZATIONNAME = "Group 2";
 				TargetAttributes = {

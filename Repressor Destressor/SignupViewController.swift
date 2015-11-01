@@ -76,7 +76,7 @@ class SignupViewController: UIViewController
     {
         let info : NSDictionary = notification.userInfo!
         
-        if let keyboardSize: CGSize = info[UIKeyboardFrameEndUserInfoKey]?.CGRectValue().size
+        if let keyboardSize: CGSize = info[UIKeyboardFrameEndUserInfoKey]?.CGRectValue.size
         {
             self.containerHeightConstraint.constant = self.view.frame.size.height + keyboardSize.height
         }
@@ -86,7 +86,7 @@ class SignupViewController: UIViewController
     {
         let info : NSDictionary = notification.userInfo!
 
-        if let keyboardSize: CGSize = info[UIKeyboardFrameEndUserInfoKey]?.CGRectValue().size
+        if let keyboardSize: CGSize = info[UIKeyboardFrameEndUserInfoKey]?.CGRectValue.size
         {
             self.containerHeightConstraint.constant = self.view.frame.size.height - keyboardSize.height
         }
@@ -127,7 +127,7 @@ class SignupViewController: UIViewController
         
         self.showLoader()
         
-        ServerRequest.sharedInstance.signUp(self.user, password: self.password.text, always: { () -> () in
+        ServerRequest.sharedInstance.signUp(self.user, password: self.password.text!, always: { () -> () in
             self.hideLoader()
         }, success: { (user) -> Void in
             self.advanceToExerciseSettings()
@@ -138,7 +138,7 @@ class SignupViewController: UIViewController
     
     func advanceToExerciseSettings()
     {
-        var exerciseSettingsViewController = ExerciseSettingsViewController(nibName:"ExerciseSettingsViewController", bundle:nil);
+        let exerciseSettingsViewController = ExerciseSettingsViewController(nibName:"ExerciseSettingsViewController", bundle:nil);
         self.navigationController?.pushViewController(exerciseSettingsViewController, animated: true)
     }
 }

@@ -19,7 +19,7 @@ public class TimeTransform: TransformType
     {
         if let date = value as? String
         {
-            var dateFormatter = NSDateFormatter()
+            let dateFormatter = NSDateFormatter()
             dateFormatter.dateFormat = "HH:mm:ss"
             
             return dateFormatter.dateFromString(date)
@@ -32,7 +32,7 @@ public class TimeTransform: TransformType
     {
         if let date = value
         {
-            var formatter: NSDateFormatter = NSDateFormatter()
+            let formatter: NSDateFormatter = NSDateFormatter()
             formatter.dateFormat = "HH:mm:ss"
             return formatter.stringFromDate(date)
         }

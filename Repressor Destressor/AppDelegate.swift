@@ -58,7 +58,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate
         
         // Setup Pebble
         
-        var pebbleHelper = PebbleHelper.instance
+        let pebbleHelper = PebbleHelper.instance
         
         if (pebbleHelper.watch != nil)
         {
@@ -98,23 +98,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate
     
     func application(application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: NSData)
     {
-        var characterSet: NSCharacterSet = NSCharacterSet( charactersInString: "<>" )
-        var deviceTokenString: String = (deviceToken.description as NSString).stringByTrimmingCharactersInSet(characterSet).stringByReplacingOccurrencesOfString(" ", withString: "") as String
+        let characterSet: NSCharacterSet = NSCharacterSet( charactersInString: "<>" )
+        let deviceTokenString: String = (deviceToken.description as NSString).stringByTrimmingCharactersInSet(characterSet).stringByReplacingOccurrencesOfString(" ", withString: "") as String
         
         self.notificationsHandler?(token: deviceTokenString)
     }
     
     func application(application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: NSError)
     {
-        println("Failed to register for push notifications.")
+        print("Failed to register for push notifications.", terminator: "")
         
         self.notificationsHandler?(token: nil)
     }
     
     func registerForPushNotifications(handler: NotificationTokenHandler)
     {
-        var type = UIUserNotificationType.Badge | UIUserNotificationType.Alert | UIUserNotificationType.Sound;
-        var setting = UIUserNotificationSettings(forTypes: type, categories: nil);
+        let type: UIUserNotificationType = [UIUserNotificationType.Badge, UIUserNotificationType.Alert, UIUserNotificationType.Sound];
+        let setting = UIUserNotificationSettings(forTypes: type, categories: nil);
         UIApplication.sharedApplication().registerUserNotificationSettings(setting);
         UIApplication.sharedApplication().registerForRemoteNotifications();
         

@@ -9,6 +9,7 @@
 import Foundation
 import Alamofire
 import ObjectMapper
+import SwiftyJSON
 
 typealias SuccessBlock = (response: [String: AnyObject]?) -> ()
 typealias FailureBlock = (error: NSError, message: String?)-> ()
@@ -48,17 +49,17 @@ class ServerRequest
     
     func setSession()
     {
-        let cookies:[NSHTTPCookie] = NSHTTPCookieStorage.sharedHTTPCookieStorage().cookies as! [NSHTTPCookie]
+        let cookies:[NSHTTPCookie] = NSHTTPCookieStorage.sharedHTTPCookieStorage().cookies! as [NSHTTPCookie]
         UserDefaultsManager.sharedInstance.setSessionCookies(cookies)
     }
     
     func JSONStringify(value: AnyObject, prettyPrinted: Bool = false) -> String
     {
-        var options = prettyPrinted ? NSJSONWritingOptions.PrettyPrinted : nil
+        let options : NSJSONWritingOptions? = prettyPrinted ? NSJSONWritingOptions.PrettyPrinted : nil
         
         if NSJSONSerialization.isValidJSONObject(value)
         {
-            if let data = NSJSONSerialization.dataWithJSONObject(value, options: options, error: nil)
+            if let data = try? NSJSONSerialization.dataWithJSONObject(value, options: options!)
             {
                 if let string = NSString(data: data, encoding: NSUTF8StringEncoding)
                 {
@@ -93,33 +94,27 @@ class ServerRequest
 
     private func request(method: Alamofire.Method, url: String, params: [String: AnyObject]?, always: AlwaysBlock?, success: SuccessBlock?, failure: FailureBlock?)
     {
-        Alamofire.request(method, url, parameters: params, encoding: .JSON).validate().responseJSON() {
-            (request, response, JSON, error) in
+        Alamofire.request(method, url, parameters: params, encoding: .JSON).validate().responseJSON {
+            result in
+            let data = JSON(result.data!)
+            let error = result.result.error!
             
-            let responseDictionary:[String: AnyObject]? = (JSON as? [String: AnyObject])
+            //(request, response, data, error) in
+            
+            let responseDictionary:[String: AnyObject]? = (data as? [String: AnyObject])
             
             if (always != nil)
             {
                 always!()
             }
-            
-            if (error == nil)
+            if (failure != nil)
             {
-                if (success != nil)
-                {
-                    success!(response: responseDictionary)
-                }
-            }
-            else
-            {
-                if (failure != nil)
-                {
-                    let errorDictionary:[String: AnyObject]? = responseDictionary?["error"] as? [String: AnyObject]
-                    let errorMessage:String? = errorDictionary?["message"] as? String
+                let errorDictionary:[String: AnyObject]? = responseDictionary?["error"] as? [String: AnyObject]
+                let errorMessage:String? = errorDictionary?["message"] as? String
                     
-                    failure!(error: error!, message: errorMessage)
-                }
+                failure!(error: error, message: errorMessage)
             }
+            
         }
     }
     

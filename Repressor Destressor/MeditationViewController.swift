@@ -29,8 +29,7 @@ class MeditationViewController: UIViewController, AudioPlayerViewDelegate, MenuV
         super.init(nibName: "MeditationViewController", bundle: nil)
     }
     
-    required init(coder aDecoder: NSCoder)
-    {
+    required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
@@ -89,7 +88,7 @@ class MeditationViewController: UIViewController, AudioPlayerViewDelegate, MenuV
     {
         ServerRequest.sharedInstance.pendingAssessment(nil, success: { (assessment) -> Void in
             
-            if (self.navigationController!.visibleViewController.isEqual(self))
+            if (self.navigationController!.visibleViewController!.isEqual(self))
             {
                 let navigationController = AssessmentNavigationController(assessment: assessment)
                 self.navigationController!.presentViewController(navigationController, animated: true, completion: nil)
@@ -214,7 +213,7 @@ class MeditationViewController: UIViewController, AudioPlayerViewDelegate, MenuV
     
     @IBAction func showMenu()
     {
-        var menuViewController = MenuViewController(nibName: "MenuViewController", bundle: nil)
+        let menuViewController = MenuViewController(nibName: "MenuViewController", bundle: nil)
         menuViewController.delegate = self
         self.presentPopupViewController(menuViewController, popupDismissalBlock: nil)
     }

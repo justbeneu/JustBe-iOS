@@ -81,7 +81,7 @@
 		9BA23E081A8D21580037D161 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BA23E071A8D21580037D161 /* LoginViewController.swift */; };
 		9BA23E0D1A8D21580037D161 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9BA23E0C1A8D21580037D161 /* Images.xcassets */; };
 		9BA23E101A8D21580037D161 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9BA23E0E1A8D21580037D161 /* LaunchScreen.xib */; };
-		AB62D4D1C4A9399FF3859B20 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9ECCE9674E656F79BBAB952D /* Pods.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		AB62D4D1C4A9399FF3859B20 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9ECCE9674E656F79BBAB952D /* Pods.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -439,7 +439,9 @@
 		9BA23DF81A8D21580037D161 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0610;
+				LastSwiftMigration = 0700;
+				LastSwiftUpdateCheck = 0700;
+				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = "Group 2";
 				TargetAttributes = {
 					9BA23DFF1A8D21580037D161 = {
@@ -648,6 +650,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Mariya Shiyko (8EVUJ287TQ)";
 				COPY_PHASE_STRIP = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -723,6 +726,7 @@
 				INFOPLIST_FILE = "Repressor Destressor/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_SWIFT_FLAGS = "$(inherited) -D DEBUG \"-D\" \"COCOAPODS\"";
+				PRODUCT_BUNDLE_IDENTIFIER = "edu.neu.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "Just Be";
 				PROVISIONING_PROFILE = "d1f823bc-120b-4907-bbd6-38ec86455476";
 				SWIFT_OBJC_BRIDGING_HEADER = "Repressor Destressor/RD-Bridging-Header.h";
@@ -742,6 +746,7 @@
 				);
 				INFOPLIST_FILE = "Repressor Destressor/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "edu.neu.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "Just Be";
 				PROVISIONING_PROFILE = "d1f823bc-120b-4907-bbd6-38ec86455476";
 				SWIFT_OBJC_BRIDGING_HEADER = "Repressor Destressor/RD-Bridging-Header.h";

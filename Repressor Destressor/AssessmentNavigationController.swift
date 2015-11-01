@@ -69,12 +69,12 @@ class AssessmentNavigationController: UINavigationController, AssessmentDelegate
         
         var questionsByCategory: [[Question]] = [[Question]]()
         for category in categories {
-            questionsByCategory.append(filter(questions, {(question: Question) -> Bool in
+            questionsByCategory.append(questions.filter({(question: Question) -> Bool in
                 question.category == category
             }))
         }
         
-        var shuffledQuestionsByCategory = shuffleCategories(questionsByCategory)
+        let shuffledQuestionsByCategory = shuffleCategories(questionsByCategory)
         let flattenedQuestions = shuffledQuestionsByCategory.reduce([], combine: +)
         
         return flattenedQuestions
@@ -93,7 +93,7 @@ class AssessmentNavigationController: UINavigationController, AssessmentDelegate
         var mutableCategories: [[Question]] = Array(categories)
         var mindfulnessCategory: [Question]!
         var mindfulnessIndex: Int!
-        for (idx, category) in enumerate(categories) {
+        for (idx, category) in categories.enumerate() {
             if category.first?.category == "Mindfulness" {
                 mindfulnessIndex = idx
                 mindfulnessCategory = mutableCategories.removeAtIndex(idx)
@@ -125,7 +125,7 @@ class AssessmentNavigationController: UINavigationController, AssessmentDelegate
     // Found on the internet.
     // http://stackoverflow.com/questions/24026510/how-do-i-shuffle-an-array-in-swift
     private func shuffled<C: MutableCollectionType where C.Index == Int>(var list: C) -> C {
-        let c = count(list)
+        let c = list.count
         for i in 0..<(c - 1) {
             let j = Int(arc4random_uniform(UInt32(c - i))) + i
             swap(&list[i], &list[j])
@@ -142,7 +142,7 @@ class AssessmentNavigationController: UINavigationController, AssessmentDelegate
         self.assessment = assessment
     }
     
-    required init(coder aDecoder: NSCoder) {
+    required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     

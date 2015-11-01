@@ -29,7 +29,7 @@ class SettingsViewController: UIViewController, UITableViewDataSource, UITableVi
         
         self.title = "Settings"
 
-        var closeButton : UIBarButtonItem = UIBarButtonItem(image: UIImage(named: "back"), style: .Plain, target: self, action: "close")
+        let closeButton : UIBarButtonItem = UIBarButtonItem(image: UIImage(named: "back"), style: .Plain, target: self, action: "close")
         self.navigationItem.leftBarButtonItem = closeButton
     }
     
@@ -52,7 +52,7 @@ class SettingsViewController: UIViewController, UITableViewDataSource, UITableVi
     
     func sendEmail()
     {
-        var composeViewController = MFMailComposeViewController()
+        let composeViewController = MFMailComposeViewController()
         composeViewController.mailComposeDelegate = self
         composeViewController.setToRecipients([CONTACT_EMAIL])
         self.navigationController!.presentViewController(composeViewController, animated: true, completion: nil)
@@ -162,7 +162,7 @@ class SettingsViewController: UIViewController, UITableViewDataSource, UITableVi
     
     // MARK: MFMailComposeViewController Delegate
     
-    func mailComposeController(controller: MFMailComposeViewController!, didFinishWithResult result: MFMailComposeResult, error: NSError!)
+    func mailComposeController(controller: MFMailComposeViewController, didFinishWithResult result: MFMailComposeResult, error: NSError?)
     {
         dismissViewControllerAnimated(true, completion: nil)
     }

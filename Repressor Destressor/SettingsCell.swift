@@ -30,7 +30,7 @@ class SettingsCell: UITableViewCell
     func setStyle()
     {
         self.label.font = UIFont.systemFontOfSize(self.label.font.pointSize)
-        self.value.font = UIFont.systemFontOfSize(self.value.font.pointSize)
+        self.value.font = UIFont.systemFontOfSize(self.value.font!.pointSize)
         
         self.label.textColor = UIColor.blackText()
         self.value.textColor = UIColor.grayText()

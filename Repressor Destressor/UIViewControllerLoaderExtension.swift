@@ -24,7 +24,7 @@ extension UIViewController
         }
         set(newValue)
         {
-            objc_setAssociatedObject(self, &AssociatedKeys.LoaderContainerKey, newValue, objc_AssociationPolicy(OBJC_ASSOCIATION_RETAIN_NONATOMIC))
+            objc_setAssociatedObject(self, &AssociatedKeys.LoaderContainerKey, newValue, objc_AssociationPolicy.OBJC_ASSOCIATION_RETAIN_NONATOMIC)
         }
     }
     
@@ -36,7 +36,7 @@ extension UIViewController
         }
         set(newValue)
         {
-            objc_setAssociatedObject(self, &AssociatedKeys.LoaderCountKey, newValue, objc_AssociationPolicy(OBJC_ASSOCIATION_ASSIGN))
+            objc_setAssociatedObject(self, &AssociatedKeys.LoaderCountKey, newValue, objc_AssociationPolicy.OBJC_ASSOCIATION_ASSIGN)
         }
     }
     
@@ -70,17 +70,17 @@ extension UIViewController
     {
         self.view.userInteractionEnabled = false
         
-        var loaderContainer: UIView = UIView()
+        let loaderContainer: UIView = UIView()
         loaderContainer.frame = UIScreen.mainScreen().bounds
         
-        var loaderBackground: UIView = UIView()
+        let loaderBackground: UIView = UIView()
         loaderBackground.frame = CGRectMake(0, 0, 80, 80)
         loaderBackground.center = CGPointMake(loaderContainer.frame.size.width / 2, loaderContainer.frame.size.height / 2);
         loaderBackground.backgroundColor = UIColor.blackColor().colorWithAlphaComponent(0.64)
         loaderBackground.clipsToBounds = true
         loaderBackground.layer.cornerRadius = 10
         
-        var loader: UIActivityIndicatorView = UIActivityIndicatorView()
+        let loader: UIActivityIndicatorView = UIActivityIndicatorView()
         loader.frame = CGRectMake(0.0, 0.0, 40.0, 40.0);
         loader.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.WhiteLarge
         loader.center = CGPointMake(loaderBackground.frame.size.width / 2, loaderBackground.frame.size.height / 2);

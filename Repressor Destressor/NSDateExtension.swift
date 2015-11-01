@@ -18,8 +18,8 @@ extension NSDate
     func isSameDayAs(date: NSDate) -> Bool
     {
         let calendar = NSCalendar(calendarIdentifier: NSCalendarIdentifierGregorian)!
-        let comps1 = calendar.components(.CalendarUnitYear | .CalendarUnitMonth | .CalendarUnitDay, fromDate:self);
-        let comps2 = calendar.components(.CalendarUnitYear | .CalendarUnitMonth | .CalendarUnitDay, fromDate:date);
+        let comps1 = calendar.components([.Year, .Month, .Day], fromDate:self);
+        let comps2 = calendar.components([.Year, .Month, .Day], fromDate:date);
         
         return comps1.day == comps2.day && comps1.month == comps2.month && comps1.year == comps2.year
     }
@@ -31,6 +31,6 @@ extension NSDate
         let components = NSDateComponents()
         components.day = numDays
         
-        return calendar.dateByAddingComponents(components, toDate: self, options: NSCalendarOptions(0))!
+        return calendar.dateByAddingComponents(components, toDate: self, options: NSCalendarOptions(rawValue: 0))!
     }
 }

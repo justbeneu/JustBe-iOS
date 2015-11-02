@@ -716,19 +716,20 @@
 			baseConfigurationReference = BFB40FC6530933C51BC1738B /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Mariya Shiyko (8EVUJ287TQ)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Mariya Shiyko (8EVUJ287TQ)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Mariya Shiyko (SAU48Z8Q4Y)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 				);
 				"FRAMEWORK_SEARCH_PATHS[arch=*]" = "$(inherited)";
 				INFOPLIST_FILE = "Repressor Destressor/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_SWIFT_FLAGS = "$(inherited) -D DEBUG \"-D\" \"COCOAPODS\"";
 				PRODUCT_BUNDLE_IDENTIFIER = "edu.neu.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "Just Be";
-				PROVISIONING_PROFILE = "d1f823bc-120b-4907-bbd6-38ec86455476";
+				PROVISIONING_PROFILE = "0674436d-378c-44df-93ff-1a79b80ab27f";
 				SWIFT_OBJC_BRIDGING_HEADER = "Repressor Destressor/RD-Bridging-Header.h";
 			};
 			name = Debug;
@@ -738,17 +739,18 @@
 			baseConfigurationReference = 57306B6E5E7C383F3F588F6D /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Mariya Shiyko (8EVUJ287TQ)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Mariya Shiyko (8EVUJ287TQ)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Mariya Shiyko (SAU48Z8Q4Y)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = "Repressor Destressor/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "edu.neu.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "Just Be";
-				PROVISIONING_PROFILE = "d1f823bc-120b-4907-bbd6-38ec86455476";
+				PROVISIONING_PROFILE = "0674436d-378c-44df-93ff-1a79b80ab27f";
 				SWIFT_OBJC_BRIDGING_HEADER = "Repressor Destressor/RD-Bridging-Header.h";
 			};
 			name = Release;

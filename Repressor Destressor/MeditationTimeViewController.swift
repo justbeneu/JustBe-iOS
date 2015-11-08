@@ -49,7 +49,9 @@ class MeditationTimeViewController: UIViewController
             
             if (token == nil)
             {
-                UIAlertView(title: "Enable Notifications", message: "Please enable notifications by going to Nofications > Just Be in your phone settings.", delegate: nil, cancelButtonTitle: "OK").show()
+                let notice = UIAlertController(title: "Enable Notifications", message: "Please enable notifications by going to Nofications > Just Be in your phone settings.", preferredStyle: UIAlertControllerStyle.Alert)
+                notice.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Cancel, handler: { (ACTION : UIAlertAction!) in print("User exits alert")}))
+                self.presentViewController(notice, animated: true, completion: nil)
                 return
             }
             

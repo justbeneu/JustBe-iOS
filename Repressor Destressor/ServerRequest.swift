@@ -97,7 +97,6 @@ class ServerRequest
         Alamofire.request(method, url, parameters: params, encoding: .JSON).validate().responseJSON {
             result in
             let data = JSON(result.data!)
-            let error = result.result.error!
             
             //(request, response, data, error) in
             
@@ -109,6 +108,7 @@ class ServerRequest
             }
             if (failure != nil)
             {
+                let error = result.result.error!
                 let errorDictionary:[String: AnyObject]? = responseDictionary?["error"] as? [String: AnyObject]
                 let errorMessage:String? = errorDictionary?["message"] as? String
                     

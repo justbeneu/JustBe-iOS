@@ -115,8 +115,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate
     {
         let type: UIUserNotificationType = [UIUserNotificationType.Badge, UIUserNotificationType.Alert, UIUserNotificationType.Sound];
         let setting = UIUserNotificationSettings(forTypes: type, categories: nil);
+        print("In Register for push notifications")
         UIApplication.sharedApplication().registerUserNotificationSettings(setting);
+        print("registered user notification settings")
         UIApplication.sharedApplication().registerForRemoteNotifications();
+        
+        print("registered for remote notifications\n")
+        print(handler)
         
         self.notificationsHandler = handler;
     }

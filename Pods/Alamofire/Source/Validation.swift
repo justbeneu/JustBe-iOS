@@ -94,11 +94,7 @@ extension Request {
         init?(_ string: String) {
             let components: [String] = {
                 let stripped = string.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet())
-<<<<<<< HEAD
-                let split = stripped.substringToIndex(stripped.rangeOfString(";")?.endIndex ?? stripped.endIndex)
-=======
                 let split = stripped.substringToIndex(stripped.rangeOfString(";")?.startIndex ?? stripped.endIndex)
->>>>>>> tom_shenanigans
                 return split.componentsSeparatedByString("/")
             }()
 
@@ -134,11 +130,8 @@ extension Request {
     */
     public func validate<S : SequenceType where S.Generator.Element == String>(contentType acceptableContentTypes: S) -> Self {
         return validate { _, response in
-<<<<<<< HEAD
-=======
             guard let validData = self.delegate.data where validData.length > 0 else { return .Success }
 
->>>>>>> tom_shenanigans
             if let
                 responseContentType = response.MIMEType,
                 responseMIMEType = MIMEType(responseContentType)

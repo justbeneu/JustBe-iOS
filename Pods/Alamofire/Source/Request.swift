@@ -518,11 +518,7 @@ extension Request: CustomDebugStringConvertible {
 
         if let
             HTTPBodyData = request.HTTPBody,
-<<<<<<< HEAD
-            HTTPBody = NSString(data: HTTPBodyData, encoding: NSUTF8StringEncoding)
-=======
             HTTPBody = String(data: HTTPBodyData, encoding: NSUTF8StringEncoding)
->>>>>>> tom_shenanigans
         {
             let escapedBody = HTTPBody.stringByReplacingOccurrencesOfString("\"", withString: "\\\"")
             components.append("-d \"\(escapedBody)\"")

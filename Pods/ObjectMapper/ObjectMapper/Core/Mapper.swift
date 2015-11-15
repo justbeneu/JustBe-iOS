@@ -18,78 +18,7 @@ public enum MappingType {
 	case ToJSON
 }
 
-<<<<<<< HEAD
-/**
-* A class used for holding mapping data
-*/
-public final class Map {
-	public let mappingType: MappingType
-
-	var JSONDictionary: [String : AnyObject] = [:]
-	var currentValue: AnyObject?
-	var currentKey: String?
-
-	private init(mappingType: MappingType, JSONDictionary: [String : AnyObject]) {
-		self.mappingType = mappingType
-		self.JSONDictionary = JSONDictionary
-	}
-	
-	/**
-	* Sets the current mapper value and key.
-	* 
-	* The Key paramater can be a period separated string (ex. "distance.value") to access sub objects.
-	*/
-	public subscript(key: String) -> Map {
-		// save key and value associated to it
-		currentKey = key
-		// break down the components of the key
-        currentValue = valueFor(key.componentsSeparatedByString("."), dictionary: JSONDictionary)
-		
-		return self
-	}
-
-	public func value<T>() -> T? {
-		return currentValue as? T
-	}
-
-	public func valueOr<T>(defaultValue: T) -> T {
-		return (currentValue as? T) ?? defaultValue
-	}
-}
-
-/**
-* Fetch value from JSON dictionary, loop through them until we reach the desired object.
-*/
-private func valueFor(keyPathComponents: [String], dictionary: [String : AnyObject]) -> AnyObject? {
-	// Implement it as a tail recursive function.
-
-	if keyPathComponents.isEmpty {
-		return nil
-	}
-
-	if let object: AnyObject = dictionary[keyPathComponents.first!] {
-		switch object {
-		case is NSNull:
-			return nil
-
-		case let dict as [String : AnyObject] where keyPathComponents.count > 1:
-			let tail = Array(keyPathComponents[1..<keyPathComponents.count])
-            return valueFor(tail, dictionary: dict)
-
-		default:
-			return object
-		}
-	}
-
-	return nil
-}
-
-/**
-* The Mapper class provides methods for converting Model objects to JSON and methods for converting JSON to Model objects
-*/
-=======
 /// The Mapper class provides methods for converting Model objects to JSON and methods for converting JSON to Model objects
->>>>>>> tom_shenanigans
 public final class Mapper<N: Mappable> {
 	
 	public init(){}
@@ -345,19 +274,6 @@ extension Mapper {
 		let JSONDict = toJSON(object)
 		
 		if NSJSONSerialization.isValidJSONObject(JSONDict) {
-<<<<<<< HEAD
-			let options: NSJSONWritingOptions = prettyPrint ? .PrettyPrinted : .allZeros
-            
-            var JSONData : NSData?
-            do {
-                let JSONData : NSData? = try NSJSONSerialization.dataWithJSONObject(JSONDict, options: options)
-            } catch {
-                if let error = err {
-                    print(err)
-                }
-            }
-
-=======
 			let options: NSJSONWritingOptions = prettyPrint ? .PrettyPrinted : []
 			let JSONData: NSData?
 			do {
@@ -367,7 +283,6 @@ extension Mapper {
 				JSONData = nil
 			}
 			
->>>>>>> tom_shenanigans
 			if let JSON = JSONData {
 				return String(data: JSON, encoding: NSUTF8StringEncoding)
 			}
@@ -411,28 +326,11 @@ extension Mapper where N: Hashable {
 		return Set(JSONArray.flatMap(map))
 	}
 
-<<<<<<< HEAD
-	/**
-	* Convert a JSON String into an Object using NSJSONSerialization 
-	*/
-	private func parseJSONString(JSON: String) -> AnyObject? {
-		let data = JSON.dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: true)
-		if let data = data {
-			var error: NSError?
-            let parsedJSON : AnyObject?
-            do {
-                let parsedJSON: AnyObject? = try NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.AllowFragments)
-            } catch {
-                print(error)
-            }
-			return parsedJSON
-=======
 	///Maps a Set of Objects to a Set of JSON dictionaries [[String : AnyObject]]
 	public func toJSONSet(set: Set<N>) -> [[String : AnyObject]] {
 		return set.map {
 			// convert every element in set to JSON dictionary equivalent
 			self.toJSON($0)
->>>>>>> tom_shenanigans
 		}
 	}
 	

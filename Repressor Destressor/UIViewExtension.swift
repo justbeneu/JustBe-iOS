@@ -33,7 +33,7 @@ extension UIView
     {
         for view in self.subviews
         {
-            let view = view as! UIView
+            let view = view 
             
             if (view.isKindOfClass(UILabel) || view.isKindOfClass(UITextView))
             {

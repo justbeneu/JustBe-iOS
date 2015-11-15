@@ -76,7 +76,7 @@ class SignupViewController: UIViewController
     {
         let info : NSDictionary = notification.userInfo!
         
-        if let keyboardSize: CGSize = info[UIKeyboardFrameEndUserInfoKey]?.CGRectValue().size
+        if let keyboardSize: CGSize = info[UIKeyboardFrameEndUserInfoKey]?.CGRectValue.size
         {
             self.containerHeightConstraint.constant = self.view.frame.size.height + keyboardSize.height
         }
@@ -86,7 +86,7 @@ class SignupViewController: UIViewController
     {
         let info : NSDictionary = notification.userInfo!
 
-        if let keyboardSize: CGSize = info[UIKeyboardFrameEndUserInfoKey]?.CGRectValue().size
+        if let keyboardSize: CGSize = info[UIKeyboardFrameEndUserInfoKey]?.CGRectValue.size
         {
             self.containerHeightConstraint.constant = self.view.frame.size.height - keyboardSize.height
         }
@@ -114,7 +114,9 @@ class SignupViewController: UIViewController
         
         if (self.password.text != self.passwordConf.text)
         {
-            UIAlertView(title: "Error", message: "Passwords must match.", delegate: nil, cancelButtonTitle: "OK").show()
+            let alert = UIAlertController(title: "Error", message: "Passwords must match.", preferredStyle: UIAlertControllerStyle.Alert)
+            alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Cancel, handler: { (ACTION : UIAlertAction!) in print("User exits alert")}))
+            self.presentViewController(alert, animated: true, completion: nil)
             return
         }
             
@@ -127,18 +129,21 @@ class SignupViewController: UIViewController
         
         self.showLoader()
         
-        ServerRequest.sharedInstance.signUp(self.user, password: self.password.text, always: { () -> () in
+        ServerRequest.sharedInstance.signUp(self.user, password: self.password.text!, always: { () -> () in
             self.hideLoader()
         }, success: { (user) -> Void in
             self.advanceToExerciseSettings()
+            self.hideLoader()
         }) { (error, message) -> () in
-            UIAlertView(title: "Error", message: message, delegate: nil, cancelButtonTitle: "OK").show()
+            let alert = UIAlertController(title: "Error", message: message, preferredStyle: UIAlertControllerStyle.Alert)
+            alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Cancel, handler: { (ACTION : UIAlertAction!) in print("User exits alert")}))
+            self.presentViewController(alert, animated: true, completion: nil)
         }
     }
     
     func advanceToExerciseSettings()
     {
-        var exerciseSettingsViewController = ExerciseSettingsViewController(nibName:"ExerciseSettingsViewController", bundle:nil);
+        let exerciseSettingsViewController = ExerciseSettingsViewController(nibName:"ExerciseSettingsViewController", bundle:nil);
         self.navigationController?.pushViewController(exerciseSettingsViewController, animated: true)
     }
 }

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7531" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9059" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7520"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AssessmentViewController" customModule="Just_Be" customModuleProvider="target">
@@ -25,18 +25,21 @@
             <subviews>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="How emotion do you feel?" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="60X-e1-FH1">
                     <rect key="frame" x="16" y="64" width="568" height="20"/>
+                    <animations/>
                     <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <slider hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="rzs-W7-eMz" customClass="TallSlider" customModule="Just_Be" customModuleProvider="target">
                     <rect key="frame" x="14" y="116" width="572" height="31"/>
+                    <animations/>
                     <constraints>
                         <constraint firstAttribute="height" constant="30" id="dGc-ZA-c0h"/>
                     </constraints>
                 </slider>
                 <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" text="NOT AT ALL" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cPb-YG-5Ns">
                     <rect key="frame" x="16" y="154" width="230" height="20"/>
+                    <animations/>
                     <constraints>
                         <constraint firstAttribute="width" constant="230" id="PiE-4L-2AQ"/>
                         <constraint firstAttribute="height" constant="20" id="l9Z-6N-i8L"/>
@@ -47,6 +50,7 @@
                 </label>
                 <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" text="EXTREMELY" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Aa-kd-Hri">
                     <rect key="frame" x="354" y="154" width="230" height="20"/>
+                    <animations/>
                     <constraints>
                         <constraint firstAttribute="width" constant="230" id="htY-5P-kXl"/>
                         <constraint firstAttribute="height" constant="20" id="ve2-JG-mnx"/>
@@ -57,10 +61,12 @@
                 </label>
                 <tableView hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="MxZ-DO-Y7r">
                     <rect key="frame" x="0.0" y="116" width="600" height="392"/>
+                    <animations/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                 </tableView>
                 <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Btu-gY-kfa">
                     <rect key="frame" x="16" y="116" width="276" height="44"/>
+                    <animations/>
                     <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="44" id="xPz-Wl-iG2"/>
@@ -75,6 +81,7 @@
                 </button>
                 <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ybv-17-DWs">
                     <rect key="frame" x="308" y="116" width="276" height="44"/>
+                    <animations/>
                     <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="44" id="5hU-jp-Eih"/>
@@ -89,6 +96,7 @@
                 </button>
                 <pickerView hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5eJ-zF-0d0">
                     <rect key="frame" x="150" y="116" width="300" height="162"/>
+                    <animations/>
                     <constraints>
                         <constraint firstAttribute="height" constant="162" id="dyP-Ig-NMh"/>
                         <constraint firstAttribute="width" constant="300" id="kPy-80-xVz"/>
@@ -96,6 +104,7 @@
                 </pickerView>
                 <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vRc-LF-KW6">
                     <rect key="frame" x="16" y="540" width="568" height="44"/>
+                    <animations/>
                     <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="44" id="kSH-Rt-LVn"/>
@@ -109,6 +118,7 @@
                     </connections>
                 </button>
             </subviews>
+            <animations/>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstItem="60X-e1-FH1" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="64" id="01H-tB-0sZ"/>
@@ -141,9 +151,4 @@
             <point key="canvasLocation" x="300" y="383"/>
         </view>
     </objects>
-    <simulatedMetricsContainer key="defaultSimulatedMetrics">
-        <simulatedStatusBarMetrics key="statusBar"/>
-        <simulatedOrientationMetrics key="orientation"/>
-        <simulatedScreenMetrics key="destination" type="retina4"/>
-    </simulatedMetricsContainer>
 </document>

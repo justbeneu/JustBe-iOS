@@ -31,10 +31,11 @@ class PebbleHelper: NSObject, PBPebbleCentralDelegate, PBDataLoggingServiceDeleg
             let myAppUUID = NSUUID(UUIDString: self.UUID!)
             var myAppUUIDbytes = Array<UInt8>(count:16, repeatedValue:0)
             myAppUUID?.getUUIDBytes(&myAppUUIDbytes)
-            PBPebbleCentral.defaultCentral().appUUID = NSData(bytes: &myAppUUIDbytes, length: 16)
+            PBPebbleCentral.defaultCentral().appUUID = myAppUUID
+            // PBPebbleCentral.defaultCentral().appUUID = NSData(bytes: &myAppUUIDbytes, length: 16)
             if (self.watch != nil) {
                 self.watch?.appMessagesAddReceiveUpdateHandler({ (watch, msgDictionary) -> Bool in
-                    println("Message received")
+                    print("Message received")
                     self.delegate?.pebbleHelper(self, receivedMessage: msgDictionary)
                     return true
                 })
@@ -49,17 +50,17 @@ class PebbleHelper: NSObject, PBPebbleCentralDelegate, PBDataLoggingServiceDeleg
         PBPebbleCentral.defaultCentral().dataLoggingService.delegate = self
         self.watch = PBPebbleCentral.defaultCentral().lastConnectedWatch()
         if (self.watch != nil) {
-            println("Pebble connected: \(self.watch!.name)")
+            print("Pebble connected: \(self.watch!.name)")
         }
         
     }
     
     func pebbleCentral(central: PBPebbleCentral!, watchDidConnect watch: PBWatch!, isNew: Bool) {
-        println("Pebble connected: \(watch.name)")
+        print("Pebble connected: \(watch.name)")
     }
     
     func pebbleCentral(central: PBPebbleCentral!, watchDidDisconnect watch: PBWatch!) {
-        println("Pebble disconnected: \(watch.name)")
+        print("Pebble disconnected: \(watch.name)")
         if (self.watch == watch) {
             self.watch = nil
         }
@@ -85,15 +86,15 @@ class PebbleHelper: NSObject, PBPebbleCentralDelegate, PBDataLoggingServiceDeleg
     
     func printInfo() {
         if (self.watch != nil) {
-            println("Pebble name: \(self.watch!.name)")
-            println("Pebble serial number: \(self.watch!.serialNumber)")
+            print("Pebble name: \(self.watch!.name)")
+            print("Pebble serial number: \(self.watch!.serialNumber)")
             self.watch?.getVersionInfo({ (watch, versionInfo) -> Void in
-                println("Pebble firmware os version: \(versionInfo.runningFirmwareMetadata.version.os)")
-                println("Pebble firmware major version: \(versionInfo.runningFirmwareMetadata.version.major)")
-                println("Pebble firmware minor version: \(versionInfo.runningFirmwareMetadata.version.minor)")
-                println("Pebble firmware suffix version: \(versionInfo.runningFirmwareMetadata.version.suffix)")
+                print("Pebble firmware os version: \(versionInfo.runningFirmwareMetadata.version.os)")
+                print("Pebble firmware major version: \(versionInfo.runningFirmwareMetadata.version.major)")
+                print("Pebble firmware minor version: \(versionInfo.runningFirmwareMetadata.version.minor)")
+                print("Pebble firmware suffix version: \(versionInfo.runningFirmwareMetadata.version.suffix)")
                 }, onTimeout: { (watch) -> Void in
-                    println("Timed out trying to get version info from Pebble.")
+                    print("Timed out trying to get version info from Pebble.")
             })
         }
     }
@@ -103,8 +104,8 @@ class PebbleHelper: NSObject, PBPebbleCentralDelegate, PBDataLoggingServiceDeleg
             return
         }
         self.dictionary = dictionary
-        keys = dictionary.keys.array
-        keys.sort { $0 < $1 }
+        keys = [Int](dictionary.keys)
+        keys.sortInPlace { $0 < $1 }
         sendLine { (error) -> Void in
             completionHandler(error: error)
         }
@@ -128,11 +129,11 @@ class PebbleHelper: NSObject, PBPebbleCentralDelegate, PBDataLoggingServiceDeleg
         let maxLength = 64
         parts.removeAll(keepCapacity: false)
         var msg = message
-        do {
+        repeat {
             var part = ""
-            if (count(msg) > maxLength) {
-                parts.append(msg.substringToIndex(advance(minElement(indices(msg)), maxLength)))
-                msg = msg.substringFromIndex(advance(minElement(indices(msg)), maxLength))
+            if (msg.characters.count > maxLength) {
+                parts.append(msg.substringToIndex((msg.characters.indices.minElement()!).advancedBy(maxLength)))
+                msg = msg.substringFromIndex((msg.characters.indices.minElement()!).advancedBy(maxLength))
             } else {
                 parts.append(msg)
                 msg = ""
@@ -143,8 +144,8 @@ class PebbleHelper: NSObject, PBPebbleCentralDelegate, PBDataLoggingServiceDeleg
     }
     
     private func sendToWatch(key: Int, completionHandler: (error: NSError?) -> Void) {
-        let msgDictionary = [0: key, 1: parts[0]]
-        self.watch?.appMessagesPushUpdate(msgDictionary as [NSObject : AnyObject], onSent: { (watch, msgDictionary, error) -> Void in
+        let msgDictionary = [0: key, 1: parts[0]] as [NSNumber : AnyObject]
+        self.watch?.appMessagesPushUpdate(msgDictionary, onSent: { (watch, msgDictionary, error) -> Void in
             self.parts.removeAtIndex(0)
             if (self.parts.count > 0) {
                 self.sendToWatch(key, completionHandler: completionHandler)
@@ -158,7 +159,7 @@ class PebbleHelper: NSObject, PBPebbleCentralDelegate, PBDataLoggingServiceDeleg
     // If any failure, retry a max of 'retries' times
     private func pushNewExerciseMessage(message: String, retries: Int)
     {
-        var pebbleHelper = PebbleHelper.instance
+        let pebbleHelper = PebbleHelper.instance
         
         if(retries > 0)
         {

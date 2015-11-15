@@ -76,9 +76,10 @@ class ExerciseManager: NSObject
         
         var exercises = Mapper<Exercise>().mapArray(dictionary.objectForKey("Exercises") as! [[String : AnyObject]])
         
-        exercises.sort({ $0.id < $1.id })
+        //exercises.sortInPlace({ $0.id < $1.id })
+        exercises!.sortInPlace({$0.id < $1.id })
         
-        return exercises
+        return exercises!
     }
     
     func exerciseSessions() -> [ExerciseSession]
@@ -95,9 +96,10 @@ class ExerciseManager: NSObject
         
         var meditations = Mapper<Meditation>().mapArray(dictionary.objectForKey("Meditations") as! [[String : AnyObject]])
         
-        meditations.sort({ $0.id < $1.id })
+        //meditations.sortInPlace({ $0.id < $1.id })
+        meditations!.sortInPlace({ $0.id < $1.id })
         
-        return meditations
+        return meditations!
     }
     
     func meditationSessions() -> [MeditationSession]
@@ -127,7 +129,7 @@ class ExerciseManager: NSObject
     
     func daysSinceStart() -> Int
     {
-        return NSCalendar.currentCalendar().components(NSCalendarUnit.CalendarUnitDay, fromDate: startDate(), toDate: NSDate(), options: nil).day
+        return NSCalendar.currentCalendar().components(NSCalendarUnit.Day, fromDate: startDate(), toDate: NSDate(), options: []).day
     }
     
     func startDate() -> NSDate
@@ -136,9 +138,9 @@ class ExerciseManager: NSObject
         let calendar = NSCalendar(calendarIdentifier: NSCalendarIdentifierGregorian)!
         
         let exerciseWeekday = user.exerciseDayOfWeek!.weekday
-        let exerciseHour = calendar.components(.CalendarUnitHour, fromDate: user.exerciseTime!).hour
+        let exerciseHour = calendar.components(.Hour, fromDate: user.exerciseTime!).hour
         
-        let components:NSDateComponents = calendar.components(.CalendarUnitYear | .CalendarUnitWeekOfYear | .CalendarUnitWeekday | .CalendarUnitHour | .CalendarUnitMinute | .CalendarUnitSecond, fromDate: user.createdAt!)
+        let components:NSDateComponents = calendar.components([.Year, .WeekOfYear, .Weekday, .Hour, .Minute, .Second], fromDate: user.createdAt!)
         
         if (components.weekday > exerciseWeekday)
         {
@@ -157,6 +159,6 @@ class ExerciseManager: NSObject
     
     func startDateForExercise(exercise: Exercise) -> NSDate
     {
-        return self.startDate().getDateAfterDays(find(self.exercises(), exercise)! * EXERCISE_LENGTH_IN_DAYS)
+        return self.startDate().getDateAfterDays(self.exercises().indexOf(exercise)! * EXERCISE_LENGTH_IN_DAYS)
     }
 }

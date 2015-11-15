@@ -9,6 +9,7 @@
 import Foundation
 import Alamofire
 import ObjectMapper
+import SwiftyJSON
 
 typealias SuccessBlock = (response: [String: AnyObject]?) -> ()
 typealias FailureBlock = (error: NSError, message: String?)-> ()
@@ -48,17 +49,17 @@ class ServerRequest
     
     func setSession()
     {
-        let cookies:[NSHTTPCookie] = NSHTTPCookieStorage.sharedHTTPCookieStorage().cookies as! [NSHTTPCookie]
+        let cookies:[NSHTTPCookie] = NSHTTPCookieStorage.sharedHTTPCookieStorage().cookies! as [NSHTTPCookie]
         UserDefaultsManager.sharedInstance.setSessionCookies(cookies)
     }
     
     func JSONStringify(value: AnyObject, prettyPrinted: Bool = false) -> String
     {
-        var options = prettyPrinted ? NSJSONWritingOptions.PrettyPrinted : nil
+        let options : NSJSONWritingOptions? = prettyPrinted ? NSJSONWritingOptions.PrettyPrinted : nil
         
         if NSJSONSerialization.isValidJSONObject(value)
         {
-            if let data = NSJSONSerialization.dataWithJSONObject(value, options: options, error: nil)
+            if let data = try? NSJSONSerialization.dataWithJSONObject(value, options: options!)
             {
                 if let string = NSString(data: data, encoding: NSUTF8StringEncoding)
                 {
@@ -73,53 +74,69 @@ class ServerRequest
     
     private func get(uri: String, always: AlwaysBlock?, success: SuccessBlock?, failure: FailureBlock?)
     {
-        self.request(.GET, url: URL + uri, params: nil, always: always, success: success, failure: failure)
+        self.request(.GET, url: URL + uri, params: [:], always : always, success : success, failure : failure) // Passing empty parameter dictionary
     }
     
     private func post(uri: String, params: [String: AnyObject], always: AlwaysBlock?, success: SuccessBlock?, failure: FailureBlock?)
     {
-        self.request(.POST, url: URL + uri, params: params, always: always, success: success, failure: failure)
+        self.request(.POST, url: URL + uri, params: params, always : always, success : success, failure : failure)
     }
 
     private func put(uri: String, params: [String: AnyObject], always: AlwaysBlock?, success: SuccessBlock?, failure: FailureBlock?)
     {
-        self.request(.PUT, url: URL + uri, params: params, always: always, success: success, failure: failure)
+        self.request(.PUT, url: URL + uri, params: params, always : always, success : success, failure : failure)
     }
     
     private func patch(uri: String, params: [String: AnyObject], always: AlwaysBlock?, success: SuccessBlock?, failure: FailureBlock?)
     {
-        self.request(.PATCH, url: URL + uri, params: params, always: always, success: success, failure: failure)
+        self.request(.PATCH, url: URL + uri, params: params, always : always, success : success, failure : failure)
     }
 
-    private func request(method: Alamofire.Method, url: String, params: [String: AnyObject]?, always: AlwaysBlock?, success: SuccessBlock?, failure: FailureBlock?)
+    private func request(method: Alamofire.Method, url: String, params: [String: AnyObject], always: AlwaysBlock?, success: SuccessBlock?, failure: FailureBlock?)
     {
-        Alamofire.request(method, url, parameters: params, encoding: .JSON).validate().responseJSON() {
-            (request, response, JSON, error) in
+        Alamofire
+            .request(method, url, parameters: params, encoding: .JSON)
+//            .validate()
+            .responseJSON {
+                response in
+                let data = JSON(response.data!)
+                let subresponse = response.response
+                let result = response.result
+                let request = response.request
             
-            let responseDictionary:[String: AnyObject]? = (JSON as? [String: AnyObject])
-            
-            if (always != nil)
-            {
-                always!()
-            }
-            
-            if (error == nil)
-            {
-                if (success != nil)
-                {
-                    success!(response: responseDictionary)
+                if let JSON = result.value {
+                    print("JSON: \(JSON)")
                 }
-            }
-            else
-            {
-                if (failure != nil)
-                {
-                    let errorDictionary:[String: AnyObject]? = responseDictionary?["error"] as? [String: AnyObject]
-                    let errorMessage:String? = errorDictionary?["message"] as? String
-                    
-                    failure!(error: error!, message: errorMessage)
+                
+                switch (result) {
+                    case .Success(let data):
+                        success!(response: data as! [String : AnyObject])
+                        print("RECEIVED:\n" + result.description)
+                    case .Failure(let error):
+                        //let errorDictionary:[String: AnyObject]? = data["error"] as? [String: AnyObject]
+                        //let errorMessage:String? = error.valueForKey("message") as! String
+                        failure!(error: error, message: error.description)
+                        print("FAILED:\n" + error.description)
+                    // TODO: on failure STOP GOING
                 }
-            }
+                
+                //                //(request, response, data, error) in
+                //            
+                //                let responseDictionary:[String: AnyObject]? = (data as? [String: AnyObject])
+                //
+                //                if (always != nil)
+                //                {
+                //                    always!()
+                //                }
+                //                if (failure != nil)
+                //                {
+                //                    let error = result.result.error!
+                //                    let errorDictionary = data["error"]
+                //                    let errorMessage = errorDictionary["message"].stringValue
+                //
+                //                    failure!(error: error, message: errorMessage)
+                //                }
+            
         }
     }
     
@@ -146,7 +163,7 @@ class ServerRequest
     {
         var userJSON = Mapper().toJSON(user)
         userJSON["raw_password"] = password
-        var params = userJSON
+        let params = userJSON
         
         ServerRequest.sharedInstance.post("create_user/", params: params, always: always, success: {
             (response) -> () in
@@ -214,8 +231,10 @@ class ServerRequest
     {
         ServerRequest.sharedInstance.get("exercise_session/", always: always, success: {
             (response) -> () in
-            
+            print("we're in the call to get exercise session data")
             let exerciseSessions = Mapper<ExerciseSession>().mapArray(response!["objects"])
+            print("this is what we got:")
+            print(exerciseSessions)
             
             success(exerciseSessions!)
             

@@ -86,8 +86,16 @@ strip_invalid_archs() {
 if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "Pods/Alamofire.framework"
   install_framework "Pods/ObjectMapper.framework"
+<<<<<<< HEAD
+=======
+  install_framework "Pods/SwiftyJSON.framework"
+>>>>>>> tom_shenanigans
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "Pods/Alamofire.framework"
   install_framework "Pods/ObjectMapper.framework"
+<<<<<<< HEAD
+=======
+  install_framework "Pods/SwiftyJSON.framework"
+>>>>>>> tom_shenanigans
 fi

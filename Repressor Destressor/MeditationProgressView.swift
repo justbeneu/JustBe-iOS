@@ -31,11 +31,11 @@ class MeditationProgressView: UIView
     {
         super.init(frame: frame)
 
-        self.dayLabels.sort({ $0.frame.origin.x < $1.frame.origin.x })
-        self.checkImages.sort({ $0.frame.origin.x < $1.frame.origin.x })
+        self.dayLabels.sortInPlace({ $0.frame.origin.x < $1.frame.origin.x })
+        self.checkImages.sortInPlace({ $0.frame.origin.x < $1.frame.origin.x })
     }
     
-    required init(coder aDecoder: NSCoder)
+    required init?(coder aDecoder: NSCoder)
     {
         super.init(coder: aDecoder)
         
@@ -46,7 +46,7 @@ class MeditationProgressView: UIView
     {
         self.view = loadViewFromNib()
         self.view.frame = bounds
-        self.view.autoresizingMask = UIViewAutoresizing.FlexibleWidth | UIViewAutoresizing.FlexibleHeight
+        self.view.autoresizingMask = [UIViewAutoresizing.FlexibleWidth, UIViewAutoresizing.FlexibleHeight]
         self.addSubview(view)
         
         self.backgroundColor = UIColor.clearColor()
@@ -69,7 +69,7 @@ class MeditationProgressView: UIView
             let calendar = NSCalendar(calendarIdentifier: NSCalendarIdentifierGregorian)!
             
             let exerciseStartDate = ExerciseManager.sharedInstance.startDateForExercise(exercise)
-            let exerciseStartWeekday = calendar.components(.CalendarUnitWeekday, fromDate: exerciseStartDate).weekday
+            let exerciseStartWeekday = calendar.components(.Weekday, fromDate: exerciseStartDate).weekday
             
             for (var i = 0; i < EXERCISE_LENGTH_IN_DAYS; i++)
             {
@@ -95,13 +95,13 @@ class MeditationProgressView: UIView
                 // Set the label
                 
                 let meditationWeekdayDescription = DayOfWeek.getDayOfWeekForWeekday(meditationWeekday).description
-                let range = Range(start: meditationWeekdayDescription.startIndex, end: advance(meditationWeekdayDescription.startIndex, 1))
+                let range = Range(start: meditationWeekdayDescription.startIndex, end: meditationWeekdayDescription.startIndex.advancedBy(1))
                 dayLabel.text = meditationWeekdayDescription.substringWithRange(range)
                 
                 // Set the check image
                 
                 var sessions = exercise.meditation!.sessionsForDay(meditationDate)
-                sessions.sort({ $0.percentCompleted > $1.percentCompleted })
+                sessions.sortInPlace({ $0.percentCompleted > $1.percentCompleted })
                 checkImage.highlighted = (sessions.count > 0 && sessions[0].percentCompleted > COMPLETED_PERCENTAGE)
             }
         }

@@ -141,7 +141,7 @@ class UserDefaultsManager: NSObject
     {
         for key in NSUserDefaults.standardUserDefaults().dictionaryRepresentation().keys
         {
-            NSUserDefaults.standardUserDefaults().removeObjectForKey(key.description)
+            NSUserDefaults.standardUserDefaults().removeObjectForKey(key)
         }
     }
 }

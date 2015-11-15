@@ -35,7 +35,7 @@ class AudioPlayerView: UIView
     {
         didSet
         {
-            self.audioPlayer = AVAudioPlayer(contentsOfURL: self.audioFileUrl, error: nil)
+            self.audioPlayer = try! AVAudioPlayer(contentsOfURL: self.audioFileUrl!)
             self.audioPlayer.prepareToPlay()
             self.audioPlayer.currentTime = 0.0
             self.updateAudioPlayerView()
@@ -56,7 +56,7 @@ class AudioPlayerView: UIView
         self.setup()
     }
     
-    required init(coder aDecoder: NSCoder)
+    required init?(coder aDecoder: NSCoder)
     {
         super.init(coder: aDecoder)
         self.setup()
@@ -151,10 +151,10 @@ class AudioPlayerView: UIView
             self.delegate?.audioPlayerViewDidPlay(self);
         }
         
-        var point = sender.locationInView(self)
+        let point = sender.locationInView(self)
         self.slider.frame = CGRectMake(0, 0, point.x, self.frame.size.height)
         
-        var percentage:Float = Float(point.x) / Float(self.frame.size.width)
+        let percentage:Float = Float(point.x) / Float(self.frame.size.width)
         
         self.audioPlayer.currentTime = Double(Float(self.audioPlayer.duration) * percentage);
     }

@@ -47,7 +47,7 @@ extension UIViewController
         }
         set(newValue)
         {
-            objc_setAssociatedObject(self, &AssociatedKeys.PopupViewControllerKey, newValue, objc_AssociationPolicy(OBJC_ASSOCIATION_RETAIN_NONATOMIC))
+            objc_setAssociatedObject(self, &AssociatedKeys.PopupViewControllerKey, newValue, objc_AssociationPolicy.OBJC_ASSOCIATION_RETAIN_NONATOMIC)
         }
     }
     
@@ -59,7 +59,7 @@ extension UIViewController
         }
         set(newValue)
         {
-            objc_setAssociatedObject(self, &AssociatedKeys.DimmerViewKey, newValue, objc_AssociationPolicy(OBJC_ASSOCIATION_RETAIN_NONATOMIC))
+            objc_setAssociatedObject(self, &AssociatedKeys.DimmerViewKey, newValue, objc_AssociationPolicy.OBJC_ASSOCIATION_RETAIN_NONATOMIC)
         }
     }
     
@@ -71,7 +71,7 @@ extension UIViewController
         }
         set(newValue)
         {
-            objc_setAssociatedObject(self, &AssociatedKeys.DismissalBlockObjectKey, newValue, objc_AssociationPolicy(OBJC_ASSOCIATION_RETAIN_NONATOMIC))
+            objc_setAssociatedObject(self, &AssociatedKeys.DismissalBlockObjectKey, newValue, objc_AssociationPolicy.OBJC_ASSOCIATION_RETAIN_NONATOMIC)
         }
     }
     

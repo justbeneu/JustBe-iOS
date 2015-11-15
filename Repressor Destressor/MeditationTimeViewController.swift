@@ -24,9 +24,8 @@ class MeditationTimeViewController: UIViewController
         
         super.init(nibName: "MeditationTimeViewController", bundle: nil)
     }
-    
-    required init(coder aDecoder: NSCoder)
-    {
+
+    required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
@@ -45,12 +44,14 @@ class MeditationTimeViewController: UIViewController
     {
         // Register for push notifications before signing up
         
-        var appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         appDelegate.registerForPushNotifications { (token) -> () in
             
             if (token == nil)
             {
-                UIAlertView(title: "Enable Notifications", message: "Please enable notifications by going to Nofications > Just Be in your phone settings.", delegate: nil, cancelButtonTitle: "OK").show()
+                let notice = UIAlertController(title: "Enable Notifications", message: "Please enable notifications by going to Nofications > Just Be in your phone settings.", preferredStyle: UIAlertControllerStyle.Alert)
+                notice.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Cancel, handler: { (ACTION : UIAlertAction!) in print("User exits alert")}))
+                self.presentViewController(notice, animated: true, completion: nil)
                 return
             }
             

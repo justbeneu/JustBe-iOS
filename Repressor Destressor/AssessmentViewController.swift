@@ -65,7 +65,7 @@ class AssessmentViewController: UIViewController {
         super.init(nibName: "AssessmentViewController", bundle: nil)
     }
     
-    required init(coder aDecoder: NSCoder) {
+    required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
@@ -190,7 +190,7 @@ class NumberAssessmentViewController: AssessmentViewController, UIPickerViewData
     
     // MARK: UIPickerViewDelegate
     
-    func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String! {
+    func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         return "\(row * intervalFactor)"
     }
 }
@@ -201,7 +201,7 @@ class MultiSelectAssessmentViewController: AssessmentViewController, UITableView
     
     private func selectedOptions() -> [Int] {
         var selectedOptions = [Int]()
-        for (idx, optionState) in enumerate(optionStates) {
+        for (idx, optionState) in optionStates.enumerate() {
             if optionState {
                 selectedOptions.append(idx)
             }
@@ -253,7 +253,7 @@ class MultiSelectAssessmentViewController: AssessmentViewController, UITableView
         let cell = tableView.dequeueReusableCellWithIdentifier(
             multiSelectCellReuseIdentifier,
             forIndexPath: indexPath
-        ) as! UITableViewCell
+        ) 
         
         cell.textLabel?.text = question.multiSelectOptions[indexPath.row]
         cell.textLabel?.textColor = UIColor.blackText()

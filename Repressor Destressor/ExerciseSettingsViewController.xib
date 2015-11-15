@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7531" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9059" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7520"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
     </dependencies>
     <objects>
@@ -22,6 +22,7 @@
             <subviews>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="On what day would you like to receive your weekly exercise?" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zxI-hL-SNb">
                     <rect key="frame" x="131" y="32" width="300" height="40"/>
+                    <animations/>
                     <constraints>
                         <constraint firstAttribute="width" constant="300" id="DIX-Sy-iBb"/>
                         <constraint firstAttribute="height" constant="40" id="Sbe-4Q-7Mv"/>
@@ -32,6 +33,7 @@
                 </label>
                 <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="7hP-lH-YbK">
                     <rect key="frame" x="16" y="96" width="530" height="29"/>
+                    <animations/>
                     <constraints>
                         <constraint firstAttribute="height" constant="28" id="bgp-wi-eQ9"/>
                     </constraints>
@@ -47,6 +49,7 @@
                 </segmentedControl>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="What time on that day?" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nm2-7x-sgL">
                     <rect key="frame" x="131" y="162" width="300" height="20"/>
+                    <animations/>
                     <constraints>
                         <constraint firstAttribute="height" constant="20" id="DUT-bP-geN"/>
                         <constraint firstAttribute="width" constant="300" id="kC9-ri-t03"/>
@@ -57,6 +60,7 @@
                 </label>
                 <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="time" minuteInterval="1" useCurrentDate="NO" translatesAutoresizingMaskIntoConstraints="NO" id="snT-Kg-vpo">
                     <rect key="frame" x="131" y="206" width="300" height="162"/>
+                    <animations/>
                     <constraints>
                         <constraint firstAttribute="width" constant="300" id="36J-dl-VBK"/>
                         <constraint firstAttribute="height" constant="162" id="q3H-CP-tc3"/>
@@ -67,6 +71,7 @@
                 </datePicker>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PLH-PF-RXB">
                     <rect key="frame" x="16" y="400" width="530" height="44"/>
+                    <animations/>
                     <color key="backgroundColor" red="0.18880958019999999" green="1" blue="0.22477829020000001" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="44" id="5Xb-99-r5U"/>
@@ -96,6 +101,7 @@
                     </connections>
                 </button>
             </subviews>
+            <animations/>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstItem="7hP-lH-YbK" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="16" id="BHS-Pf-xbd"/>
@@ -116,9 +122,4 @@
             <point key="canvasLocation" x="416" y="355"/>
         </view>
     </objects>
-    <simulatedMetricsContainer key="defaultSimulatedMetrics">
-        <simulatedStatusBarMetrics key="statusBar"/>
-        <simulatedOrientationMetrics key="orientation"/>
-        <simulatedScreenMetrics key="destination" type="retina4"/>
-    </simulatedMetricsContainer>
 </document>

@@ -29,8 +29,7 @@ class MeditationViewController: UIViewController, AudioPlayerViewDelegate, MenuV
         super.init(nibName: "MeditationViewController", bundle: nil)
     }
     
-    required init(coder aDecoder: NSCoder)
-    {
+    required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
@@ -89,7 +88,7 @@ class MeditationViewController: UIViewController, AudioPlayerViewDelegate, MenuV
     {
         ServerRequest.sharedInstance.pendingAssessment(nil, success: { (assessment) -> Void in
             
-            if (self.navigationController!.visibleViewController.isEqual(self))
+            if (self.navigationController!.visibleViewController!.isEqual(self))
             {
                 let navigationController = AssessmentNavigationController(assessment: assessment)
                 self.navigationController!.presentViewController(navigationController, animated: true, completion: nil)
@@ -134,11 +133,15 @@ class MeditationViewController: UIViewController, AudioPlayerViewDelegate, MenuV
         {
             if (ExerciseManager.sharedInstance.daysSinceStart() < 0)
             {
-                UIAlertView(title: "Welcome to Just Be!", message: "Your exercises have not yet started. You will receive a push notification on your start date.", delegate: nil, cancelButtonTitle: "OK").show()
+                let alert = UIAlertController(title: "Welcome to Just Be!", message: "Your exercises have not yet started. You will receive a push notification on your start date.", preferredStyle:UIAlertControllerStyle.Alert)
+                alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Cancel, handler: { (ACTION : UIAlertAction!) in print("User exits alert")}));
+                self.presentViewController(alert, animated: true, completion: nil)
             }
             else
             {
-                UIAlertView(title: "Thanks!", message: "Your exercises have ended. We hope you enjoyed Just Be!", delegate: nil, cancelButtonTitle: "OK").show()
+                let notice = UIAlertController(title: "Thanks!", message: "Your exercises have ended. We hope you enjoyed Just Be!", preferredStyle: UIAlertControllerStyle.Alert)
+                notice.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Cancel, handler: { (ACTION : UIAlertAction!) in print("User exits alert")}))
+                self.presentViewController(notice, animated: true, completion: nil)
             }
         }
     }
@@ -214,7 +217,7 @@ class MeditationViewController: UIViewController, AudioPlayerViewDelegate, MenuV
     
     @IBAction func showMenu()
     {
-        var menuViewController = MenuViewController(nibName: "MenuViewController", bundle: nil)
+        let menuViewController = MenuViewController(nibName: "MenuViewController", bundle: nil)
         menuViewController.delegate = self
         self.presentPopupViewController(menuViewController, popupDismissalBlock: nil)
     }

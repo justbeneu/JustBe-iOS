@@ -24,8 +24,8 @@ Alamofire is an HTTP networking library written in Swift.
 
 ## Requirements
 
-- iOS 8.0+ / Mac OS X 10.9+ / watchOS 2
-- Xcode 7.0+
+- iOS 8.0+ / Mac OS X 10.9+ / tvOS 9.0+ / watchOS 2.0+
+- Xcode 7.1+
 
 ## Migration Guides
 
@@ -96,6 +96,7 @@ Run `carthage` to build the framework and drag the built `Alamofire.framework` i
 If you prefer not to use either of the aforementioned dependency managers, you can integrate Alamofire into your project manually.
 
 #### Embedded Framework
+<<<<<<< HEAD
 
 - Open up Terminal, `cd` into your top-level project directory, and run the following command "if" your project is not initialized as a git repository:
 
@@ -103,6 +104,15 @@ If you prefer not to use either of the aforementioned dependency managers, you c
 $ git init
 ```
 
+=======
+
+- Open up Terminal, `cd` into your top-level project directory, and run the following command "if" your project is not initialized as a git repository:
+
+```bash
+$ git init
+```
+
+>>>>>>> tom_shenanigans
 - Add Alamofire as a git [submodule](http://git-scm.com/docs/git-submodule) by running the following command:
 
 ```bash
@@ -122,11 +132,19 @@ $ git submodule add https://github.com/Alamofire/Alamofire.git
     > It does not matter which `Products` folder you choose from, but it does matter whether you choose the top or bottom `Alamofire.framework`. 
     
 - Select the top `Alamofire.framework` for iOS and the bottom one for OS X.
+<<<<<<< HEAD
 
     > You can verify which one you selected by inspecting the build log for your project. The build target for `Alamofire` will be listed as either `Alamofire iOS` or `Alamofire OSX`.
 
 - And that's it!
 
+=======
+
+    > You can verify which one you selected by inspecting the build log for your project. The build target for `Alamofire` will be listed as either `Alamofire iOS` or `Alamofire OSX`.
+
+- And that's it!
+
+>>>>>>> tom_shenanigans
 > The `Alamofire.framework` is automagically added as a target dependency, linked framework and embedded framework in a copy files build phase which is all you need to build on the simulator and a device.
 
 ---
@@ -440,6 +458,7 @@ Alamofire.download(.GET, "http://httpbin.org/stream/100", destination: destinati
              dispatch_async(dispatch_get_main_queue()) {
                  print("Total bytes read on main queue: \(totalBytesRead)")
              }
+<<<<<<< HEAD
          }
          .response { _, _, _, error in
              if let error = error {
@@ -462,10 +481,37 @@ Alamofire.download(.GET, "http://httpbin.org/stream/100", destination: destinati
                  print("Resume Data: \(resumeDataString)")
              } else {
                  print("Resume Data was empty")
+=======
+         }
+         .response { _, _, _, error in
+             if let error = error {
+                 print("Failed with error: \(error)")
+             } else {
+                 print("Downloaded file successfully")
+>>>>>>> tom_shenanigans
              }
          }
 ```
 
+<<<<<<< HEAD
+=======
+#### Accessing Resume Data for Failed Downloads
+
+```swift
+Alamofire.download(.GET, "http://httpbin.org/stream/100", destination: destination)
+         .response { _, _, data, _ in
+             if let
+                 data = data,
+                 resumeDataString = NSString(data: data, encoding: NSUTF8StringEncoding)
+             {
+                 print("Resume Data: \(resumeDataString)")
+             } else {
+                 print("Resume Data was empty")
+             }
+         }
+```
+
+>>>>>>> tom_shenanigans
 > The `data` parameter is automatically populated with the `resumeData` if available.
 
 ```swift
@@ -1002,6 +1048,86 @@ Alamofire.request(Router.ReadUser("mattt")) // GET /users/mattt
 Using a secure HTTPS connection when communicating with servers and web services is an important step in securing sensitive data. By default, Alamofire will evaluate the certificate chain provided by the server using Apple's built in validation provided by the Security framework. While this guarantees the certificate chain is valid, it does not prevent man-in-the-middle (MITM) attacks or other potential vulnerabilities. In order to mitigate MITM attacks, applications dealing with sensitive customer data or financial information should use certificate or public key pinning provided by the `ServerTrustPolicy`.
 
 #### ServerTrustPolicy
+<<<<<<< HEAD
+
+The `ServerTrustPolicy` enumeration evaluates the server trust generally provided by an `NSURLAuthenticationChallenge` when connecting to a server over a secure HTTPS connection.
+
+```swift
+let serverTrustPolicy = ServerTrustPolicy.PinCertificates(
+    certificates: ServerTrustPolicy.certificatesInBundle(),
+    validateCertificateChain: true,
+    validateHost: true
+)
+```
+
+There are many different cases of server trust evaluation giving you complete control over the validation process:
+
+* `PerformDefaultEvaluation`: Uses the default server trust evaluation while allowing you to control whether to validate the host provided by the challenge. 
+* `PinCertificates`: Uses the pinned certificates to validate the server trust. The server trust is considered valid if one of the pinned certificates match one of the server certificates.
+* `PinPublicKeys`: Uses the pinned public keys to validate the server trust. The server trust is considered valid if one of the pinned public keys match one of the server certificate public keys.
+* `DisableEvaluation`: Disables all evaluation which in turn will always consider any server trust as valid.
+* `CustomEvaluation`: Uses the associated closure to evaluate the validity of the server trust thus giving you complete control over the validation process. Use with caution.
+
+#### Server Trust Policy Manager
+
+The `ServerTrustPolicyManager` is responsible for storing an internal mapping of server trust policies to a particular host. This allows Alamofire to evaluate each host against a different server trust policy. 
+
+```swift
+let serverTrustPolicies: [String: ServerTrustPolicy] = [
+    "test.example.com": .PinCertificates(
+        certificates: ServerTrustPolicy.certificatesInBundle(),
+        validateCertificateChain: true,
+        validateHost: true
+    ),
+    "insecure.expired-apis.com": .DisableEvaluation
+]
+
+let manager = Manager(
+    serverTrustPolicyManager: ServerTrustPolicyManager(policies: serverTrustPolicies)
+)
+```
+
+> Make sure to keep a reference to the new `Manager` instance, otherwise your requests will all get cancelled when your `manager` is deallocated.
+
+These server trust policies will result in the following behavior:
+
+* `test.example.com` will always use certificate pinning with certificate chain and host validation enabled thus requiring the following criteria to be met to allow the TLS handshake to succeed:
+  * Certificate chain MUST be valid.
+  * Certificate chain MUST include one of the pinned certificates.
+  * Challenge host MUST match the host in the certificate chain's leaf certificate.
+* `insecure.expired-apis.com` will never evaluate the certificate chain and will always allow the TLS handshake to succeed.
+* All other hosts will use the default evaluation provided by Apple.
+
+##### Subclassing Server Trust Policy Manager
+
+If you find yourself needing more flexible server trust policy matching behavior (i.e. wildcarded domains), then subclass the `ServerTrustPolicyManager` and override the `serverTrustPolicyForHost` method with your own custom implementation.
+
+```swift
+class CustomServerTrustPolicyManager: ServerTrustPolicyManager {
+    override func serverTrustPolicyForHost(host: String) -> ServerTrustPolicy? {
+        var policy: ServerTrustPolicy?
+
+        // Implement your custom domain matching behavior...
+
+        return policy
+    }
+}
+```
+
+#### Validating the Host
+
+The `.PerformDefaultEvaluation`, `.PinCertificates` and `.PinPublicKeys` server trust policies all take a `validateHost` parameter. Setting the value to `true` will cause the server trust evaluation to verify that hostname in the certificate matches the hostname of the challenge. If they do not match, evaluation will fail. A `validateHost` value of `false` will still evaluate the full certificate chain, but will not validate the hostname of the leaf certificate.
+
+> It is recommended that `validateHost` always be set to `true` in production environments.
+
+#### Validating the Certificate Chain
+
+Pinning certificates and public keys both have the option of validating the certificate chain using the `validateCertificateChain` parameter. By setting this value to `true`, the full certificate chain will be evaluated in addition to performing a byte equality check against the pinned certficates or public keys. A value of `false` will skip the certificate chain validation, but will still perform the byte equality check.
+
+There are several cases where it may make sense to disable certificate chain validation. The most common use cases for disabling validation are self-signed and expired certificates. The evaluation would always fail in both of these cases, but the byte equality check will still ensure you are receiving the certificate you expect from the server.
+
+> It is recommended that `validateCertificateChain` always be set to `true` in production environments.
+=======
 
 The `ServerTrustPolicy` enumeration evaluates the server trust generally provided by an `NSURLAuthenticationChallenge` when connecting to a server over a secure HTTPS connection.
 
@@ -1081,6 +1207,37 @@ There are several cases where it may make sense to disable certificate chain val
 
 > It is recommended that `validateCertificateChain` always be set to `true` in production environments.
 
+#### App Transport Security
+
+With the addition of App Transport Security (ATS) in iOS 9, it is possible that using a custom `ServerTrustPolicyManager` with several `ServerTrustPolicy` objects will have no effect. If you continuously see `CFNetwork SSLHandshake failed (-9806)` errors, you have probably run into this problem. Apple's ATS system overrides the entire challenge system unless you configure the ATS settings in your app's plist to disable enough of it to allow your app to evaluate the server trust.
+
+If you run into this problem (high probability with self-signed certificates), you can work around this issue by adding the following to your `Info.plist`.
+
+```xml
+<dict>
+	<key>NSAppTransportSecurity</key>
+	<dict>
+		<key>NSExceptionDomains</key>
+		<dict>
+			<key>example.com</key>
+			<dict>
+				<key>NSExceptionAllowsInsecureHTTPLoads</key>
+				<true/>
+				<key>NSExceptionRequiresForwardSecrecy</key>
+				<false/>
+				<key>NSIncludesSubdomains</key>
+				<true/>
+			</dict>
+		</dict>
+	</dict>
+</dict>
+```
+
+Whether you need to set the `NSExceptionRequiresForwardSecrecy` to `NO` depends on whether your TLS connection is using an allowed cipher suite. In certain cases, it will need to be set to `NO`. The `NSExceptionAllowsInsecureHTTPLoads` MUST be set to `YES` in order to allow the `SessionDelegate` to receive challenge callbacks. Once the challenge callbacks are being called, the `ServerTrustPolicyManager` will take over the server trust evaluation.
+
+> It is recommended to always use valid certificates in production environments.
+>>>>>>> tom_shenanigans
+
 ---
 
 ## Component Libraries
@@ -1095,9 +1252,12 @@ The following rdars have some affect on the current implementation of Alamofire.
 
 * [rdar://22024442](http://www.openradar.me/radar?id=6082025006039040) - Array of [SecCertificate] crashing Swift 2.0 compiler in optimized builds
 * [rdar://21349340](http://www.openradar.me/radar?id=5517037090635776) - Compiler throwing warning due to toll-free bridging issue in test case
+<<<<<<< HEAD
 * [rdar://22307360](http://www.openradar.me/radar?id=4895563208196096) - Swift #available check not working properly with min deployment target
 
     > Resolved in Xcode 7.1 beta 2. Will remove once Xcode 7.1 is out of beta.
+=======
+>>>>>>> tom_shenanigans
 
 ## FAQ
 

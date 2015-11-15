@@ -219,7 +219,6 @@
 				DCCBE6DB6BAA2CC5D34B020072471C5F /* SwiftyJSON */,
 			);
 			name = Pods;
-			path = "Target Support Files/Pods";
 			sourceTree = "<group>";
 		};
 		2A1646EA3A17E077B51BBB4D3824859E /* Alamofire */ = {
@@ -263,8 +262,7 @@
 			children = (
 				6154933ABF66A5ADCBBFEF0A5AF0BD7C /* Frameworks */,
 			);
-			name = "Support Files";
-			path = "../Target Support Files/ObjectMapper";
+			path = PebbleKit;
 			sourceTree = "<group>";
 		};
 		6154933ABF66A5ADCBBFEF0A5AF0BD7C /* Frameworks */ = {
@@ -302,7 +300,6 @@
 				EC0D8FD90DBFF9CC245CB60E5339B891 /* Products */,
 				B7B80995527643776607AFFA75B91E24 /* Targets Support Files */,
 			);
-			name = "Targets Support Files";
 			sourceTree = "<group>";
 		};
 		896CFAAAA31F0AF867E67278E6F9CC9E /* Support Files */ = {
@@ -360,7 +357,7 @@
 				2A3A1CA9131C28413921FD7C50B4BF56 /* Pods.framework */,
 				390263939EFE7C18B9237406293DF398 /* SwiftyJSON.framework */,
 			);
-			name = Frameworks;
+			name = Products;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -597,8 +594,7 @@
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/ObjectMapper/ObjectMapper-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/ObjectMapper/Info.plist";
+				INFOPLIST_FILE = "Target Support Files/Pods/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -611,12 +607,11 @@
 				PRODUCT_NAME = Pods;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
-			name = Debug;
+			name = Release;
 		};
 		3710665196871F918ED6C3D52B1F03EB /* Debug */ = {
 			isa = XCBuildConfiguration;
@@ -885,7 +880,7 @@
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
-			name = Release;
+			name = Debug;
 		};
 /* End XCBuildConfiguration section */
 

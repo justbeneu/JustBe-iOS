@@ -1,6 +1,6 @@
 PODS:
-  - Alamofire (3.1.1)
-  - ObjectMapper (1.0.0)
+  - Alamofire (3.1.2)
+  - ObjectMapper (1.0.1)
   - PebbleKit (3.0.0)
   - SwiftyJSON (2.3.1)
 
@@ -16,12 +16,12 @@ EXTERNAL SOURCES:
 
 CHECKOUT OPTIONS:
   SwiftyJSON:
-    :commit: ece271ab33839d11c2153d71fb59c53545132cf9
+    :commit: 10f67900bdf2fb0faba3371249a6fefdcaa880c5
     :git: https://github.com/SwiftyJSON/SwiftyJSON.git
 
 SPEC CHECKSUMS:
-  Alamofire: 9b0a7188b961a03914a99304488bd226b0e46c0e
-  ObjectMapper: 0cd8372a0da95ae146afc63d8b512c32dd372a49
+  Alamofire: 7c16ca65f3c7e681fd925fd7f2dec7747ff96855
+  ObjectMapper: 98524bac0dca46c6b3d5ee02cd410fc700ec6ce2
   PebbleKit: 575087dc3e7ca1687929dd4903baabcf8f224cff
   SwiftyJSON: 592b53bee5ef3dd9b3bebc6b9cb7ee35426ae8c3
 

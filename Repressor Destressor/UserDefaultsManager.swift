@@ -36,7 +36,7 @@ class UserDefaultsManager: NSObject
         return Static.instance!
     }
     
-    // MARK: Exercise Sessions
+    // Exercise Sessions
     
     func setExerciseSessions(exerciseSessions: [ExerciseSession])
     {
@@ -60,7 +60,7 @@ class UserDefaultsManager: NSObject
         }
     }
 
-    // MARK: Meditation Sessions
+    // Meditation Sessions
     
     func setMeditationSessions(meditationSessions: [MeditationSession])
     {
@@ -83,7 +83,7 @@ class UserDefaultsManager: NSObject
         }
     }
 
-    // MARK: User
+    // User
     
     func setSessionCookies(cookies: [NSHTTPCookie])
     {        
@@ -113,7 +113,7 @@ class UserDefaultsManager: NSObject
         return Mapper<User>().map(userJSON)
     }
     
-    // MARK: Pebble
+    // Pebble
     
     func addNotificationTime(time: NotificationTime)
     {
@@ -135,7 +135,7 @@ class UserDefaultsManager: NSObject
         return []
     }
     
-    // MARK: Utils
+    // Utils
     
     func clear()
     {

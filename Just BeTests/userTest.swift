@@ -8,7 +8,7 @@
 
 import XCTest
 
-class userTest: XCTestCase {
+class UserTest: XCTestCase {
     
     let user = User()
     let transform = DayTransform()
@@ -30,8 +30,8 @@ class userTest: XCTestCase {
         super.tearDown()
     }
     
-    func userBirthdayTest() {
-        XCTAssertEqual(user.birthday, "1942-10-10", "What was it? \(user.birthday)")
+    func testUserBirthday() {
+        XCTAssertEqual(user.birthday, transform.transformFromJSON("1942-10-10"), "What was it? \(user.birthday)")
     }
     
 }

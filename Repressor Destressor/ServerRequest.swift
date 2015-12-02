@@ -102,13 +102,15 @@ class ServerRequest
                         if ((objs["meta"]) != nil) {
                             let total = objs["meta"]!["total_count"] as! Int
                         
-                            if (total == 0) {
+                            if (total == 0 && uri == "exercise_session/") {
                                 print("** GOT 0 RESULTS **")
                             
                             // We want to give back the first exercise_session or meditation_session
                             } else {
-                                success!(response: objs)
+                                    success!(response: objs)
                             }
+                         
+                            if (always != nil) {always!()}
                         }
                     
 
@@ -120,6 +122,46 @@ class ServerRequest
         }
         
         debugPrint(request)
+    }
+    
+    func exercisePush(exerciseId: String, always: AlwaysBlock?, success: () -> Void, failure: FailureBlock?)
+    {
+        let params = ["exercise_id": exerciseId]
+        ServerRequest.sharedInstance.post("exercise_session/", params: params, always: always, success: {
+            (response) -> () in
+            print("we're pushing a starter exercise session")
+            //let exerciseSessions = Mapper<ExerciseSession>().mapArray(response!["objects"])
+            
+            success()
+            
+            //            }, failure: {
+            //                if (count <= realFail) {
+            //                    self.exerciseSessions(always, success : success, failure : failure)
+            //                    count = count + 1
+            //                }
+            //                failure()
+            //            })
+            }, failure: failure)
+
+        // TODO: Post {exercise_session:0}
+        
+        //        self.Push("exercise_session/", always: always, success: {
+        //            (response) -> () in
+        //            print("we're in the call to get exercise session data")
+        //            let exerciseSessions = Mapper<ExerciseSession>().mapArray(response!["objects"])
+        //            print("this is what we got: " + exerciseSessions!.description)
+        //
+        //            success(exerciseSessions!)
+        //
+        //            //            }, failure: {
+        //            //                if (count <= realFail) {
+        //            //                    self.exerciseSessions(always, success : success, failure : failure)
+        //            //                    count = count + 1
+        //            //                }
+        //            //                failure()
+        //            //            })
+        //            }, failure: failure)
+        
     }
     
     private func post(uri: String, params: [String: AnyObject], always: AlwaysBlock?, success: SuccessBlock?, failure: FailureBlock?)
@@ -332,7 +374,7 @@ class ServerRequest
     {
 //        let realFail = 10
 //        let count= 0
-        
+        print("inside exerciseSessions in side ExerciseManager")
         ServerRequest.sharedInstance.get("exercise_session/", always: always, success: {
             (response) -> () in
             print("we're in the call to get exercise session data")

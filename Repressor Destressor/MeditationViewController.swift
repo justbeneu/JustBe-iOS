@@ -59,13 +59,15 @@ class MeditationViewController: UIViewController, AudioPlayerViewDelegate, MenuV
     
     override func viewWillAppear(animated: Bool)
     {
+        print("View will appear")
         super.viewWillAppear(animated)
-        
+        print("View appeared")
         self.refreshExerciseActivity()
     }
     
     func applicationDidBecomeActive()
     {
+        print("application became active")
         self.refreshExerciseActivity()
         self.getPendingAssessment()
     }
@@ -102,19 +104,22 @@ class MeditationViewController: UIViewController, AudioPlayerViewDelegate, MenuV
         if (self.exercise == nil)
         {
             self.showLoader()
+            print("exercise is nil")
         }
         
         ExerciseManager.sharedInstance.refreshActivity { (success) -> () in
             
             self.hideLoader()
-
+            print ("fucking hiding")
             if (success)
             {
                 self.exercise = ExerciseManager.sharedInstance.currentExercise()
+                print("exerciseManager succeeded")
             }
             else
             {
                 self.showErrorAlert()
+                print("exerciseManager failed")
             }
         }
     }

@@ -19,7 +19,7 @@ public class DayTransform: TransformType
     {
         if let date = value as? String
         {
-            var dateFormatter = NSDateFormatter()
+            let dateFormatter = NSDateFormatter()
             dateFormatter.dateFormat = "yyyy-MM-dd"
             
             return dateFormatter.dateFromString(date)
@@ -32,7 +32,7 @@ public class DayTransform: TransformType
     {
         if let date = value
         {
-            var formatter: NSDateFormatter = NSDateFormatter()
+            let formatter: NSDateFormatter = NSDateFormatter()
             formatter.dateFormat = "yyyy-MM-dd"
             return formatter.stringFromDate(date)
         }

@@ -24,7 +24,7 @@ class AudioPlayerView: UIView
     private var slider: UIView = UIView()
     private var button: UIButton = UIButton()
     
-    private var audioPlayer = AVAudioPlayer()
+    private var audioPlayer:AVAudioPlayer = AVAudioPlayer()
     private var timer: NSTimer? = nil
     
     // Public properties
@@ -35,7 +35,7 @@ class AudioPlayerView: UIView
     {
         didSet
         {
-            self.audioPlayer = AVAudioPlayer(contentsOfURL: self.audioFileUrl, error: nil)
+            self.audioPlayer = try! AVAudioPlayer(contentsOfURL: self.audioFileUrl!)
             self.audioPlayer.prepareToPlay()
             self.audioPlayer.currentTime = 0.0
             self.updateAudioPlayerView()
@@ -56,7 +56,7 @@ class AudioPlayerView: UIView
         self.setup()
     }
     
-    required init(coder aDecoder: NSCoder)
+    required init?(coder aDecoder: NSCoder)
     {
         super.init(coder: aDecoder)
         self.setup()
@@ -64,6 +64,7 @@ class AudioPlayerView: UIView
 
     private func setup()
     {
+        print("setting up audioplayerview")
         self.backgroundColor = UIColor.lightYellow()
         
         self.slider.frame = CGRectMake(0, 0, 0, self.frame.size.height)
@@ -72,6 +73,8 @@ class AudioPlayerView: UIView
         self.addSubview(self.slider)
         
         let tapGesture = UITapGestureRecognizer(target: self, action: "handleTouch:")
+        let doubleTapGesture = UITapGestureRecognizer(target: self, action: "handleTouch:")
+        doubleTapGesture.numberOfTapsRequired = 2
         let panGesture = UIPanGestureRecognizer(target: self, action: "handleTouch:")
         self.addGestureRecognizer(tapGesture)
         self.addGestureRecognizer(panGesture)
@@ -102,8 +105,10 @@ class AudioPlayerView: UIView
     
     func play()
     {
+        print("Inside audio play")
         if (audioFileUrl != nil)
         {
+            print("audio file isn't nil")
             self.audioPlayer.play()
             self.timer = NSTimer.scheduledTimerWithTimeInterval(AUDIO_SLIDER_RATE, target: self, selector: "updateAudioPlayerView", userInfo: nil, repeats: true)
             self.button.setImage(UIImage(named: "pause"), forState: .Normal)
@@ -116,6 +121,7 @@ class AudioPlayerView: UIView
     {
         if (audioFileUrl != nil)
         {
+            print("Inside audio pause")
             self.audioPlayer.pause()
             self.timer = nil
             self.button.setImage(UIImage(named: "play"), forState: .Normal)
@@ -130,32 +136,41 @@ class AudioPlayerView: UIView
     {
         self.isPlaying = !self.isPlaying
         
-        if (self.isPlaying)
+        if (audioFileUrl != nil)
         {
-            self.play()
-        }
-        else
-        {
-            self.pause()
+            print("button tapped outer")
+            if (self.isPlaying)
+            {
+                print("button tapped to play")
+                self.play()
+            
+            }
+            else
+            {
+                print("button tapped to pause")
+                self.pause()
+            }
         }
     }
     
     func handleTouch(sender: UITapGestureRecognizer)
     {
-        if (sender.state == .Began)
-        {
-            self.delegate?.audioPlayerViewDidPause(self);
+        if (self.isPlaying) {
+            if (sender.state == .Began)
+            {
+                self.delegate?.audioPlayerViewDidPause(self);
+            }
+            else if ((sender.state == .Ended || sender.state == .Cancelled) && self.isPlaying)
+            {
+                self.delegate?.audioPlayerViewDidPlay(self);
+            }
+           
+            let point = sender.locationInView(self)
+            self.slider.frame = CGRectMake(0, 0, point.x, self.frame.size.height)
+            
+            let percentage:Float = Float(point.x) / Float(self.frame.size.width)
+            
+            self.audioPlayer.currentTime = Double(Float(self.audioPlayer.duration) * percentage);
         }
-        else if ((sender.state == .Ended || sender.state == .Cancelled) && self.isPlaying)
-        {
-            self.delegate?.audioPlayerViewDidPlay(self);
-        }
-        
-        var point = sender.locationInView(self)
-        self.slider.frame = CGRectMake(0, 0, point.x, self.frame.size.height)
-        
-        var percentage:Float = Float(point.x) / Float(self.frame.size.width)
-        
-        self.audioPlayer.currentTime = Double(Float(self.audioPlayer.duration) * percentage);
     }
 }

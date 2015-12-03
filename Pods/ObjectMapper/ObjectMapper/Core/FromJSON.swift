@@ -6,81 +6,82 @@
 //  Copyright (c) 2014 hearst. All rights reserved.
 //
 
-import Foundation
-
-class FromJSON {
+internal final class FromJSON {
 	
 	/// Basic type
-    func basicType<FieldType>(inout field: FieldType, object: AnyObject?) {
-        basicType(&field, object: object as? FieldType)
-    }
-	
-    func basicType<FieldType>(inout field: FieldType, object: FieldType?) {
-        if let value = object {
-            field = value
-        }
-    }
-	
-	/// optional basic type
-    func optionalBasicType<FieldType>(inout field: FieldType?, object: AnyObject?) {
-		optionalBasicType(&field, object: object as? FieldType)
-    }
-	
-    func optionalBasicType<FieldType>(inout field: FieldType?, object: FieldType?) {
-        if let value: FieldType = object {
-            field = value
-        }
-    }
-	
-	/// Implicitly unwrapped optional basic type
-	func optionalBasicType<FieldType>(inout field: FieldType!, object: AnyObject?) {
-		optionalBasicType(&field, object: object as? FieldType)
-	}
-	
-	func optionalBasicType<FieldType>(inout field: FieldType!, object: FieldType?) {
-		if let value: FieldType = object {
+	class func basicType<FieldType>(inout field: FieldType, object: FieldType?) {
+		if let value = object {
 			field = value
 		}
 	}
-	
+
+	/// optional basic type
+	class func optionalBasicType<FieldType>(inout field: FieldType?, object: FieldType?) {
+		if let value = object {
+			field = value
+		}
+	}
+
+	/// Implicitly unwrapped optional basic type
+	class func optionalBasicType<FieldType>(inout field: FieldType!, object: FieldType?) {
+		if let value = object {
+			field = value
+		}
+	}
+
 	/// Mappable object
-	func object<N: Mappable>(inout field: N, object: AnyObject?) {
+	class func object<N: Mappable>(inout field: N, object: AnyObject?) {
 		if let value: N = Mapper().map(object) {
 			field = value
 		}
 	}
 
 	/// Optional Mappable Object
-	func optionalObject<N: Mappable>(inout field: N?, object: AnyObject?) {
+	class func optionalObject<N: Mappable>(inout field: N?, object: AnyObject?) {
 		field = Mapper().map(object)
 	}
 
 	/// Implicitly unwrapped Optional Mappable Object
-	func optionalObject<N: Mappable>(inout field: N!, object: AnyObject?) {
+	class func optionalObject<N: Mappable>(inout field: N!, object: AnyObject?) {
 		field = Mapper().map(object)
 	}
 
 	/// mappable object array
-	func objectArray<N: Mappable>(inout field: Array<N>, object: AnyObject?) {
-		let parsedObjects = Mapper<N>().mapArray(object)
-
-		if let objects = parsedObjects {
+	class func objectArray<N: Mappable>(inout field: Array<N>, object: AnyObject?) {
+		if let objects = Mapper<N>().mapArray(object) {
 			field = objects
 		}
 	}
 
 	/// optional mappable object array
-	func optionalObjectArray<N: Mappable>(inout field: Array<N>?, object: AnyObject?) {
+	class func optionalObjectArray<N: Mappable>(inout field: Array<N>?, object: AnyObject?) {
 		field = Mapper().mapArray(object)
 	}
 
 	/// Implicitly unwrapped optional mappable object array
-	func optionalObjectArray<N: Mappable>(inout field: Array<N>!, object: AnyObject?) {
+	class func optionalObjectArray<N: Mappable>(inout field: Array<N>!, object: AnyObject?) {
 		field = Mapper().mapArray(object)
 	}
 	
+	/// mappable object array
+	class func twoDimensionalObjectArray<N: Mappable>(inout field: Array<Array<N>>, object: AnyObject?) {
+		if let objects = Mapper<N>().mapArrayOfArrays(object) {
+			field = objects
+		}
+	}
+	
+	/// optional mappable 2 dimentional object array
+	class func optionalTwoDimensionalObjectArray<N: Mappable>(inout field: Array<Array<N>>?, object: AnyObject?) {
+		field = Mapper().mapArrayOfArrays(object)
+	}
+	
+	/// Implicitly unwrapped optional 2 dimentional mappable object array
+	class func optionalTwoDimensionalObjectArray<N: Mappable>(inout field: Array<Array<N>>!, object: AnyObject?) {
+		field = Mapper().mapArrayOfArrays(object)
+	}
+	
 	/// Dctionary containing Mappable objects
-	func objectDictionary<N: Mappable>(inout field: Dictionary<String, N>, object: AnyObject?) {
+	class func objectDictionary<N: Mappable>(inout field: Dictionary<String, N>, object: AnyObject?) {
 		let parsedObjects = Mapper<N>().mapDictionary(object)
 
 		if let objects = parsedObjects {
@@ -89,12 +90,52 @@ class FromJSON {
 	}
 
 	/// Optional dictionary containing Mappable objects
-	func optionalObjectDictionary<N: Mappable>(inout field: Dictionary<String, N>?, object: AnyObject?) {
+	class func optionalObjectDictionary<N: Mappable>(inout field: Dictionary<String, N>?, object: AnyObject?) {
 		field = Mapper().mapDictionary(object)
 	}
 
 	/// Implicitly unwrapped Dictionary containing Mappable objects
-	func optionalObjectDictionary<N: Mappable>(inout field: Dictionary<String, N>!, object: AnyObject?) {
+	class func optionalObjectDictionary<N: Mappable>(inout field: Dictionary<String, N>!, object: AnyObject?) {
 		field = Mapper().mapDictionary(object)
 	}
+	
+	/// Dictionary containing Array of Mappable objects
+	class func objectDictionaryOfArrays<N: Mappable>(inout field: Dictionary<String, [N]>, object: AnyObject?) {
+		let parsedObjects = Mapper<N>().mapDictionaryOfArrays(object)
+		
+		if let objects = parsedObjects {
+			field = objects
+		}
+	}
+	
+	/// Optional Dictionary containing Array of Mappable objects
+	class func optionalObjectDictionaryOfArrays<N: Mappable>(inout field: Dictionary<String, [N]>?, object: AnyObject?) {
+		field = Mapper<N>().mapDictionaryOfArrays(object)
+	}
+	
+	/// Implicitly unwrapped Dictionary containing Array of Mappable objects
+	class func optionalObjectDictionaryOfArrays<N: Mappable>(inout field: Dictionary<String, [N]>!, object: AnyObject?) {
+		field = Mapper<N>().mapDictionaryOfArrays(object)
+	}
+
+	
+	/// mappable object Set
+	class func objectSet<N: Mappable>(inout field: Set<N>, object: AnyObject?) {
+		let parsedObjects = Mapper<N>().mapSet(object)
+		
+		if let objects = parsedObjects {
+			field = objects
+		}
+	}
+	
+	/// optional mappable object array
+	class func optionalObjectSet<N: Mappable>(inout field: Set<N>?, object: AnyObject?) {
+		field = Mapper().mapSet(object)
+	}
+	
+	/// Implicitly unwrapped optional mappable object array
+	class func optionalObjectSet<N: Mappable>(inout field: Set<N>!, object: AnyObject?) {
+		field = Mapper().mapSet(object)
+	}
+	
 }

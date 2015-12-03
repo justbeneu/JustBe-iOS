@@ -29,7 +29,7 @@ class SettingsViewController: UIViewController, UITableViewDataSource, UITableVi
         
         self.title = "Settings"
 
-        var closeButton : UIBarButtonItem = UIBarButtonItem(image: UIImage(named: "back"), style: .Plain, target: self, action: "close")
+        let closeButton : UIBarButtonItem = UIBarButtonItem(image: UIImage(named: "back"), style: .Plain, target: self, action: "close")
         self.navigationItem.leftBarButtonItem = closeButton
     }
     
@@ -52,7 +52,7 @@ class SettingsViewController: UIViewController, UITableViewDataSource, UITableVi
     
     func sendEmail()
     {
-        var composeViewController = MFMailComposeViewController()
+        let composeViewController = MFMailComposeViewController()
         composeViewController.mailComposeDelegate = self
         composeViewController.setToRecipients([CONTACT_EMAIL])
         self.navigationController!.presentViewController(composeViewController, animated: true, completion: nil)
@@ -61,15 +61,20 @@ class SettingsViewController: UIViewController, UITableViewDataSource, UITableVi
     func logOut()
     {
         self.showLoader()
-        
-        ServerRequest.sharedInstance.logOut({ () -> () in
+        print("outer logout")
+        ServerRequest.sharedInstance.logOut(nil, success: { () -> Void in
+            print("inner logout")
             self.hideLoader()
-        }, success: { () -> Void in
             let loginViewController = LoginViewController(nibName: "LoginViewController", bundle: nil)
             self.navigationController?.setViewControllers([loginViewController], animated: true);
-        }) { (error, message) -> () in
+        }, failure: {
+            () -> () in
+            print("error message in logout")
+            self.hideLoader()
             self.showErrorAlert()
-        }
+        })
+        self.hideLoader()
+        advanceToSignUp()
     }
     
     // MARK: UITableView Delegate
@@ -162,8 +167,14 @@ class SettingsViewController: UIViewController, UITableViewDataSource, UITableVi
     
     // MARK: MFMailComposeViewController Delegate
     
-    func mailComposeController(controller: MFMailComposeViewController!, didFinishWithResult result: MFMailComposeResult, error: NSError!)
+    func mailComposeController(controller: MFMailComposeViewController, didFinishWithResult result: MFMailComposeResult, error: NSError?)
     {
         dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    func advanceToSignUp()
+    {
+        let signupViewController = SignupViewController(nibName:"SignupViewController", bundle:nil);
+        self.navigationController?.pushViewController(signupViewController, animated: true)
     }
 }

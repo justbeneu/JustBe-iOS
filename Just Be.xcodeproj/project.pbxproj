@@ -25,8 +25,6 @@
 		16385F551AE6AA1C0032CDE5 /* SettingsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16385F531AE6AA1C0032CDE5 /* SettingsCell.swift */; };
 		16385F561AE6AA1C0032CDE5 /* SettingsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 16385F541AE6AA1C0032CDE5 /* SettingsCell.xib */; };
 		16385F581AE6B9DF0032CDE5 /* UIViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16385F571AE6B9DF0032CDE5 /* UIViewControllerExtension.swift */; };
-		16385F5A1AE6BB610032CDE5 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 16385F591AE6BB610032CDE5 /* MessageUI.framework */; };
-		1645AD601A914E26001A4F2E /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1645AD5F1A914E26001A4F2E /* Alamofire.framework */; };
 		164D3F2A1ABB67CD00253910 /* Exercises.plist in Resources */ = {isa = PBXBuildFile; fileRef = 164D3F291ABB67CD00253910 /* Exercises.plist */; };
 		164D3F2C1ABB67D800253910 /* Meditations.plist in Resources */ = {isa = PBXBuildFile; fileRef = 164D3F2B1ABB67D800253910 /* Meditations.plist */; };
 		164D3F2E1ABC813600253910 /* ExerciseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 164D3F2D1ABC813600253910 /* ExerciseManager.swift */; };
@@ -36,12 +34,9 @@
 		16781F691AEAFA1B0056FF30 /* Exercise2View.xib in Resources */ = {isa = PBXBuildFile; fileRef = 16781F681AEAFA1B0056FF30 /* Exercise2View.xib */; };
 		16781F6B1AEAFA270056FF30 /* Exercise3View.xib in Resources */ = {isa = PBXBuildFile; fileRef = 16781F6A1AEAFA270056FF30 /* Exercise3View.xib */; };
 		16781F6D1AED6CAE0056FF30 /* Assessment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16781F6C1AED6CAE0056FF30 /* Assessment.swift */; };
-		167E6B9B1AF2B0B90006D45A /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 167E6B991AF2B0B90006D45A /* Fabric.framework */; };
-		167E6B9C1AF2B0B90006D45A /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 167E6B9A1AF2B0B90006D45A /* Crashlytics.framework */; };
 		167E6B9E1AF5677A0006D45A /* NotificationTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = 167E6B9D1AF5677A0006D45A /* NotificationTime.swift */; };
 		1682D1EF1ABCA47900D8ED02 /* AudioPlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1682D1EE1ABCA47900D8ED02 /* AudioPlayerView.swift */; };
 		1682D1F21ABCBE0600D8ED02 /* funkjam.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 1682D1F11ABCBE0600D8ED02 /* funkjam.mp3 */; };
-		1682D1F41ABCC04000D8ED02 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1682D1F31ABCC04000D8ED02 /* AVFoundation.framework */; };
 		1682D1F61ABCD41100D8ED02 /* UIViewControllerPopupExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1682D1F51ABCD41100D8ED02 /* UIViewControllerPopupExtension.swift */; };
 		1682D1F91ABCDF3D00D8ED02 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1682D1F71ABCDF3D00D8ED02 /* MenuViewController.swift */; };
 		1682D1FA1ABCDF3D00D8ED02 /* MenuViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1682D1F81ABCDF3D00D8ED02 /* MenuViewController.xib */; };
@@ -52,7 +47,12 @@
 		16AE94CD1A8E9C9D00FBD6C8 /* SignupViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 16AE94CB1A8E9C9D00FBD6C8 /* SignupViewController.xib */; };
 		16AFFDFF1A915043002C58D8 /* ServerRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16AFFDFE1A915043002C58D8 /* ServerRequest.swift */; };
 		16AFFE031A9161E5002C58D8 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16AFFE021A9161E5002C58D8 /* User.swift */; };
-		16AFFE051A916481002C58D8 /* ObjectMapper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 16AFFE041A916481002C58D8 /* ObjectMapper.framework */; };
+		16B406BE1C0DF87C0017152F /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 16B406BA1C0DF87C0017152F /* Alamofire.framework */; };
+		16B406BF1C0DF87C0017152F /* ObjectMapper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 16B406BB1C0DF87C0017152F /* ObjectMapper.framework */; };
+		16B406C01C0DF87C0017152F /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 16B406BC1C0DF87C0017152F /* Pods.framework */; };
+		16B406C11C0DF87C0017152F /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 16B406BD1C0DF87C0017152F /* SwiftyJSON.framework */; };
+		16B406C21C0DF8B60017152F /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 167E6B9A1AF2B0B90006D45A /* Crashlytics.framework */; };
+		16B406C31C0DF8B60017152F /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 167E6B991AF2B0B90006D45A /* Fabric.framework */; };
 		16B916B91AD47A5100669776 /* MeditationProgressView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 16B916B81AD47A5100669776 /* MeditationProgressView.xib */; };
 		16B916BB1AD47E2700669776 /* MeditationProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16B916BA1AD47E2700669776 /* MeditationProgressView.swift */; };
 		16BCEFC31ACC7C6500994258 /* meditation_3.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 16BCEFC01ACC7C6500994258 /* meditation_3.mp3 */; };
@@ -81,7 +81,6 @@
 		9BA23E081A8D21580037D161 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BA23E071A8D21580037D161 /* LoginViewController.swift */; };
 		9BA23E0D1A8D21580037D161 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9BA23E0C1A8D21580037D161 /* Images.xcassets */; };
 		9BA23E101A8D21580037D161 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9BA23E0E1A8D21580037D161 /* LaunchScreen.xib */; };
-		AB62D4D1C4A9399FF3859B20 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9ECCE9674E656F79BBAB952D /* Pods.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -132,6 +131,10 @@
 		16AFFDFE1A915043002C58D8 /* ServerRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServerRequest.swift; sourceTree = "<group>"; };
 		16AFFE021A9161E5002C58D8 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		16AFFE041A916481002C58D8 /* ObjectMapper.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ObjectMapper.framework; path = "Pods/build/Debug-iphoneos/Pods/ObjectMapper.framework"; sourceTree = "<group>"; };
+		16B406BA1C0DF87C0017152F /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = "Pods/../build/Debug-iphoneos/Alamofire.framework"; sourceTree = "<group>"; };
+		16B406BB1C0DF87C0017152F /* ObjectMapper.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ObjectMapper.framework; path = "Pods/../build/Debug-iphoneos/ObjectMapper.framework"; sourceTree = "<group>"; };
+		16B406BC1C0DF87C0017152F /* Pods.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Pods.framework; path = "Pods/../build/Debug-iphoneos/Pods.framework"; sourceTree = "<group>"; };
+		16B406BD1C0DF87C0017152F /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = "Pods/../build/Debug-iphoneos/SwiftyJSON.framework"; sourceTree = "<group>"; };
 		16B916B81AD47A5100669776 /* MeditationProgressView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MeditationProgressView.xib; sourceTree = "<group>"; };
 		16B916BA1AD47E2700669776 /* MeditationProgressView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeditationProgressView.swift; sourceTree = "<group>"; };
 		16BCEFC01ACC7C6500994258 /* meditation_3.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = meditation_3.mp3; sourceTree = "<group>"; };
@@ -173,13 +176,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				16385F5A1AE6BB610032CDE5 /* MessageUI.framework in Frameworks */,
-				1682D1F41ABCC04000D8ED02 /* AVFoundation.framework in Frameworks */,
-				16AFFE051A916481002C58D8 /* ObjectMapper.framework in Frameworks */,
-				1645AD601A914E26001A4F2E /* Alamofire.framework in Frameworks */,
-				AB62D4D1C4A9399FF3859B20 /* Pods.framework in Frameworks */,
-				167E6B9B1AF2B0B90006D45A /* Fabric.framework in Frameworks */,
-				167E6B9C1AF2B0B90006D45A /* Crashlytics.framework in Frameworks */,
+				16B406C21C0DF8B60017152F /* Crashlytics.framework in Frameworks */,
+				16B406C31C0DF8B60017152F /* Fabric.framework in Frameworks */,
+				16B406BE1C0DF87C0017152F /* Alamofire.framework in Frameworks */,
+				16B406BF1C0DF87C0017152F /* ObjectMapper.framework in Frameworks */,
+				16B406C01C0DF87C0017152F /* Pods.framework in Frameworks */,
+				16B406C11C0DF87C0017152F /* SwiftyJSON.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -340,6 +342,10 @@
 		8CCE55D9E8F57D16A8510D3C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				16B406BA1C0DF87C0017152F /* Alamofire.framework */,
+				16B406BB1C0DF87C0017152F /* ObjectMapper.framework */,
+				16B406BC1C0DF87C0017152F /* Pods.framework */,
+				16B406BD1C0DF87C0017152F /* SwiftyJSON.framework */,
 				167E6B991AF2B0B90006D45A /* Fabric.framework */,
 				167E6B9A1AF2B0B90006D45A /* Crashlytics.framework */,
 				16385F591AE6BB610032CDE5 /* MessageUI.framework */,
@@ -439,8 +445,9 @@
 		9BA23DF81A8D21580037D161 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0710;
-				LastUpgradeCheck = 0610;
+				LastSwiftMigration = 0700;
+				LastSwiftUpdateCheck = 0700;
+				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = "Group 2";
 				TargetAttributes = {
 					9BA23DFF1A8D21580037D161 = {
@@ -649,6 +656,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Mariya Shiyko (8EVUJ287TQ)";
 				COPY_PHASE_STRIP = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -714,18 +722,23 @@
 			baseConfigurationReference = BFB40FC6530933C51BC1738B /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Mariya Shiyko (8EVUJ287TQ)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Mariya Shiyko (8EVUJ287TQ)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/Pods/build/Debug-iphoneos/Pods",
+					"$(PROJECT_DIR)/build/Debug-iphoneos",
 				);
 				"FRAMEWORK_SEARCH_PATHS[arch=*]" = "$(inherited)";
 				INFOPLIST_FILE = "Repressor Destressor/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_SWIFT_FLAGS = "$(inherited) -D DEBUG \"-D\" \"COCOAPODS\"";
+				PRODUCT_BUNDLE_IDENTIFIER = "edu.neu.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "Just Be";
-				PROVISIONING_PROFILE = "d1f823bc-120b-4907-bbd6-38ec86455476";
+				PROVISIONING_PROFILE = "cd820910-4ab8-4df9-8cfb-c989c613eb3c";
 				SWIFT_OBJC_BRIDGING_HEADER = "Repressor Destressor/RD-Bridging-Header.h";
 			};
 			name = Debug;
@@ -735,16 +748,21 @@
 			baseConfigurationReference = 57306B6E5E7C383F3F588F6D /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Mariya Shiyko (8EVUJ287TQ)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Mariya Shiyko (8EVUJ287TQ)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/Pods/build/Debug-iphoneos/Pods",
+					"$(PROJECT_DIR)/build/Debug-iphoneos",
 				);
 				INFOPLIST_FILE = "Repressor Destressor/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "edu.neu.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "Just Be";
-				PROVISIONING_PROFILE = "d1f823bc-120b-4907-bbd6-38ec86455476";
+				PROVISIONING_PROFILE = "cd820910-4ab8-4df9-8cfb-c989c613eb3c";
 				SWIFT_OBJC_BRIDGING_HEADER = "Repressor Destressor/RD-Bridging-Header.h";
 			};
 			name = Release;

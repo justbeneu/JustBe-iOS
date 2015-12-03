@@ -29,8 +29,7 @@ class ExerciseViewController: UIViewController {
         super.init(nibName: "ExerciseViewController", bundle: nil)
     }
     
-    required init(coder aDecoder: NSCoder)
-    {
+    required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
@@ -40,7 +39,7 @@ class ExerciseViewController: UIViewController {
         
         self.title = "Exercise"
         
-        var closeButton : UIBarButtonItem = UIBarButtonItem(image: UIImage(named: "close"), style: .Plain, target: self, action: "close")
+        let closeButton : UIBarButtonItem = UIBarButtonItem(image: UIImage(named: "close"), style: .Plain, target: self, action: "close")
         self.navigationItem.leftBarButtonItem = closeButton
         
         self.completeButton.backgroundColor = UIColor.buttonGreen()
@@ -86,13 +85,14 @@ class ExerciseViewController: UIViewController {
         self.showLoader()
         
         ServerRequest.sharedInstance.completeExercise(self.exercise.id!, always: { () -> () in
-            self.hideLoader()
+           
         }, success: { () -> Void in
-            
+            self.hideLoader()
             PebbleHelper.instance.pushNewExerciseMessage(self.exercise.pebbleMessage!)
             self.close()
             
         }) { (error, message) -> () in
+            self.hideLoader()
             self.showErrorAlert()
         }
     }

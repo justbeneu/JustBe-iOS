@@ -19,10 +19,10 @@ public class DateTimeTransform: TransformType
     {
         if let date = value as? String
         {
-            var dateFormatter = NSDateFormatter()
+            let dateFormatter = NSDateFormatter()
             dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSSSS"
             
-            var newDate = dateFormatter.dateFromString(date)
+            let newDate = dateFormatter.dateFromString(date)
             return newDate
         }
         
@@ -33,7 +33,7 @@ public class DateTimeTransform: TransformType
     {
         if let date = value
         {
-            var formatter: NSDateFormatter = NSDateFormatter()
+            let formatter: NSDateFormatter = NSDateFormatter()
             formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSSSS"
             return formatter.stringFromDate(date)
         }

@@ -34,13 +34,15 @@ class ExerciseManager: NSObject
     
     func refreshActivity(completion: RefreshActivityBlock)
     {
+        print("trying to refresh from exercise Manager script")
         ServerRequest.sharedInstance.exerciseSessions(nil, success: { (exerciseSessions) -> Void in
-            
+            print("sharedInstance 1")
             ServerRequest.sharedInstance.meditationSessions(nil, success: { (meditationSessions) -> Void in
-                
+                print("sharedInstance 2")
                 UserDefaultsManager.sharedInstance.setMeditationSessions(meditationSessions)
                 UserDefaultsManager.sharedInstance.setExerciseSessions(exerciseSessions)
-                
+                print("sharedInstance 3")
+                // WE need a way to stop loader
                 completion(success: true)
                 
             }) { (error) -> () in
@@ -56,15 +58,18 @@ class ExerciseManager: NSObject
 
     func currentExercise() -> Exercise?
     {
+        print("we're in current exercise inside ExerciseManager")
         let daysSinceStart = self.daysSinceStart()
         let exerciseIndex = Int(Float(daysSinceStart) / Float(EXERCISE_LENGTH_IN_DAYS))
         
         if (daysSinceStart < 0 || exerciseIndex >= self.exercises().count)
         {
+            print("Plan has not yet started or has ended")
             return nil // Plan has not yet started or has ended
         }
         else
         {
+            print("exerciseINDEX")
             return self.exercises()[exerciseIndex]
         }
     }
@@ -76,9 +81,10 @@ class ExerciseManager: NSObject
         
         var exercises = Mapper<Exercise>().mapArray(dictionary.objectForKey("Exercises") as! [[String : AnyObject]])
         
-        exercises.sort({ $0.id < $1.id })
+        //exercises.sortInPlace({ $0.id < $1.id })
+        exercises!.sortInPlace({$0.id < $1.id })
         
-        return exercises
+        return exercises!
     }
     
     func exerciseSessions() -> [ExerciseSession]
@@ -94,10 +100,11 @@ class ExerciseManager: NSObject
         let dictionary = NSDictionary(contentsOfFile: path!)!
         
         var meditations = Mapper<Meditation>().mapArray(dictionary.objectForKey("Meditations") as! [[String : AnyObject]])
+        print("MeditationDICT", meditations)
+        //meditations.sortInPlace({ $0.id < $1.id })
+        meditations!.sortInPlace({ $0.id < $1.id })
         
-        meditations.sort({ $0.id < $1.id })
-        
-        return meditations
+        return meditations!
     }
     
     func meditationSessions() -> [MeditationSession]
@@ -127,7 +134,7 @@ class ExerciseManager: NSObject
     
     func daysSinceStart() -> Int
     {
-        return NSCalendar.currentCalendar().components(NSCalendarUnit.CalendarUnitDay, fromDate: startDate(), toDate: NSDate(), options: nil).day
+        return NSCalendar.currentCalendar().components(NSCalendarUnit.Day, fromDate: startDate(), toDate: NSDate(), options: []).day
     }
     
     func startDate() -> NSDate
@@ -136,9 +143,9 @@ class ExerciseManager: NSObject
         let calendar = NSCalendar(calendarIdentifier: NSCalendarIdentifierGregorian)!
         
         let exerciseWeekday = user.exerciseDayOfWeek!.weekday
-        let exerciseHour = calendar.components(.CalendarUnitHour, fromDate: user.exerciseTime!).hour
+        let exerciseHour = calendar.components(.Hour, fromDate: user.exerciseTime!).hour
         
-        let components:NSDateComponents = calendar.components(.CalendarUnitYear | .CalendarUnitWeekOfYear | .CalendarUnitWeekday | .CalendarUnitHour | .CalendarUnitMinute | .CalendarUnitSecond, fromDate: user.createdAt!)
+        let components:NSDateComponents = calendar.components([.Year, .WeekOfYear, .Weekday, .Hour, .Minute, .Second], fromDate: user.createdAt!)
         
         if (components.weekday > exerciseWeekday)
         {
@@ -157,6 +164,6 @@ class ExerciseManager: NSObject
     
     func startDateForExercise(exercise: Exercise) -> NSDate
     {
-        return self.startDate().getDateAfterDays(find(self.exercises(), exercise)! * EXERCISE_LENGTH_IN_DAYS)
+        return self.startDate().getDateAfterDays(self.exercises().indexOf(exercise)! * EXERCISE_LENGTH_IN_DAYS)
     }
 }

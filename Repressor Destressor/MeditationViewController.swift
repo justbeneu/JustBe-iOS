@@ -29,8 +29,7 @@ class MeditationViewController: UIViewController, AudioPlayerViewDelegate, MenuV
         super.init(nibName: "MeditationViewController", bundle: nil)
     }
     
-    required init(coder aDecoder: NSCoder)
-    {
+    required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
@@ -60,13 +59,15 @@ class MeditationViewController: UIViewController, AudioPlayerViewDelegate, MenuV
     
     override func viewWillAppear(animated: Bool)
     {
+        print("View will appear")
         super.viewWillAppear(animated)
-        
+        print("View appeared")
         self.refreshExerciseActivity()
     }
     
     func applicationDidBecomeActive()
     {
+        print("application became active")
         self.refreshExerciseActivity()
         self.getPendingAssessment()
     }
@@ -89,7 +90,7 @@ class MeditationViewController: UIViewController, AudioPlayerViewDelegate, MenuV
     {
         ServerRequest.sharedInstance.pendingAssessment(nil, success: { (assessment) -> Void in
             
-            if (self.navigationController!.visibleViewController.isEqual(self))
+            if (self.navigationController!.visibleViewController!.isEqual(self))
             {
                 let navigationController = AssessmentNavigationController(assessment: assessment)
                 self.navigationController!.presentViewController(navigationController, animated: true, completion: nil)
@@ -103,19 +104,23 @@ class MeditationViewController: UIViewController, AudioPlayerViewDelegate, MenuV
         if (self.exercise == nil)
         {
             self.showLoader()
+            print("exercise is nil")
         }
         
         ExerciseManager.sharedInstance.refreshActivity { (success) -> () in
             
             self.hideLoader()
-
+            print ("hiding")
             if (success)
             {
                 self.exercise = ExerciseManager.sharedInstance.currentExercise()
+                print("exerciseManager succeeded")
             }
             else
             {
+                self.hideLoader()
                 self.showErrorAlert()
+                print("exerciseManager failed")
             }
         }
     }
@@ -134,11 +139,15 @@ class MeditationViewController: UIViewController, AudioPlayerViewDelegate, MenuV
         {
             if (ExerciseManager.sharedInstance.daysSinceStart() < 0)
             {
-                UIAlertView(title: "Welcome to Just Be!", message: "Your exercises have not yet started. You will receive a push notification on your start date.", delegate: nil, cancelButtonTitle: "OK").show()
+                let alert = UIAlertController(title: "Welcome to Just Be!", message: "Your exercises have not yet started. You will receive a push notification on your start date.", preferredStyle:UIAlertControllerStyle.Alert)
+                alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Cancel, handler: { (ACTION : UIAlertAction!) in print("User exits alert")}));
+                self.presentViewController(alert, animated: true, completion: nil)
             }
             else
             {
-                UIAlertView(title: "Thanks!", message: "Your exercises have ended. We hope you enjoyed Just Be!", delegate: nil, cancelButtonTitle: "OK").show()
+                let notice = UIAlertController(title: "Thanks!", message: "Your exercises have ended. We hope you enjoyed Just Be!", preferredStyle: UIAlertControllerStyle.Alert)
+                notice.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Cancel, handler: { (ACTION : UIAlertAction!) in print("User exits alert")}))
+                self.presentViewController(notice, animated: true, completion: nil)
             }
         }
     }
@@ -150,8 +159,10 @@ class MeditationViewController: UIViewController, AudioPlayerViewDelegate, MenuV
 
     func populateMeditationAudio()
     {
+        print("in populate meditation audio")
         if let exercise = self.exercise
         {
+            print("inside if statement of populate meditation audio")
             let splitFilename = exercise.meditation?.audioFilename?.componentsSeparatedByString(".")
             self.audioPlayerView.audioFileUrl = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource(splitFilename?[0], ofType: splitFilename?[1])!)
         }
@@ -194,12 +205,12 @@ class MeditationViewController: UIViewController, AudioPlayerViewDelegate, MenuV
 
     func audioPlayerViewDidPause(audioPlayerView: AudioPlayerView)
     {
-
+        print("audiopausedelegate in meditation viewcont")
     }
     
     func audioPlayerViewDidPlay(audioPlayerView: AudioPlayerView)
     {
-
+        print("audioplaydelegate in meditation viewcont")
     }
     
     // MARK: MenuViewControllerDelegate
@@ -214,7 +225,7 @@ class MeditationViewController: UIViewController, AudioPlayerViewDelegate, MenuV
     
     @IBAction func showMenu()
     {
-        var menuViewController = MenuViewController(nibName: "MenuViewController", bundle: nil)
+        let menuViewController = MenuViewController(nibName: "MenuViewController", bundle: nil)
         menuViewController.delegate = self
         self.presentPopupViewController(menuViewController, popupDismissalBlock: nil)
     }

@@ -9,6 +9,7 @@
 import Foundation
 import Alamofire
 import ObjectMapper
+import SwiftyJSON
 
 typealias SuccessBlock = (response: [String: AnyObject]?) -> ()
 typealias FailureBlock = (error: NSError, message: String?)-> ()
@@ -48,17 +49,17 @@ class ServerRequest
     
     func setSession()
     {
-        let cookies:[NSHTTPCookie] = NSHTTPCookieStorage.sharedHTTPCookieStorage().cookies as! [NSHTTPCookie]
+        let cookies:[NSHTTPCookie] = NSHTTPCookieStorage.sharedHTTPCookieStorage().cookies! as [NSHTTPCookie]
         UserDefaultsManager.sharedInstance.setSessionCookies(cookies)
     }
     
     func JSONStringify(value: AnyObject, prettyPrinted: Bool = false) -> String
     {
-        var options = prettyPrinted ? NSJSONWritingOptions.PrettyPrinted : nil
+        let options : NSJSONWritingOptions? = prettyPrinted ? NSJSONWritingOptions.PrettyPrinted : nil
         
         if NSJSONSerialization.isValidJSONObject(value)
         {
-            if let data = NSJSONSerialization.dataWithJSONObject(value, options: options, error: nil)
+            if let data = try? NSJSONSerialization.dataWithJSONObject(value, options: options!)
             {
                 if let string = NSString(data: data, encoding: NSUTF8StringEncoding)
                 {
@@ -73,54 +74,215 @@ class ServerRequest
     
     private func get(uri: String, always: AlwaysBlock?, success: SuccessBlock?, failure: FailureBlock?)
     {
-        self.request(.GET, url: URL + uri, params: nil, always: always, success: success, failure: failure)
+        let emptyDic = [String: String]() // Passing empty parameter dictionary
+        //        self.request(.GET, url: URL + uri, params: emptyDic, always : always, success : success, failure : failure)
+        
+        let url = URL + uri
+        print("THIS IS A GET REQUEST TO " + url + " with params " + emptyDic.description);
+        
+        let request = Alamofire
+            .request(.GET, url)
+            .validate()
+            .responseJSON {
+                response in
+                let data = JSON(response.data!)
+                let subresponse = response.response
+                let result = response.result
+                let request = response.request
+                
+                if let JSON = result.value {
+                    print("JSON: \(JSON)")
+                }
+                
+                switch (result) {
+                    case .Success(let data):
+                        let objs = data as! [String : AnyObject]
+                        print("RECEIVED:\n" + result.description)
+                        
+                        if ((objs["meta"]) != nil) {
+                            let total = objs["meta"]!["total_count"] as! Int
+                        
+                            if (total == 0 && uri == "exercise_session/") {
+                                print("** GOT 0 RESULTS **")
+                            
+                            // We want to give back the first exercise_session or meditation_session
+                            } else {
+                                    success!(response: objs)
+                            }
+                         
+                            if (always != nil) {always!()}
+                        }
+                    
+
+                    case .Failure(let error):
+                        failure!(error: error, message: error.description)
+                        print("FAILED:\n" + error.description)
+                        // TODO: on failure STOP GOING
+                }
+        }
+        
+        debugPrint(request)
+    }
+    
+    func exercisePush(exerciseId: NSNumber, always: AlwaysBlock?, success: () -> Void, failure: FailureBlock?)
+    {
+        let params = ["exercise_id": exerciseId]
+        ServerRequest.sharedInstance.post("exercise_session/", params: params, always: always, success: {
+            (response) -> () in
+            print("we're pushing a starter exercise session")
+            //let exerciseSessions = Mapper<ExerciseSession>().mapArray(response!["objects"])
+            
+            success()
+            
+            //            }, failure: {
+            //                if (count <= realFail) {
+            //                    self.exerciseSessions(always, success : success, failure : failure)
+            //                    count = count + 1
+            //                }
+            //                failure()
+            //            })
+            }, failure: failure)
+
+        // TODO: Post {exercise_session:0}
+        
+        //        self.Push("exercise_session/", always: always, success: {
+        //            (response) -> () in
+        //            print("we're in the call to get exercise session data")
+        //            let exerciseSessions = Mapper<ExerciseSession>().mapArray(response!["objects"])
+        //            print("this is what we got: " + exerciseSessions!.description)
+        //
+        //            success(exerciseSessions!)
+        //
+        //            //            }, failure: {
+        //            //                if (count <= realFail) {
+        //            //                    self.exerciseSessions(always, success : success, failure : failure)
+        //            //                    count = count + 1
+        //            //                }
+        //            //                failure()
+        //            //            })
+        //            }, failure: failure)
+        
     }
     
     private func post(uri: String, params: [String: AnyObject], always: AlwaysBlock?, success: SuccessBlock?, failure: FailureBlock?)
     {
-        self.request(.POST, url: URL + uri, params: params, always: always, success: success, failure: failure)
+        self.request(.POST, url: URL + uri, params: params, always : always, success : success, failure : failure)
     }
 
     private func put(uri: String, params: [String: AnyObject], always: AlwaysBlock?, success: SuccessBlock?, failure: FailureBlock?)
     {
-        self.request(.PUT, url: URL + uri, params: params, always: always, success: success, failure: failure)
+        self.request(.PUT, url: URL + uri, params: params, always : always, success : success, failure : failure)
     }
     
     private func patch(uri: String, params: [String: AnyObject], always: AlwaysBlock?, success: SuccessBlock?, failure: FailureBlock?)
     {
-        self.request(.PATCH, url: URL + uri, params: params, always: always, success: success, failure: failure)
+        self.request(.PATCH, url: URL + uri, params: params, always : always, success : success, failure : failure)
     }
 
-    private func request(method: Alamofire.Method, url: String, params: [String: AnyObject]?, always: AlwaysBlock?, success: SuccessBlock?, failure: FailureBlock?)
+    private func request(method: Alamofire.Method, url: String, params: [String: AnyObject], always: AlwaysBlock?, success: SuccessBlock?, failure: FailureBlock?)
     {
-        Alamofire.request(method, url, parameters: params, encoding: .JSON).validate().responseJSON() {
-            (request, response, JSON, error) in
+        print("requesting " + " -- " + url + " params " + params.description);
+        
+//        if (method == .GET) {
+//            print("THIS IS A GET REQUEST TO " + url)// + " with params " + params.description);
+//            
+//            let request = Alamofire
+//                .request(method, url)
+//                .validate()
+//                .responseJSON {
+//                    response in
+//                    let data = JSON(response.data!)
+//                    let subresponse = response.response
+//                    let result = response.result
+//                    let request = response.request
+//                    
+//                    if let JSON = result.value {
+//                        print("JSON: \(JSON)")
+//                    }
+//                    
+//                    switch (result) {
+//                    case .Success(let data):
+//                        success!(response: data as! [String : AnyObject])
+//                        print("RECEIVED:\n" + result.description)
+//                    case .Failure(let error):
+//                        //let errorDictionary:[String: AnyObject]? = data["error"] as? [String: AnyObject]
+//                        //let errorMessage:String? = error.valueForKey("message") as! String
+//                        failure!(error: error, message: error.description)
+//                        print("FAILED:\n" + error.description)
+//                        // TODO: on failure STOP GOING
+//                    }
+//                    
+//                    //                //(request, response, data, error) in
+//                    //
+//                    //                let responseDictionary:[String: AnyObject]? = (data as? [String: AnyObject])
+//                    //
+//                    //                if (always != nil)
+//                    //                {
+//                    //                    always!()
+//                    //                }
+//                    //                if (failure != nil)
+//                    //                {
+//                    //                    let error = result.result.error!
+//                    //                    let errorDictionary = data["error"]
+//                    //                    let errorMessage = errorDictionary["message"].stringValue
+//                    //
+//                    //                    failure!(error: error, message: errorMessage)
+//                    //                }
+//                    
+//            }
+//            
+//            debugPrint(request)
+//        } else {
+        
             
-            let responseDictionary:[String: AnyObject]? = (JSON as? [String: AnyObject])
-            
-            if (always != nil)
-            {
-                always!()
-            }
-            
-            if (error == nil)
-            {
-                if (success != nil)
-                {
-                    success!(response: responseDictionary)
-                }
-            }
-            else
-            {
-                if (failure != nil)
-                {
-                    let errorDictionary:[String: AnyObject]? = responseDictionary?["error"] as? [String: AnyObject]
-                    let errorMessage:String? = errorDictionary?["message"] as? String
+            let request = Alamofire
+                .request(method, url, parameters: params, encoding: .JSON)
+                .validate()
+                .responseJSON {
+                    response in
+                    let data = JSON(response.data!)
+                    let subresponse = response.response
+                    let result = response.result
+                    let request = response.request
+                
+                    if let JSON = result.value {
+                        print("JSON: \(JSON)")
+                    }
                     
-                    failure!(error: error!, message: errorMessage)
-                }
+                    switch (result) {
+                        case .Success(let data):
+                            success!(response: data as! [String : AnyObject])
+                            print("RECEIVED:\n" + result.description)
+                        case .Failure(let error):
+                            /*let errorDictionary:[String: AnyObject]? = data["error"] as? [String: AnyObject]
+                            let errorMessage:String? = error.valueForKey("message") as! String
+*/
+                            failure!(error: error, message: (error as NSError).localizedDescription)
+                            print("FAILED:\n" + error.description)
+                        // TODO: on failure STOP GOING
+                    }
+                    
+                    //                //(request, response, data, error) in
+                    //            
+                    //                let responseDictionary:[String: AnyObject]? = (data as? [String: AnyObject])
+                    //
+                    //                if (always != nil)
+                    //                {
+                    //                    always!()
+                    //                }
+                    //                if (failure != nil)
+                    //                {
+                    //                    let error = result.result.error!
+                    //                    let errorDictionary = data["error"]
+                    //                    let errorMessage = errorDictionary["message"].stringValue
+                    //
+                    //                    failure!(error: error, message: errorMessage)
+                    //                }
             }
-        }
+            
+            debugPrint(request)
+            print("this is the last thing in Get")
+//        }
     }
     
     // MARK: User API
@@ -146,7 +308,7 @@ class ServerRequest
     {
         var userJSON = Mapper().toJSON(user)
         userJSON["raw_password"] = password
-        var params = userJSON
+        let params = userJSON
         
         ServerRequest.sharedInstance.post("create_user/", params: params, always: always, success: {
             (response) -> () in
@@ -185,23 +347,30 @@ class ServerRequest
             }, failure: failure)
     }
     
-    func logOut(always: AlwaysBlock?, success: () -> Void, failure: FailureBlock?)
+    func logOut(always: AlwaysBlock?, success: () -> Void, failure: () -> ())
     {
+        print("log out outer layer")
         ServerRequest.sharedInstance.get("user/logout/", always: always, success: {
             (response) -> () in
-            
+            print("successful log out")
             UserDefaultsManager.sharedInstance.clear()
             success()
             
-        }, failure: failure)
+            }, failure: {
+                (error) -> () in
+                print("we failed in logging out!!", error)
+            failure()
+            })
     }
     
     // MARK: Exercise API
     
-    func completeExercise(exerciseId: Int, always: AlwaysBlock?, success: () -> Void, failure: FailureBlock?)
+    func completeExercise(exerciseId: NSNumber, always: AlwaysBlock?, success: () -> Void, failure: FailureBlock?)
     {
+       // var params:[String: AnyObject] = [:]
+
         let params = ["exercise_id": exerciseId];
-        
+        //params["exercise_id"] = exerciseId;
         ServerRequest.sharedInstance.post("exercise_session/", params: params, always: always, success: {
             (response) -> () in
 
@@ -212,19 +381,55 @@ class ServerRequest
     
     func exerciseSessions(always: AlwaysBlock?, success: ([ExerciseSession]) -> Void, failure: FailureBlock?)
     {
+//        let realFail = 10
+//        let count= 0
+        print("inside exerciseSessions in side ExerciseManager")
         ServerRequest.sharedInstance.get("exercise_session/", always: always, success: {
             (response) -> () in
-            
+            print("we're in the call to get exercise session data")
             let exerciseSessions = Mapper<ExerciseSession>().mapArray(response!["objects"])
+            print("this is what we got: " + exerciseSessions!.description)
             
             success(exerciseSessions!)
             
-        }, failure: failure)
+//            }, failure: {
+//                if (count <= realFail) {
+//                    self.exerciseSessions(always, success : success, failure : failure)
+//                    count = count + 1
+//                }
+//                failure()
+//            })
+            }, failure: failure)
+
     }
+    
+    func exercisePush(always: AlwaysBlock?, success: ([ExerciseSession]) -> Void, failure: FailureBlock?)
+    {
+        // TODO: Post {exercise_session:0}
+        
+//        self.Push("exercise_session/", always: always, success: {
+//            (response) -> () in
+//            print("we're in the call to get exercise session data")
+//            let exerciseSessions = Mapper<ExerciseSession>().mapArray(response!["objects"])
+//            print("this is what we got: " + exerciseSessions!.description)
+//            
+//            success(exerciseSessions!)
+//            
+//            //            }, failure: {
+//            //                if (count <= realFail) {
+//            //                    self.exerciseSessions(always, success : success, failure : failure)
+//            //                    count = count + 1
+//            //                }
+//            //                failure()
+//            //            })
+//            }, failure: failure)
+        
+    }
+
     
     // MARK: Meditation API
     
-    func meditate(meditationId: Int, percentCompleted: Float, always: AlwaysBlock?, success: () -> Void, failure: FailureBlock?)
+    func meditate(meditationId: NSNumber, percentCompleted: NSNumber, always: AlwaysBlock?, success: () -> Void, failure: FailureBlock?)
     {
         var params:[String: AnyObject] = [:]
         params["meditation_id"] = meditationId
@@ -244,6 +449,7 @@ class ServerRequest
             (response) -> () in
             
             let meditationSessions = Mapper<MeditationSession>().mapArray(response!["objects"])
+            print("Meditation Session response: " + (response?.description)! + " objs " + (meditationSessions?.description)!)
             
             success(meditationSessions!)
             

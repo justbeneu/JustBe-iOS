@@ -35,18 +35,21 @@ class LoginViewController: UIViewController
 
     @IBAction func logIn(sender: UIButton)
     {
-        let username = self.usernameField.text.trim()
+        let username = self.usernameField.text?.trim()
         let password = self.passwordField.text
         
-        if (username != "" && password != "")
+        if (username != "" && password != "" && username != nil && password != nil)
         {
             self.showLoader()
             
-            ServerRequest.sharedInstance.logIn(username, password: password, always: { () -> () in
-                self.hideLoader()
+            ServerRequest.sharedInstance.logIn(username!, password: password!, always: { () -> () in
+                print("hiding in Login")
+              
             }, success: { (user) -> Void in
+                self.hideLoader()
                 self.advanceToMeditationPage()
             }, failure: { (error) -> () in
+                self.hideLoader()
                 self.showErrorAlert()
             })
         }

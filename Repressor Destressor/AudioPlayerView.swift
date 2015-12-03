@@ -24,7 +24,7 @@ class AudioPlayerView: UIView
     private var slider: UIView = UIView()
     private var button: UIButton = UIButton()
     
-    private var audioPlayer = AVAudioPlayer()
+    private var audioPlayer:AVAudioPlayer = AVAudioPlayer()
     private var timer: NSTimer? = nil
     
     // Public properties
@@ -64,6 +64,7 @@ class AudioPlayerView: UIView
 
     private func setup()
     {
+        print("setting up audioplayerview")
         self.backgroundColor = UIColor.lightYellow()
         
         self.slider.frame = CGRectMake(0, 0, 0, self.frame.size.height)
@@ -102,8 +103,10 @@ class AudioPlayerView: UIView
     
     func play()
     {
+        print("inside audio play")
         if (audioFileUrl != nil)
         {
+            print("audio file isn't nil")
             self.audioPlayer.play()
             self.timer = NSTimer.scheduledTimerWithTimeInterval(AUDIO_SLIDER_RATE, target: self, selector: "updateAudioPlayerView", userInfo: nil, repeats: true)
             self.button.setImage(UIImage(named: "pause"), forState: .Normal)
@@ -116,6 +119,7 @@ class AudioPlayerView: UIView
     {
         if (audioFileUrl != nil)
         {
+            print("Inside audio pause")
             self.audioPlayer.pause()
             self.timer = nil
             self.button.setImage(UIImage(named: "play"), forState: .Normal)

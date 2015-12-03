@@ -43,10 +43,13 @@ class LoginViewController: UIViewController
             self.showLoader()
             
             ServerRequest.sharedInstance.logIn(username!, password: password!, always: { () -> () in
-                self.hideLoader()
+                print("hiding in Login")
+              
             }, success: { (user) -> Void in
+                self.hideLoader()
                 self.advanceToMeditationPage()
             }, failure: { (error) -> () in
+                self.hideLoader()
                 self.showErrorAlert()
             })
         }

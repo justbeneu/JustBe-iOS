@@ -59,13 +59,15 @@ class MeditationViewController: UIViewController, AudioPlayerViewDelegate, MenuV
     
     override func viewWillAppear(animated: Bool)
     {
+        print("View will appear")
         super.viewWillAppear(animated)
-        
+        print("View appeared")
         self.refreshExerciseActivity()
     }
     
     func applicationDidBecomeActive()
     {
+        print("application became active")
         self.refreshExerciseActivity()
         self.getPendingAssessment()
     }
@@ -102,19 +104,22 @@ class MeditationViewController: UIViewController, AudioPlayerViewDelegate, MenuV
         if (self.exercise == nil)
         {
             self.showLoader()
+            print("exercise is nil")
         }
         
         ExerciseManager.sharedInstance.refreshActivity { (success) -> () in
             
             self.hideLoader()
-
+            print ("hiding")
             if (success)
             {
                 self.exercise = ExerciseManager.sharedInstance.currentExercise()
+                print("exerciseManager succeeded")
             }
             else
             {
                 self.showErrorAlert()
+                print("exerciseManager failed")
             }
         }
     }
@@ -153,8 +158,10 @@ class MeditationViewController: UIViewController, AudioPlayerViewDelegate, MenuV
 
     func populateMeditationAudio()
     {
+        print("in populate meditation audio")
         if let exercise = self.exercise
         {
+            print("inside if statement of populate meditation audio")
             let splitFilename = exercise.meditation?.audioFilename?.componentsSeparatedByString(".")
             self.audioPlayerView.audioFileUrl = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource(splitFilename?[0], ofType: splitFilename?[1])!)
         }
@@ -197,12 +204,12 @@ class MeditationViewController: UIViewController, AudioPlayerViewDelegate, MenuV
 
     func audioPlayerViewDidPause(audioPlayerView: AudioPlayerView)
     {
-
+        print("audiopausedelegate in meditation viewcont")
     }
     
     func audioPlayerViewDidPlay(audioPlayerView: AudioPlayerView)
     {
-
+        print("audioplaydelegate in meditation viewcont")
     }
     
     // MARK: MenuViewControllerDelegate

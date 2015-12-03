@@ -134,14 +134,20 @@ class AudioPlayerView: UIView
     
     func buttonWasTapped(sender: UIButton)
     {
+        self.isPlaying = !self.isPlaying
+        
         if (audioFileUrl != nil)
         {
-            if (!self.isPlaying)
+            print("button tapped outer")
+            if (self.isPlaying)
             {
+                print("button tapped to play")
                 self.play()
+            
             }
             else
             {
+                print("button tapped to pause")
                 self.pause()
             }
         }

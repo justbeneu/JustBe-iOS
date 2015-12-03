@@ -118,6 +118,7 @@ class MeditationViewController: UIViewController, AudioPlayerViewDelegate, MenuV
             }
             else
             {
+                self.hideLoader()
                 self.showErrorAlert()
                 print("exerciseManager failed")
             }

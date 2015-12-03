@@ -29,12 +29,14 @@ class AssessmentNavigationController: UINavigationController, AssessmentDelegate
             
             ServerRequest.sharedInstance.completeAssessment(responses,
                 always: { () -> () in
-                    self.hideLoader()
+                    
                 },
                 success: { () -> Void in
+                    self.hideLoader()
                     self.dismissViewControllerAnimated(true, completion: nil)
                 },
                 failure: { (error, message) -> () in
+                    self.hideLoader()
                     self.showErrorAlert()
             })
         }

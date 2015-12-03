@@ -73,6 +73,8 @@ class AudioPlayerView: UIView
         self.addSubview(self.slider)
         
         let tapGesture = UITapGestureRecognizer(target: self, action: "handleTouch:")
+        let doubleTapGesture = UITapGestureRecognizer(target: self, action: "handleTouch:")
+        doubleTapGesture.numberOfTapsRequired = 2
         let panGesture = UIPanGestureRecognizer(target: self, action: "handleTouch:")
         self.addGestureRecognizer(tapGesture)
         self.addGestureRecognizer(panGesture)
@@ -103,7 +105,7 @@ class AudioPlayerView: UIView
     
     func play()
     {
-        print("inside audio play")
+        print("Inside audio play")
         if (audioFileUrl != nil)
         {
             print("audio file isn't nil")
@@ -132,34 +134,37 @@ class AudioPlayerView: UIView
     
     func buttonWasTapped(sender: UIButton)
     {
-        self.isPlaying = !self.isPlaying
-        
-        if (self.isPlaying)
+        if (audioFileUrl != nil)
         {
-            self.play()
-        }
-        else
-        {
-            self.pause()
+            if (!self.isPlaying)
+            {
+                self.play()
+            }
+            else
+            {
+                self.pause()
+            }
         }
     }
     
     func handleTouch(sender: UITapGestureRecognizer)
     {
-        if (sender.state == .Began)
-        {
-            self.delegate?.audioPlayerViewDidPause(self);
+        if (self.isPlaying) {
+            if (sender.state == .Began)
+            {
+                self.delegate?.audioPlayerViewDidPause(self);
+            }
+            else if ((sender.state == .Ended || sender.state == .Cancelled) && self.isPlaying)
+            {
+                self.delegate?.audioPlayerViewDidPlay(self);
+            }
+           
+            let point = sender.locationInView(self)
+            self.slider.frame = CGRectMake(0, 0, point.x, self.frame.size.height)
+            
+            let percentage:Float = Float(point.x) / Float(self.frame.size.width)
+            
+            self.audioPlayer.currentTime = Double(Float(self.audioPlayer.duration) * percentage);
         }
-        else if ((sender.state == .Ended || sender.state == .Cancelled) && self.isPlaying)
-        {
-            self.delegate?.audioPlayerViewDidPlay(self);
-        }
-        
-        let point = sender.locationInView(self)
-        self.slider.frame = CGRectMake(0, 0, point.x, self.frame.size.height)
-        
-        let percentage:Float = Float(point.x) / Float(self.frame.size.width)
-        
-        self.audioPlayer.currentTime = Double(Float(self.audioPlayer.duration) * percentage);
     }
 }

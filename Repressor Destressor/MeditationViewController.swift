@@ -110,7 +110,7 @@ class MeditationViewController: UIViewController, AudioPlayerViewDelegate, MenuV
         ExerciseManager.sharedInstance.refreshActivity { (success) -> () in
             
             self.hideLoader()
-            print ("fucking hiding")
+            print ("hiding")
             if (success)
             {
                 self.exercise = ExerciseManager.sharedInstance.currentExercise()
@@ -158,8 +158,10 @@ class MeditationViewController: UIViewController, AudioPlayerViewDelegate, MenuV
 
     func populateMeditationAudio()
     {
+        print("in populate meditation audio")
         if let exercise = self.exercise
         {
+            print("inside if statement of populate meditation audio")
             let splitFilename = exercise.meditation?.audioFilename?.componentsSeparatedByString(".")
             self.audioPlayerView.audioFileUrl = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource(splitFilename?[0], ofType: splitFilename?[1])!)
         }
@@ -202,12 +204,12 @@ class MeditationViewController: UIViewController, AudioPlayerViewDelegate, MenuV
 
     func audioPlayerViewDidPause(audioPlayerView: AudioPlayerView)
     {
-
+        print("audiopausedelegate in meditation viewcont")
     }
     
     func audioPlayerViewDidPlay(audioPlayerView: AudioPlayerView)
     {
-
+        print("audioplaydelegate in meditation viewcont")
     }
     
     // MARK: MenuViewControllerDelegate

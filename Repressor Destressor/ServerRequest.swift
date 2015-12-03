@@ -124,7 +124,7 @@ class ServerRequest
         debugPrint(request)
     }
     
-    func exercisePush(exerciseId: String, always: AlwaysBlock?, success: () -> Void, failure: FailureBlock?)
+    func exercisePush(exerciseId: NSNumber, always: AlwaysBlock?, success: () -> Void, failure: FailureBlock?)
     {
         let params = ["exercise_id": exerciseId]
         ServerRequest.sharedInstance.post("exercise_session/", params: params, always: always, success: {
@@ -254,9 +254,10 @@ class ServerRequest
                             success!(response: data as! [String : AnyObject])
                             print("RECEIVED:\n" + result.description)
                         case .Failure(let error):
-                            //let errorDictionary:[String: AnyObject]? = data["error"] as? [String: AnyObject]
-                            //let errorMessage:String? = error.valueForKey("message") as! String
-                            failure!(error: error, message: error.description)
+                            /*let errorDictionary:[String: AnyObject]? = data["error"] as? [String: AnyObject]
+                            let errorMessage:String? = error.valueForKey("message") as! String
+*/
+                            failure!(error: error, message: (error as NSError).localizedDescription)
                             print("FAILED:\n" + error.description)
                         // TODO: on failure STOP GOING
                     }
@@ -280,6 +281,7 @@ class ServerRequest
             }
             
             debugPrint(request)
+            print("this is the last thing in Get")
 //        }
     }
     
@@ -345,23 +347,30 @@ class ServerRequest
             }, failure: failure)
     }
     
-    func logOut(always: AlwaysBlock?, success: () -> Void, failure: FailureBlock?)
+    func logOut(always: AlwaysBlock?, success: () -> Void, failure: () -> ())
     {
+        print("log out outer layer")
         ServerRequest.sharedInstance.get("user/logout/", always: always, success: {
             (response) -> () in
-            
+            print("successful log out")
             UserDefaultsManager.sharedInstance.clear()
             success()
             
-        }, failure: failure)
+            }, failure: {
+                (error) -> () in
+                print("we failed in logging out!!", error)
+            failure()
+            })
     }
     
     // MARK: Exercise API
     
-    func completeExercise(exerciseId: Int, always: AlwaysBlock?, success: () -> Void, failure: FailureBlock?)
+    func completeExercise(exerciseId: NSNumber, always: AlwaysBlock?, success: () -> Void, failure: FailureBlock?)
     {
+       // var params:[String: AnyObject] = [:]
+
         let params = ["exercise_id": exerciseId];
-        
+        //params["exercise_id"] = exerciseId;
         ServerRequest.sharedInstance.post("exercise_session/", params: params, always: always, success: {
             (response) -> () in
 
@@ -420,7 +429,7 @@ class ServerRequest
     
     // MARK: Meditation API
     
-    func meditate(meditationId: Int, percentCompleted: Float, always: AlwaysBlock?, success: () -> Void, failure: FailureBlock?)
+    func meditate(meditationId: NSNumber, percentCompleted: NSNumber, always: AlwaysBlock?, success: () -> Void, failure: FailureBlock?)
     {
         var params:[String: AnyObject] = [:]
         params["meditation_id"] = meditationId

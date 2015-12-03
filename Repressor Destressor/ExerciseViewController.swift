@@ -85,13 +85,14 @@ class ExerciseViewController: UIViewController {
         self.showLoader()
         
         ServerRequest.sharedInstance.completeExercise(self.exercise.id!, always: { () -> () in
-            self.hideLoader()
+           
         }, success: { () -> Void in
-            
+            self.hideLoader()
             PebbleHelper.instance.pushNewExerciseMessage(self.exercise.pebbleMessage!)
             self.close()
             
         }) { (error, message) -> () in
+            self.hideLoader()
             self.showErrorAlert()
         }
     }

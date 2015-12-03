@@ -100,7 +100,7 @@ class ExerciseManager: NSObject
         let dictionary = NSDictionary(contentsOfFile: path!)!
         
         var meditations = Mapper<Meditation>().mapArray(dictionary.objectForKey("Meditations") as! [[String : AnyObject]])
-        
+        print("MeditationDICT", meditations)
         //meditations.sortInPlace({ $0.id < $1.id })
         meditations!.sortInPlace({ $0.id < $1.id })
         

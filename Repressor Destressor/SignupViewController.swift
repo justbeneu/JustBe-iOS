@@ -36,6 +36,8 @@ class SignupViewController: UIViewController
     {
         super.viewDidLoad()
         
+        print("Hey we tried to open the signup view")
+        
         let datePicker = UIDatePicker()
         datePicker.datePickerMode = .Date
         datePicker.addTarget(self, action: "birthdayChanged", forControlEvents: .ValueChanged)
@@ -135,6 +137,7 @@ class SignupViewController: UIViewController
             self.advanceToExerciseSettings()
             self.hideLoader()
         }) { (error, message) -> () in
+            self.hideLoader()
             let alert = UIAlertController(title: "Error", message: message, preferredStyle: UIAlertControllerStyle.Alert)
             alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Cancel, handler: { (ACTION : UIAlertAction!) in print("User exits alert")}))
             self.presentViewController(alert, animated: true, completion: nil)

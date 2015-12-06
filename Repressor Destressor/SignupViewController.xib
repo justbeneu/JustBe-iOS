@@ -31,25 +31,25 @@
                         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="i5M-Pr-FkT">
                             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                             <subviews>
-                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Tad-fk-3YE">
+                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Tad-fk-3YE">
                                     <rect key="frame" x="16" y="220" width="568" height="30"/>
                                     <animations/>
                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                     <textInputTraits key="textInputTraits" keyboardType="alphabet"/>
                                 </textField>
-                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="axw-fw-ZPT">
+                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="axw-fw-ZPT">
                                     <rect key="frame" x="16" y="258" width="568" height="30"/>
                                     <animations/>
                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                     <textInputTraits key="textInputTraits" keyboardType="alphabet" secureTextEntry="YES"/>
                                 </textField>
-                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Confirm Password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="TrJ-FO-ENa">
+                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Confirm Password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="TrJ-FO-ENa">
                                     <rect key="frame" x="16" y="296" width="568" height="30"/>
                                     <animations/>
                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                     <textInputTraits key="textInputTraits" keyboardType="alphabet" secureTextEntry="YES"/>
                                 </textField>
-                                <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="P9i-rv-8Ld">
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="P9i-rv-8Ld">
                                     <rect key="frame" x="16" y="358" width="568" height="44"/>
                                     <animations/>
                                     <color key="backgroundColor" red="0.18880958019999999" green="1" blue="0.22477829020000001" alpha="1" colorSpace="calibratedRGB"/>
@@ -80,7 +80,7 @@
                                         <action selector="signUp:" destination="-1" eventType="touchUpInside" id="4RM-jI-4Ex"/>
                                     </connections>
                                 </button>
-                                <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ana-cA-h8M">
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ana-cA-h8M">
                                     <rect key="frame" x="260" y="418" width="80" height="30"/>
                                     <animations/>
                                     <constraints>
@@ -111,6 +111,7 @@
                                 <constraint firstItem="P9i-rv-8Ld" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="16" id="23D-IU-rxL"/>
                                 <constraint firstAttribute="width" constant="600" id="2QN-Pi-p0i"/>
                                 <constraint firstAttribute="trailing" secondItem="axw-fw-ZPT" secondAttribute="trailing" constant="16" id="6pU-mP-Tie"/>
+                                <constraint firstItem="Tad-fk-3YE" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="220" id="JwC-qf-pCQ"/>
                                 <constraint firstAttribute="height" constant="600" id="MnC-LT-1ho"/>
                                 <constraint firstItem="P9i-rv-8Ld" firstAttribute="top" secondItem="TrJ-FO-ENa" secondAttribute="bottom" constant="32" id="SrT-oz-Bsf"/>
                                 <constraint firstAttribute="trailing" secondItem="P9i-rv-8Ld" secondAttribute="trailing" constant="16" id="TK4-0y-C5F"/>

@@ -50,6 +50,10 @@ class MeditationViewController: UIViewController, AudioPlayerViewDelegate, MenuV
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "applicationDidBecomeActive", name:UIApplicationDidBecomeActiveNotification, object: nil)
 
         self.audioPlayerView.delegate = self
+        
+        if !Reachability.isConnectedToNetwork() {
+            self.showInternetAlert()
+        }
     }
     
     deinit

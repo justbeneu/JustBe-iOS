@@ -30,6 +30,10 @@ class ExerciseSettingsViewController: UIViewController
         
         self.dayLabel.textColor = UIColor.blackText()
         self.timeLabel.textColor = UIColor.blackText()
+        
+        if !Reachability.isConnectedToNetwork() {
+            self.showInternetAlert()
+        }
     }
     
     @IBAction func next(sender: AnyObject)

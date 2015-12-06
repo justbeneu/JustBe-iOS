@@ -38,6 +38,10 @@ class MeditationTimeViewController: UIViewController
         self.doneButton.setTitleColor(UIColor.whiteColor(), forState: UIControlState.Normal)
         
         self.timeLabel.textColor = UIColor.blackText()
+        
+        if !Reachability.isConnectedToNetwork() {
+            self.showInternetAlert()
+        }
     }
     
     @IBAction func done(sender: AnyObject)

@@ -100,20 +100,20 @@ class SettingsViewController: UIViewController, UITableViewDataSource, UITableVi
         switch indexPath.row
         {
         case 0:
-            cell.label.text = "First Name"
-            cell.value.text = self.user.firstName
+            //cell.label.text = "First Name"
+            //cell.value.text = self.user.firstName
             break
         case 1:
-            cell.label.text = "Last Name"
-            cell.value.text = self.user.lastName
+            //cell.label.text = "Last Name"
+            //cell.value.text = self.user.lastName
             break
         case 2:
             cell.label.text = "Username"
             cell.value.text = self.user.username
             break
         case 3:
-            cell.label.text = "Email"
-            cell.value.text = self.user.email
+            //cell.label.text = "Email"
+            //cell.value.text = self.user.email
             break
         case 4:
             cell.label.text = "Exercise Day"

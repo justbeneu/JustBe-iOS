@@ -31,6 +31,10 @@ class SettingsViewController: UIViewController, UITableViewDataSource, UITableVi
 
         let closeButton : UIBarButtonItem = UIBarButtonItem(image: UIImage(named: "back"), style: .Plain, target: self, action: "close")
         self.navigationItem.leftBarButtonItem = closeButton
+        
+        if !Reachability.isConnectedToNetwork() {
+            self.showInternetAlert()
+        }
     }
     
     override func viewWillAppear(animated: Bool)

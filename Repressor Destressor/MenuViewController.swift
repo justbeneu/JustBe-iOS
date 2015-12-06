@@ -31,6 +31,10 @@ class MenuViewController: UIViewController, UITableViewDataSource, UITableViewDe
         self.tableView.dataSource = self
         
         self.tableView.registerNib(UINib(nibName: CELL_NAME, bundle: nil), forCellReuseIdentifier: CELL_NAME)
+        
+        if !Reachability.isConnectedToNetwork() {
+            self.showInternetAlert()
+        }
     }
     
     // MARK: UITableView Delegate

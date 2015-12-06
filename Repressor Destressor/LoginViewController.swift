@@ -25,6 +25,10 @@ class LoginViewController: UIViewController
         self.loginButton.setTitleColor(UIColor.whiteColor(), forState: UIControlState.Normal)
         
         self.signupButton.setTitleColor(UIColor.buttonGreen(), forState: UIControlState.Normal)
+    
+        if !Reachability.isConnectedToNetwork() {
+            self.showInternetAlert()
+        }
     }
     
     override func viewWillAppear(animated: Bool)

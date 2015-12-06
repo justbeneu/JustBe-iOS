@@ -61,6 +61,15 @@
 		16CE6C151ABB55D200CF1220 /* UserDefaultsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16CE6C141ABB55D200CF1220 /* UserDefaultsManager.swift */; };
 		16D5DF641AC0B8D3004B34C6 /* Exercise.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16D5DF631AC0B8D3004B34C6 /* Exercise.swift */; };
 		16D5DF661AC0B927004B34C6 /* Meditation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16D5DF651AC0B927004B34C6 /* Meditation.swift */; };
+		301236631C023EEF00567AFF /* Just_BeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 301236621C023EEF00567AFF /* Just_BeTests.swift */; };
+		3012366D1C02486700567AFF /* userTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3012366C1C02486700567AFF /* userTest.swift */; };
+		301236731C0253B600567AFF /* DayTransform.swift in Sources */ = {isa = PBXBuildFile; fileRef = 162CDE5D1ADF141E0047086D /* DayTransform.swift */; };
+		301236741C0253B900567AFF /* DateTimeTransform.swift in Sources */ = {isa = PBXBuildFile; fileRef = 162CDE5F1ADF17210047086D /* DateTimeTransform.swift */; };
+		301236751C0253BC00567AFF /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16AFFE021A9161E5002C58D8 /* User.swift */; };
+		301236761C0253C200567AFF /* TimeTransform.swift in Sources */ = {isa = PBXBuildFile; fileRef = 162CDE611ADF1B120047086D /* TimeTransform.swift */; };
+		301236771C0253C400567AFF /* GenderTransform.swift in Sources */ = {isa = PBXBuildFile; fileRef = 162CDE631ADF2CAD0047086D /* GenderTransform.swift */; };
+		301236781C0253C700567AFF /* DayOfWeekTransform.swift in Sources */ = {isa = PBXBuildFile; fileRef = 162CDE651ADF2CBB0047086D /* DayOfWeekTransform.swift */; };
+		30703DFD1C14D24A00786A1A /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30703DFC1C14D24A00786A1A /* Reachability.swift */; };
 		552B7EC01ABCBC6F00E5A6C8 /* PebbleHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 552B7EBF1ABCBC6F00E5A6C8 /* PebbleHelper.swift */; };
 		558B1C981AB866AA00DD18AC /* ExerciseSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 558B1C971AB866AA00DD18AC /* ExerciseSettingsViewController.swift */; };
 		558B1C9C1AB866DE00DD18AC /* ExerciseSettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 558B1C9B1AB866DE00DD18AC /* ExerciseSettingsViewController.xib */; };
@@ -82,6 +91,16 @@
 		9BA23E0D1A8D21580037D161 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9BA23E0C1A8D21580037D161 /* Images.xcassets */; };
 		9BA23E101A8D21580037D161 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9BA23E0E1A8D21580037D161 /* LaunchScreen.xib */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		301236651C023EEF00567AFF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9BA23DF81A8D21580037D161 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 9BA23DFF1A8D21580037D161;
+			remoteInfo = "Just Be";
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		16066E2A1AAA0F2900729168 /* ExerciseSession.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExerciseSession.swift; sourceTree = "<group>"; };
@@ -143,6 +162,11 @@
 		16CE6C141ABB55D200CF1220 /* UserDefaultsManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDefaultsManager.swift; sourceTree = "<group>"; };
 		16D5DF631AC0B8D3004B34C6 /* Exercise.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Exercise.swift; sourceTree = "<group>"; };
 		16D5DF651AC0B927004B34C6 /* Meditation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Meditation.swift; sourceTree = "<group>"; };
+		301236601C023EEF00567AFF /* Just BeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Just BeTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		301236621C023EEF00567AFF /* Just_BeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Just_BeTests.swift; sourceTree = "<group>"; };
+		301236641C023EEF00567AFF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3012366C1C02486700567AFF /* userTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = userTest.swift; path = "Just BeTests/userTest.swift"; sourceTree = SOURCE_ROOT; };
+		30703DFC1C14D24A00786A1A /* Reachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
 		552B7EBE1ABCA80900E5A6C8 /* RD-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "RD-Bridging-Header.h"; sourceTree = "<group>"; };
 		552B7EBF1ABCBC6F00E5A6C8 /* PebbleHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PebbleHelper.swift; sourceTree = "<group>"; };
 		558B1C971AB866AA00DD18AC /* ExerciseSettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExerciseSettingsViewController.swift; sourceTree = "<group>"; };
@@ -172,6 +196,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		3012365D1C023EEF00567AFF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		9BA23DFD1A8D21580037D161 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -327,7 +358,8 @@
 				167E6B9D1AF5677A0006D45A /* NotificationTime.swift */,
 			);
 			name = Models;
-			sourceTree = "<group>";
+			path = "Repressor Destressor";
+			sourceTree = SOURCE_ROOT;
 		};
 		16CE6C131ABB55AC00CF1220 /* Managers */ = {
 			isa = PBXGroup;
@@ -337,6 +369,16 @@
 				552B7EBF1ABCBC6F00E5A6C8 /* PebbleHelper.swift */,
 			);
 			name = Managers;
+			sourceTree = "<group>";
+		};
+		301236611C023EEF00567AFF /* Just BeTests */ = {
+			isa = PBXGroup;
+			children = (
+				301236621C023EEF00567AFF /* Just_BeTests.swift */,
+				301236641C023EEF00567AFF /* Info.plist */,
+				3012366C1C02486700567AFF /* userTest.swift */,
+			);
+			path = "Just BeTests";
 			sourceTree = "<group>";
 		};
 		8CCE55D9E8F57D16A8510D3C /* Frameworks */ = {
@@ -362,6 +404,7 @@
 			isa = PBXGroup;
 			children = (
 				9BA23E021A8D21580037D161 /* Repressor Destressor */,
+				301236611C023EEF00567AFF /* Just BeTests */,
 				9BA23E011A8D21580037D161 /* Products */,
 				CD78DC18AD55D5F397A160CA /* Pods */,
 				8CCE55D9E8F57D16A8510D3C /* Frameworks */,
@@ -372,6 +415,7 @@
 			isa = PBXGroup;
 			children = (
 				9BA23E001A8D21580037D161 /* Just Be.app */,
+				301236601C023EEF00567AFF /* Just BeTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -390,6 +434,7 @@
 				16AFFE001A91504D002C58D8 /* Networking */,
 				552B7EBE1ABCA80900E5A6C8 /* RD-Bridging-Header.h */,
 				9BA23E051A8D21580037D161 /* AppDelegate.swift */,
+				30703DFC1C14D24A00786A1A /* Reachability.swift */,
 				9BA23E0C1A8D21580037D161 /* Images.xcassets */,
 				9BA23E0E1A8D21580037D161 /* LaunchScreen.xib */,
 				16AE94CE1A8E9D9400FBD6C8 /* ViewControllers */,
@@ -418,6 +463,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		3012365F1C023EEF00567AFF /* Just BeTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 301236671C023EEF00567AFF /* Build configuration list for PBXNativeTarget "Just BeTests" */;
+			buildPhases = (
+				3012365C1C023EEF00567AFF /* Sources */,
+				3012365D1C023EEF00567AFF /* Frameworks */,
+				3012365E1C023EEF00567AFF /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				301236661C023EEF00567AFF /* PBXTargetDependency */,
+			);
+			name = "Just BeTests";
+			productName = "Just BeTests";
+			productReference = 301236601C023EEF00567AFF /* Just BeTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		9BA23DFF1A8D21580037D161 /* Just Be */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 9BA23E1F1A8D21580037D161 /* Build configuration list for PBXNativeTarget "Just Be" */;
@@ -446,10 +509,14 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftMigration = 0700;
-				LastSwiftUpdateCheck = 0700;
+				LastSwiftUpdateCheck = 0710;
 				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = "Group 2";
 				TargetAttributes = {
+					3012365F1C023EEF00567AFF = {
+						CreatedOnToolsVersion = 7.1.1;
+						TestTargetID = 9BA23DFF1A8D21580037D161;
+					};
 					9BA23DFF1A8D21580037D161 = {
 						CreatedOnToolsVersion = 6.1.1;
 						DevelopmentTeam = 8EVUJ287TQ;
@@ -470,11 +537,19 @@
 			projectRoot = "";
 			targets = (
 				9BA23DFF1A8D21580037D161 /* Just Be */,
+				3012365F1C023EEF00567AFF /* Just BeTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		3012365E1C023EEF00567AFF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		9BA23DFE1A8D21580037D161 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -571,6 +646,21 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		3012365C1C023EEF00567AFF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				301236731C0253B600567AFF /* DayTransform.swift in Sources */,
+				3012366D1C02486700567AFF /* userTest.swift in Sources */,
+				301236631C023EEF00567AFF /* Just_BeTests.swift in Sources */,
+				301236751C0253BC00567AFF /* User.swift in Sources */,
+				301236741C0253B900567AFF /* DateTimeTransform.swift in Sources */,
+				301236761C0253C200567AFF /* TimeTransform.swift in Sources */,
+				301236781C0253C700567AFF /* DayOfWeekTransform.swift in Sources */,
+				301236771C0253C400567AFF /* GenderTransform.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		9BA23DFC1A8D21580037D161 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -593,6 +683,7 @@
 				1682D1F61ABCD41100D8ED02 /* UIViewControllerPopupExtension.swift in Sources */,
 				164D3F2E1ABC813600253910 /* ExerciseManager.swift in Sources */,
 				16385F551AE6AA1C0032CDE5 /* SettingsCell.swift in Sources */,
+				30703DFD1C14D24A00786A1A /* Reachability.swift in Sources */,
 				16AFFDFF1A915043002C58D8 /* ServerRequest.swift in Sources */,
 				16066E2F1AAA0F4B00729168 /* MeditationSession.swift in Sources */,
 				16B916BB1AD47E2700669776 /* MeditationProgressView.swift in Sources */,
@@ -623,6 +714,14 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		301236661C023EEF00567AFF /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 9BA23DFF1A8D21580037D161 /* Just Be */;
+			targetProxy = 301236651C023EEF00567AFF /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin PBXVariantGroup section */
 		9BA23E0E1A8D21580037D161 /* LaunchScreen.xib */ = {
 			isa = PBXVariantGroup;
@@ -635,6 +734,39 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		301236681C023EEF00567AFF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "Just BeTests/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "tom.Just-BeTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Just Be.app/Just Be";
+			};
+			name = Debug;
+		};
+		301236691C023EEF00567AFF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "Just BeTests/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "tom.Just-BeTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Just Be.app/Just Be";
+			};
+			name = Release;
+		};
 		9BA23E1D1A8D21580037D161 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -764,12 +896,22 @@
 				PRODUCT_NAME = "Just Be";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "Repressor Destressor/RD-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		301236671C023EEF00567AFF /* Build configuration list for PBXNativeTarget "Just BeTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				301236681C023EEF00567AFF /* Debug */,
+				301236691C023EEF00567AFF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		9BA23DFB1A8D21580037D161 /* Build configuration list for PBXProject "Just Be" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

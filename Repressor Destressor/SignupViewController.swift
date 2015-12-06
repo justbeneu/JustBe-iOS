@@ -53,6 +53,10 @@ class SignupViewController: UIViewController
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardDidShow:", name: UIKeyboardDidShowNotification, object: nil)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardDidHide:", name: UIKeyboardDidHideNotification, object: nil)
+        
+        if !Reachability.isConnectedToNetwork() {
+            self.showInternetAlert()
+        }
     }
     
     deinit

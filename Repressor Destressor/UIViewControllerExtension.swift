@@ -14,4 +14,10 @@ extension UIViewController
     {
         UIAlertView(title: "Error", message: "Oops! Something went wrong. Please try again.", delegate: nil, cancelButtonTitle: "OK").show()
     }
+    
+    func showInternetAlert()
+    {
+        UIAlertView(title: "Attention", message: "You have lost your internet connection. Please try again when you have an internet connection.", delegate: nil, cancelButtonTitle: "OK").show()
+        
+    }
 }

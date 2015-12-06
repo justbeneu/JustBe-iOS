@@ -84,7 +84,9 @@ class ExerciseViewController: UIViewController {
     {
         self.showLoader()
         
-        ServerRequest.sharedInstance.completeExercise(self.exercise.id!, always: { () -> () in
+        var toPost:NSNumber!
+        toPost = NSNumber(integer:self.exercise.id!)
+        ServerRequest.sharedInstance.completeExercise(toPost, always: { () -> () in
            
         }, success: { () -> Void in
             self.hideLoader()

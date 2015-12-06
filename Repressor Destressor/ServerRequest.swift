@@ -126,7 +126,7 @@ class ServerRequest
     
     func exercisePush(exerciseId: NSNumber, always: AlwaysBlock?, success: () -> Void, failure: FailureBlock?)
     {
-        let params = ["exercise_id": exerciseId]
+        let params : [String : AnyObject] = ["exercise_id": exerciseId]
         ServerRequest.sharedInstance.post("exercise_session/", params: params, always: always, success: {
             (response) -> () in
             print("we're pushing a starter exercise session")
@@ -368,8 +368,8 @@ class ServerRequest
     func completeExercise(exerciseId: NSNumber, always: AlwaysBlock?, success: () -> Void, failure: FailureBlock?)
     {
        // var params:[String: AnyObject] = [:]
-
-        let params = ["exercise_id": exerciseId];
+        let params : [String : AnyObject] = ["exercise_id": exerciseId]
+        //let params = ["exercise_id": exerciseId];
         //params["exercise_id"] = exerciseId;
         ServerRequest.sharedInstance.post("exercise_session/", params: params, always: always, success: {
             (response) -> () in

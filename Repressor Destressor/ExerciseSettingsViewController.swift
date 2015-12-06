@@ -40,7 +40,9 @@ class ExerciseSettingsViewController: UIViewController
         let meditationTimeViewController = MeditationTimeViewController(exerciseDay: exerciseDay, exerciseTime: exerciseTime)
         
         print("trying to push first exercise")
-        ServerRequest.sharedInstance.exercisePush(0, always: nil, success: {
+        var toPost:NSNumber!
+        toPost = NSNumber(integer:0)
+        ServerRequest.sharedInstance.exercisePush(toPost, always: nil, success: {
             (response) -> () in
             print(response)
            // success()
@@ -48,7 +50,9 @@ class ExerciseSettingsViewController: UIViewController
                 (error) -> Void in
                 print("error trying to push first exercise")
             })
-        ServerRequest.sharedInstance.meditate(0, percentCompleted : 0.0, always: nil, success: {
+        var percent:NSNumber!
+        percent = NSNumber(float:0.0)
+        ServerRequest.sharedInstance.meditate(toPost, percentCompleted : percent, always: nil, success: {
             (response) -> () in
             print(response)
             // success()
@@ -56,7 +60,6 @@ class ExerciseSettingsViewController: UIViewController
                 (error) -> Void in
                 print("error trying to push first meditation")
         })
-        
         self.navigationController?.pushViewController(meditationTimeViewController, animated: true)
     }
 }

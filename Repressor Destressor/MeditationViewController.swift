@@ -88,10 +88,12 @@ class MeditationViewController: UIViewController, AudioPlayerViewDelegate, MenuV
     
     private func getPendingAssessment()
     {
+        print("inside get pending assessment")
         ServerRequest.sharedInstance.pendingAssessment(nil, success: { (assessment) -> Void in
-            
+            print("inside get pending assessment server request")
             if (self.navigationController!.visibleViewController!.isEqual(self))
             {
+                print("should be triggering assessment")
                 let navigationController = AssessmentNavigationController(assessment: assessment)
                 self.navigationController!.presentViewController(navigationController, animated: true, completion: nil)
             }

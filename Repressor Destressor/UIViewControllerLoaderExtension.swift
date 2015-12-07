@@ -51,7 +51,7 @@ extension UIViewController
         {
             self.addView()
         }
-        
+         print ("SHOWING", self.loaderCount)
         self.loaderCount!++
     }
     
@@ -59,6 +59,7 @@ extension UIViewController
     {
         
         self.loaderCount!--
+        print ("HIDING", self.loaderCount)
         
         if (self.loaderCount == 0)
         {

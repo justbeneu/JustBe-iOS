@@ -34,13 +34,15 @@ class ExerciseManager: NSObject
     
     func refreshActivity(completion: RefreshActivityBlock)
     {
+        print("trying to refresh from exercise Manager script")
         ServerRequest.sharedInstance.exerciseSessions(nil, success: { (exerciseSessions) -> Void in
-            
+            print("sharedInstance 1")
             ServerRequest.sharedInstance.meditationSessions(nil, success: { (meditationSessions) -> Void in
-                
+                print("sharedInstance 2")
                 UserDefaultsManager.sharedInstance.setMeditationSessions(meditationSessions)
                 UserDefaultsManager.sharedInstance.setExerciseSessions(exerciseSessions)
-                
+                print("sharedInstance 3")
+                // WE need a way to stop loader
                 completion(success: true)
                 
             }) { (error) -> () in
@@ -56,15 +58,18 @@ class ExerciseManager: NSObject
 
     func currentExercise() -> Exercise?
     {
+        print("we're in current exercise inside ExerciseManager")
         let daysSinceStart = self.daysSinceStart()
         let exerciseIndex = Int(Float(daysSinceStart) / Float(EXERCISE_LENGTH_IN_DAYS))
         
         if (daysSinceStart < 0 || exerciseIndex >= self.exercises().count)
         {
+            print("Plan has not yet started or has ended")
             return nil // Plan has not yet started or has ended
         }
         else
         {
+            print("exerciseINDEX")
             return self.exercises()[exerciseIndex]
         }
     }
@@ -95,7 +100,7 @@ class ExerciseManager: NSObject
         let dictionary = NSDictionary(contentsOfFile: path!)!
         
         var meditations = Mapper<Meditation>().mapArray(dictionary.objectForKey("Meditations") as! [[String : AnyObject]])
-        
+        print("MeditationDICT", meditations)
         //meditations.sortInPlace({ $0.id < $1.id })
         meditations!.sortInPlace({ $0.id < $1.id })
         

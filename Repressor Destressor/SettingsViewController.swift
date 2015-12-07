@@ -61,15 +61,20 @@ class SettingsViewController: UIViewController, UITableViewDataSource, UITableVi
     func logOut()
     {
         self.showLoader()
-        
-        ServerRequest.sharedInstance.logOut({ () -> () in
+        print("outer logout")
+        ServerRequest.sharedInstance.logOut(nil, success: { () -> Void in
+            print("inner logout")
             self.hideLoader()
-        }, success: { () -> Void in
             let loginViewController = LoginViewController(nibName: "LoginViewController", bundle: nil)
             self.navigationController?.setViewControllers([loginViewController], animated: true);
-        }) { (error, message) -> () in
+        }, failure: {
+            () -> () in
+            print("error message in logout")
+            self.hideLoader()
             self.showErrorAlert()
-        }
+        })
+        self.hideLoader()
+        advanceToSignUp()
     }
     
     // MARK: UITableView Delegate
@@ -165,5 +170,11 @@ class SettingsViewController: UIViewController, UITableViewDataSource, UITableVi
     func mailComposeController(controller: MFMailComposeViewController, didFinishWithResult result: MFMailComposeResult, error: NSError?)
     {
         dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    func advanceToSignUp()
+    {
+        let signupViewController = SignupViewController(nibName:"SignupViewController", bundle:nil);
+        self.navigationController?.pushViewController(signupViewController, animated: true)
     }
 }

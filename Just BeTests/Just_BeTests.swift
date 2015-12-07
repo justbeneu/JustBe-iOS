@@ -10,7 +10,6 @@ import XCTest
 
 class Just_BeTests: XCTestCase {
     let x = " sss"
-    
     override func setUp() {
         super.setUp()
         // Put setup code here. This method is called before the invocation of each test method in the class.
@@ -163,17 +162,32 @@ class Just_BeTests: XCTestCase {
     
     //test for isBefore(), it takes in a NSDate and return a Boolean
     func testIsBefore() {
+        let dateFormatter = NSDateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd";
+
+        let pastday = dateFormatter.dateFromString("2015-12-05")
+        
+        XCTAssertTrue(pastday!.isBefore(NSDate()))
+        
         
     }
     
     //test for isSameDayAs(), it takes in a NSDate and returns a Boolean.
     func testIsSameDayAs() {
-        
+        let today = NSDate()
+        XCTAssertTrue(today.isSameDayAs(NSDate()))
+    
     }
     
     //test for getDeateAfterDays(), it takes in an Int and return a NSDate.
     func testGetDateAfterDays() {
-        
+        let today = NSDate()
+        let tomorrow = NSCalendar.currentCalendar().dateByAddingUnit(
+            .Day,
+            value: 1,
+            toDate: today,
+            options: NSCalendarOptions(rawValue: 0))
+        XCTAssertEqual(today.getDateAfterDays(1), tomorrow)
     }
     
     

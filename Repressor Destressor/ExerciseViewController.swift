@@ -52,6 +52,10 @@ class ExerciseViewController: UIViewController {
             self.completeButton.alpha = 0.5;
             self.completeButton.setTitle("Completed", forState: .Normal)
         }
+        
+        if !Reachability.isConnectedToNetwork() {
+            self.showInternetAlert()
+        }
     }
     
     override func viewDidLayoutSubviews()
@@ -84,16 +88,21 @@ class ExerciseViewController: UIViewController {
     {
         self.showLoader()
         
-        ServerRequest.sharedInstance.completeExercise(self.exercise.id!, always: { () -> () in
-            self.hideLoader()
+        var toPost:NSNumber!
+        toPost = NSNumber(integer:self.exercise.id!)
+        ServerRequest.sharedInstance.completeExercise(toPost, always: { () -> () in
+           
         }, success: { () -> Void in
-            
+            self.hideLoader()
             PebbleHelper.instance.pushNewExerciseMessage(self.exercise.pebbleMessage!)
             self.close()
             
         }) { (error, message) -> () in
+            self.hideLoader()
             self.showErrorAlert()
         }
+        self.hideLoader()
+        self.close()
     }
     
     func close()

@@ -31,6 +31,10 @@ class SettingsViewController: UIViewController, UITableViewDataSource, UITableVi
 
         let closeButton : UIBarButtonItem = UIBarButtonItem(image: UIImage(named: "back"), style: .Plain, target: self, action: "close")
         self.navigationItem.leftBarButtonItem = closeButton
+        
+        if !Reachability.isConnectedToNetwork() {
+            self.showInternetAlert()
+        }
     }
     
     override func viewWillAppear(animated: Bool)
@@ -61,22 +65,27 @@ class SettingsViewController: UIViewController, UITableViewDataSource, UITableVi
     func logOut()
     {
         self.showLoader()
-        
-        ServerRequest.sharedInstance.logOut({ () -> () in
+        print("outer logout")
+        ServerRequest.sharedInstance.logOut(nil, success: { () -> Void in
+            print("inner logout")
             self.hideLoader()
-        }, success: { () -> Void in
             let loginViewController = LoginViewController(nibName: "LoginViewController", bundle: nil)
             self.navigationController?.setViewControllers([loginViewController], animated: true);
-        }) { (error, message) -> () in
+        }, failure: {
+            () -> () in
+            print("error message in logout")
+            self.hideLoader()
             self.showErrorAlert()
-        }
+        })
+        self.hideLoader()
+        advanceToSignUp()
     }
     
     // MARK: UITableView Delegate
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int
     {
-        return 9
+        return 6
     }
     
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat
@@ -90,43 +99,47 @@ class SettingsViewController: UIViewController, UITableViewDataSource, UITableVi
 
         switch indexPath.row
         {
+            /*
         case 0:
-            cell.label.text = "First Name"
-            cell.value.text = self.user.firstName
+            //cell.label.text = "First Name"
+            //cell.value.text = self.user.firstName
             break
         case 1:
-            cell.label.text = "Last Name"
-            cell.value.text = self.user.lastName
+            //cell.label.text = "Last Name"
+            //cell.value.text = self.user.lastName
             break
-        case 2:
+*/
+        case 0:
             cell.label.text = "Username"
             cell.value.text = self.user.username
             break
+            /*
         case 3:
-            cell.label.text = "Email"
-            cell.value.text = self.user.email
+            //cell.label.text = "Email"
+            //cell.value.text = self.user.email
             break
-        case 4:
+*/
+        case 1:
             cell.label.text = "Exercise Day"
             cell.value.text = self.user.exerciseDayOfWeek?.description
             break
-        case 5:
+        case 2:
             cell.label.text = "Exercise Time"
             let timeFormatter = NSDateFormatter()
             timeFormatter.dateFormat = "h:mm a";
             cell.value.text = timeFormatter.stringFromDate(self.user.exerciseTime!)
             break
-        case 6:
+        case 3:
             cell.label.text = "Meditation Time"
             let timeFormatter = NSDateFormatter()
             timeFormatter.dateFormat = "h:mm a";
             cell.value.text = timeFormatter.stringFromDate(self.user.meditationTime!)
             break
-        case 7:
+        case 4:
             cell.label.text = "Send Feedback"
             cell.label.font = UIFont.boldSystemFontOfSize(cell.label.font.pointSize)
             break
-        case 8:
+        case 5:
             cell.label.text = "Log Out"
             cell.label.font = UIFont.boldSystemFontOfSize(cell.label.font.pointSize)
             cell.label.textColor = UIColor.orangeText()
@@ -149,10 +162,10 @@ class SettingsViewController: UIViewController, UITableViewDataSource, UITableVi
     {
         switch indexPath.row
         {
-        case 7:
+        case 4:
             self.sendEmail()
             break
-        case 8:
+        case 5:
             self.logOut()
             break
         default:
@@ -165,5 +178,11 @@ class SettingsViewController: UIViewController, UITableViewDataSource, UITableVi
     func mailComposeController(controller: MFMailComposeViewController, didFinishWithResult result: MFMailComposeResult, error: NSError?)
     {
         dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    func advanceToSignUp()
+    {
+        let signupViewController = SignupViewController(nibName:"SignupViewController", bundle:nil);
+        self.navigationController?.pushViewController(signupViewController, animated: true)
     }
 }

@@ -96,6 +96,10 @@ class AssessmentViewController: UIViewController {
         slider.maximumTrackTintColor = UIColor.lightYellow()
         
         navigationItem.hidesBackButton = true
+        
+        if !Reachability.isConnectedToNetwork() {
+            self.showInternetAlert()
+        }
     }
 }
 

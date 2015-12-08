@@ -38,6 +38,10 @@ class MeditationTimeViewController: UIViewController
         self.doneButton.setTitleColor(UIColor.whiteColor(), forState: UIControlState.Normal)
         
         self.timeLabel.textColor = UIColor.blackText()
+        
+        if !Reachability.isConnectedToNetwork() {
+            self.showInternetAlert()
+        }
     }
     
     @IBAction func done(sender: AnyObject)
@@ -58,10 +62,12 @@ class MeditationTimeViewController: UIViewController
             self.showLoader()
             
             ServerRequest.sharedInstance.setNotificationSettings(token!, exerciseDay: self.exerciseDay, exerciseTime: self.exerciseTime, meditationTime: self.timePicker.date, always: { () -> () in
-                self.hideLoader()
+    
                 }, success: { () -> Void in
+                    self.hideLoader()
                     self.advanceToMeditationPage()
                 }) { (error, message) -> () in
+                    self.hideLoader()
                     self.showErrorAlert()
             }
         }

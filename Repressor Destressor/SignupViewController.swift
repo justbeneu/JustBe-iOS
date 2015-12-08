@@ -38,10 +38,10 @@ class SignupViewController: UIViewController
         
         print("Hey we tried to open the signup view")
         
-        let datePicker = UIDatePicker()
-        datePicker.datePickerMode = .Date
-        datePicker.addTarget(self, action: "birthdayChanged", forControlEvents: .ValueChanged)
-        self.birthday.inputView = datePicker
+        //let datePicker = UIDatePicker()
+        //datePicker.datePickerMode = .Date
+        //datePicker.addTarget(self, action: "birthdayChanged", forControlEvents: .ValueChanged)
+        //self.birthday.inputView = datePicker
         
         self.signupButton.backgroundColor = UIColor.buttonGreen()
         self.signupButton.layer.cornerRadius = 4
@@ -49,10 +49,15 @@ class SignupViewController: UIViewController
         
         self.loginButton.setTitleColor(UIColor.buttonGreen(), forState: UIControlState.Normal)
         
-        self.gender.tintColor = UIColor.buttonOrange();
+        //self.gender.tintColor = UIColor.buttonOrange();
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardDidShow:", name: UIKeyboardDidShowNotification, object: nil)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardDidHide:", name: UIKeyboardDidHideNotification, object: nil)
+        print("above reachability")
+        if !Reachability.isConnectedToNetwork() {
+            print("not connected to network")
+            self.showInternetAlert()
+        }
     }
     
     deinit
@@ -122,12 +127,24 @@ class SignupViewController: UIViewController
             return
         }
             
-        self.user.firstName = self.firstName.text
-        self.user.lastName = self.lastName.text
+        /**
+        * As psychological studies protect subjects' personally identifiable information,
+        * we cannot currently include these fields
+        **/
+        self.user.firstName = "" //self.firstName.text
+        self.user.lastName = "" //self.lastName.text
         self.user.email = self.email.text
         self.user.username = self.userName.text
-        self.user.birthday = (self.birthday.inputView as! UIDatePicker).date
-        self.user.gender = Gender(rawValue:self.gender.selectedSegmentIndex)
+        
+        var dataString = "April 01, 1969" as String
+        var dateFormatter = NSDateFormatter()
+        dateFormatter.dateFormat = "MMMM dd, yyyy"
+        dateFormatter.timeZone = NSTimeZone.localTimeZone()
+        
+        // convert string into date
+        let dateValue = dateFormatter.dateFromString(dataString) as NSDate!
+        self.user.birthday = dateValue //(self.birthday.inputView as! UIDatePicker).date
+        self.user.gender = Gender(rawValue: 0) //Gender(rawValue:self.gender.selectedSegmentIndex)
         
         self.showLoader()
         

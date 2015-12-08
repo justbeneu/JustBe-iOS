@@ -130,6 +130,7 @@ class AssessmentNavigationController: UINavigationController, AssessmentDelegate
         let c = list.count
         for i in 0..<(c - 1) {
             let j = Int(arc4random_uniform(UInt32(c - i))) + i
+            guard i != j else { continue }
             swap(&list[i], &list[j])
         }
         return list
@@ -139,9 +140,11 @@ class AssessmentNavigationController: UINavigationController, AssessmentDelegate
     
     init(assessment: Assessment)
     {
+        print("uinav assessment")
         super.init(nibName: "AssessmentNavigationController", bundle: nil)
-        
+        print("uinav assessment after init")
         self.assessment = assessment
+        print("uinav assessment after assessment assignation")
     }
     
     required init?(coder aDecoder: NSCoder) {

@@ -78,6 +78,7 @@
 		301236761C0253C200567AFF /* TimeTransform.swift in Sources */ = {isa = PBXBuildFile; fileRef = 162CDE611ADF1B120047086D /* TimeTransform.swift */; };
 		301236771C0253C400567AFF /* GenderTransform.swift in Sources */ = {isa = PBXBuildFile; fileRef = 162CDE631ADF2CAD0047086D /* GenderTransform.swift */; };
 		301236781C0253C700567AFF /* DayOfWeekTransform.swift in Sources */ = {isa = PBXBuildFile; fileRef = 162CDE651ADF2CBB0047086D /* DayOfWeekTransform.swift */; };
+		30703DFD1C14D24A00786A1A /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30703DFC1C14D24A00786A1A /* Reachability.swift */; };
 		552B7EC01ABCBC6F00E5A6C8 /* PebbleHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 552B7EBF1ABCBC6F00E5A6C8 /* PebbleHelper.swift */; };
 		558B1C981AB866AA00DD18AC /* ExerciseSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 558B1C971AB866AA00DD18AC /* ExerciseSettingsViewController.swift */; };
 		558B1C9C1AB866DE00DD18AC /* ExerciseSettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 558B1C9B1AB866DE00DD18AC /* ExerciseSettingsViewController.xib */; };
@@ -177,6 +178,7 @@
 		301236621C023EEF00567AFF /* Just_BeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Just_BeTests.swift; sourceTree = "<group>"; };
 		301236641C023EEF00567AFF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3012366C1C02486700567AFF /* userTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = userTest.swift; path = "Just BeTests/userTest.swift"; sourceTree = SOURCE_ROOT; };
+		30703DFC1C14D24A00786A1A /* Reachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
 		552B7EBE1ABCA80900E5A6C8 /* RD-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "RD-Bridging-Header.h"; sourceTree = "<group>"; };
 		552B7EBF1ABCBC6F00E5A6C8 /* PebbleHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PebbleHelper.swift; sourceTree = "<group>"; };
 		558B1C971AB866AA00DD18AC /* ExerciseSettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExerciseSettingsViewController.swift; sourceTree = "<group>"; };
@@ -383,6 +385,7 @@
 		16CE6C131ABB55AC00CF1220 /* Managers */ = {
 			isa = PBXGroup;
 			children = (
+				1682D1F01ABCBDFB00D8ED02 /* Audio */,
 				16CE6C141ABB55D200CF1220 /* UserDefaultsManager.swift */,
 				164D3F2D1ABC813600253910 /* ExerciseManager.swift */,
 				552B7EBF1ABCBC6F00E5A6C8 /* PebbleHelper.swift */,
@@ -444,7 +447,6 @@
 			children = (
 				162AF2761AFA71F30099A81D /* NavigationControllers */,
 				166FCE1C1AC09A6F00E1C932 /* Cells */,
-				1682D1F01ABCBDFB00D8ED02 /* Audio */,
 				1682D1ED1ABCA45800D8ED02 /* Views */,
 				164D3F2F1ABC967F00253910 /* Extensions */,
 				164D3F281ABB67AA00253910 /* PropertyLists */,
@@ -453,6 +455,7 @@
 				16AFFE001A91504D002C58D8 /* Networking */,
 				552B7EBE1ABCA80900E5A6C8 /* RD-Bridging-Header.h */,
 				9BA23E051A8D21580037D161 /* AppDelegate.swift */,
+				30703DFC1C14D24A00786A1A /* Reachability.swift */,
 				9BA23E0C1A8D21580037D161 /* Images.xcassets */,
 				9BA23E0E1A8D21580037D161 /* LaunchScreen.xib */,
 				16AE94CE1A8E9D9400FBD6C8 /* ViewControllers */,
@@ -702,6 +705,7 @@
 				1682D1F61ABCD41100D8ED02 /* UIViewControllerPopupExtension.swift in Sources */,
 				164D3F2E1ABC813600253910 /* ExerciseManager.swift in Sources */,
 				16385F551AE6AA1C0032CDE5 /* SettingsCell.swift in Sources */,
+				30703DFD1C14D24A00786A1A /* Reachability.swift in Sources */,
 				16AFFDFF1A915043002C58D8 /* ServerRequest.swift in Sources */,
 				16066E2F1AAA0F4B00729168 /* MeditationSession.swift in Sources */,
 				16B916BB1AD47E2700669776 /* MeditationProgressView.swift in Sources */,
@@ -928,6 +932,7 @@
 				169D61201C14D7C600A89331 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		9BA23DFB1A8D21580037D161 /* Build configuration list for PBXProject "Just Be" */ = {
 			isa = XCConfigurationList;

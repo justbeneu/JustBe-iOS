@@ -50,6 +50,10 @@ class MeditationViewController: UIViewController, AudioPlayerViewDelegate, MenuV
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "applicationDidBecomeActive", name:UIApplicationDidBecomeActiveNotification, object: nil)
 
         self.audioPlayerView.delegate = self
+        
+        if !Reachability.isConnectedToNetwork() {
+            self.showInternetAlert()
+        }
     }
     
     deinit
@@ -91,11 +95,22 @@ class MeditationViewController: UIViewController, AudioPlayerViewDelegate, MenuV
         print("inside get pending assessment")
         ServerRequest.sharedInstance.pendingAssessment(nil, success: { (assessment) -> Void in
             print("inside get pending assessment server request")
+            
+            if(self.navigationController == nil) {
+                print("navigation controller is nil")
+            }
+            if(self.navigationController!.visibleViewController == nil) {
+                print("Broh comeohn visibleview controller nil")
+            }
             if (self.navigationController!.visibleViewController!.isEqual(self))
             {
                 print("should be triggering assessment")
-                let navigationController = AssessmentNavigationController(assessment: assessment)
-                self.navigationController!.presentViewController(navigationController, animated: true, completion: nil)
+                print("ASSess: ", assessment)
+                let assessmentController = AssessmentNavigationController(assessment: assessment)
+                print("ASSess: ", assessment)
+                self.navigationController!.presentViewController(assessmentController, animated: true, completion: nil)
+
+                print("the one")
             }
             
         }, failure: nil)

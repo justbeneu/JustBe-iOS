@@ -52,6 +52,10 @@ class ExerciseViewController: UIViewController {
             self.completeButton.alpha = 0.5;
             self.completeButton.setTitle("Completed", forState: .Normal)
         }
+        
+        if !Reachability.isConnectedToNetwork() {
+            self.showInternetAlert()
+        }
     }
     
     override func viewDidLayoutSubviews()
@@ -97,6 +101,8 @@ class ExerciseViewController: UIViewController {
             self.hideLoader()
             self.showErrorAlert()
         }
+        self.hideLoader()
+        self.close()
     }
     
     func close()

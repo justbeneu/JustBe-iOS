@@ -364,6 +364,7 @@
 		16CE6C131ABB55AC00CF1220 /* Managers */ = {
 			isa = PBXGroup;
 			children = (
+				1682D1F01ABCBDFB00D8ED02 /* Audio */,
 				16CE6C141ABB55D200CF1220 /* UserDefaultsManager.swift */,
 				164D3F2D1ABC813600253910 /* ExerciseManager.swift */,
 				552B7EBF1ABCBC6F00E5A6C8 /* PebbleHelper.swift */,
@@ -425,7 +426,6 @@
 			children = (
 				162AF2761AFA71F30099A81D /* NavigationControllers */,
 				166FCE1C1AC09A6F00E1C932 /* Cells */,
-				1682D1F01ABCBDFB00D8ED02 /* Audio */,
 				1682D1ED1ABCA45800D8ED02 /* Views */,
 				164D3F2F1ABC967F00253910 /* Extensions */,
 				164D3F281ABB67AA00253910 /* PropertyLists */,

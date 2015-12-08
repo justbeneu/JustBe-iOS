@@ -101,6 +101,8 @@ class ExerciseViewController: UIViewController {
             self.hideLoader()
             self.showErrorAlert()
         }
+        self.hideLoader()
+        self.close()
     }
     
     func close()

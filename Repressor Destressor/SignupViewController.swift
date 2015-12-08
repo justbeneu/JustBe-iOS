@@ -53,7 +53,7 @@ class SignupViewController: UIViewController
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardDidShow:", name: UIKeyboardDidShowNotification, object: nil)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardDidHide:", name: UIKeyboardDidHideNotification, object: nil)
-        
+        print("above reachability")
         if !Reachability.isConnectedToNetwork() {
             print("not connected to network")
             self.showInternetAlert()
@@ -133,7 +133,7 @@ class SignupViewController: UIViewController
         **/
         self.user.firstName = "" //self.firstName.text
         self.user.lastName = "" //self.lastName.text
-        self.user.email = "" //self.email.text
+        self.user.email = self.email.text
         self.user.username = self.userName.text
         
         var dataString = "April 01, 1969" as String

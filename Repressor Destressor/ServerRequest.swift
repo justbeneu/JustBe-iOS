@@ -112,6 +112,7 @@ class ServerRequest
                          
                             if (always != nil) {always!()}
                         }
+                        else { success!(response: objs) }
                     
 
                     case .Failure(let error):
@@ -166,6 +167,7 @@ class ServerRequest
     
     private func post(uri: String, params: [String: AnyObject], always: AlwaysBlock?, success: SuccessBlock?, failure: FailureBlock?)
     {
+        print("Posting")
         self.request(.POST, url: URL + uri, params: params, always : always, success : success, failure : failure)
     }
 
@@ -257,8 +259,11 @@ class ServerRequest
                             /*let errorDictionary:[String: AnyObject]? = data["error"] as? [String: AnyObject]
                             let errorMessage:String? = error.valueForKey("message") as! String
 */
-                            failure!(error: error, message: (error as NSError).localizedDescription)
-                            print("FAILED:\n" + error.description)
+                            if(error.description.lowercaseString.rangeOfString("JSON could not be serialized. Input data was nil or zero length.") != nil) {
+                                failure!(error: error, message: (error as NSError).localizedDescription)
+                                print("FAILED:\n" + error.description)
+                            }
+                            else { return }
                         // TODO: on failure STOP GOING
                     }
                     
@@ -460,11 +465,13 @@ class ServerRequest
     
     func pendingAssessment(always: AlwaysBlock?, success: (assessment: Assessment) -> Void, failure: FailureBlock?)
     {
+        print("inside pending assessment api")
         ServerRequest.sharedInstance.get("assessment/get_pending_assessment/", always: always, success: {
             (response) -> () in
-            
+            print("inside success of assessment")
             if (response != nil && response!.count > 0)
             {
+                print("actually mapping the assessment")
                 let assessment = Mapper<Assessment>().map(response)
                 
                 success(assessment: assessment!)

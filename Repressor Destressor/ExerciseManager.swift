@@ -61,7 +61,7 @@ class ExerciseManager: NSObject
         print("we're in current exercise inside ExerciseManager")
         let daysSinceStart = self.daysSinceStart()
         let exerciseIndex = Int(Float(daysSinceStart) / Float(EXERCISE_LENGTH_IN_DAYS))
-        
+        return self.exercises()[2]
         if (daysSinceStart < 0 || exerciseIndex >= self.exercises().count)
         {
             print("Plan has not yet started or has ended")

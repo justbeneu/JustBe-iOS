@@ -29,9 +29,11 @@ class PebbleHelper: NSObject, PBPebbleCentralDelegate, PBDataLoggingServiceDeleg
     var UUID: String? {
         didSet {
             let myAppUUID = NSUUID(UUIDString: self.UUID!)
+            print("app UUID", self.UUID)
             var myAppUUIDbytes = Array<UInt8>(count:16, repeatedValue:0)
             myAppUUID?.getUUIDBytes(&myAppUUIDbytes)
             PBPebbleCentral.defaultCentral().appUUID = myAppUUID
+            print("pebble UUID", PBPebbleCentral.defaultCentral().appUUID)
             // PBPebbleCentral.defaultCentral().appUUID = NSData(bytes: &myAppUUIDbytes, length: 16)
             if (self.watch != nil) {
                 self.watch?.appMessagesAddReceiveUpdateHandler({ (watch, msgDictionary) -> Bool in
@@ -55,11 +57,11 @@ class PebbleHelper: NSObject, PBPebbleCentralDelegate, PBDataLoggingServiceDeleg
         
     }
     
-    func pebbleCentral(central: PBPebbleCentral!, watchDidConnect watch: PBWatch!, isNew: Bool) {
+    func pebbleCentral(central: PBPebbleCentral, watchDidConnect watch: PBWatch!, isNew: Bool) {
         print("Pebble connected: \(watch.name)")
     }
     
-    func pebbleCentral(central: PBPebbleCentral!, watchDidDisconnect watch: PBWatch!) {
+    func pebbleCentral(central: PBPebbleCentral, watchDidDisconnect watch: PBWatch) {
         print("Pebble disconnected: \(watch.name)")
         if (self.watch == watch) {
             self.watch = nil
@@ -125,6 +127,7 @@ class PebbleHelper: NSObject, PBPebbleCentralDelegate, PBDataLoggingServiceDeleg
     }
     
     func sendMessage(message: String, key: Int, completionHandler: (error: NSError?) -> Void) {
+        print("Trying to send message to watch", message, UUID)
         
         let maxLength = 64
         parts.removeAll(keepCapacity: false)
@@ -207,7 +210,7 @@ class PebbleHelper: NSObject, PBPebbleCentralDelegate, PBDataLoggingServiceDeleg
     }
     
     //MARK: PBDataLoggingDelegate Methods
-    func dataLoggingService(service: PBDataLoggingService!, hasUInt32s data: UnsafePointer<UInt32>, numberOfItems: UInt16, forDataLoggingSession session: PBDataLoggingSessionMetadata!) -> Bool
+    func dataLoggingService(service: PBDataLoggingService, hasUInt32s data: UnsafePointer<UInt32>, numberOfItems: UInt16, forDataLoggingSession session: PBDataLoggingSessionMetadata) -> Bool
     {
         // Sometimes the logger sends other random garbage so only accept it if its our 1 item (the date)
         // Also needs to have our specified tag of 42

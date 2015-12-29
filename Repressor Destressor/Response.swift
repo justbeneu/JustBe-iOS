@@ -14,7 +14,6 @@ class Response: NSObject {
     var questionType: QuestionType!
     var value: AnyObject!
     var emotion: Emotion!
-    var category: String!
     
     let questionTypeIntMap:[QuestionType: Int] = [
         .Boolean: 0,
@@ -56,7 +55,6 @@ class Response: NSObject {
         self.questionType = question.type
         self.value = value
         self.emotion = question.emotion
-        self.category = question.category
     }
     
     func jsonValue() -> [String: AnyObject] {

@@ -335,7 +335,7 @@ class ServerRequest
         params["exercise_day_of_week"] = exerciseDay.rawValue
         params["exercise_time"] = TimeTransform().transformToJSON(exerciseTime)
         params["meditation_time"] = TimeTransform().transformToJSON(meditationTime)
-        
+        print("Notifications set to:", params.description)
         ServerRequest.sharedInstance.patch("user_profile/", params: params, always: always, success: {
             (response) -> () in
             

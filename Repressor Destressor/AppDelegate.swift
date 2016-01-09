@@ -87,7 +87,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate
 
     func applicationDidBecomeActive(application: UIApplication)
     {
+        print("sending pebble notification time")
         ServerRequest.sharedInstance.sendPebbleNotificationTimes(UserDefaultsManager.sharedInstance.notificationTimes(), always: nil, success: { () -> Void in
+            print("pebble notification time send was successfull")
         }, failure: nil)
     }
 

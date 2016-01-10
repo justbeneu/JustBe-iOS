@@ -8,19 +8,49 @@
 			<key>id</key>
 			<integer>1</integer>
 			<key>audio_filename</key>
-			<string>meditation_1.mp3</string>
+			<string>Meditation1.aif</string>
 		</dict>
 		<dict>
 			<key>id</key>
 			<integer>2</integer>
 			<key>audio_filename</key>
-			<string>meditation_2.mp3</string>
+			<string>Meditation2.aif</string>
 		</dict>
 		<dict>
 			<key>id</key>
 			<integer>3</integer>
 			<key>audio_filename</key>
-			<string>meditation_3.mp3</string>
+			<string>Meditation3.aif</string>
+		</dict>
+		<dict>
+			<key>id</key>
+			<integer>4</integer>
+			<key>audio_filename</key>
+			<string>Meditation4.aif</string>
+		</dict>
+		<dict>
+			<key>id</key>
+			<integer>5</integer>
+			<key>audio_filename</key>
+			<string>Meditation5.aif</string>
+		</dict>
+		<dict>
+			<key>id</key>
+			<integer>6</integer>
+			<key>audio_filename</key>
+			<string>Meditation6.aif</string>
+		</dict>
+		<dict>
+			<key>id</key>
+			<integer>7</integer>
+			<key>audio_filename</key>
+			<string>Meditation7.aif</string>
+		</dict>
+		<dict>
+			<key>id</key>
+			<integer>8</integer>
+			<key>audio_filename</key>
+			<string>Meditation8.aif</string>
 		</dict>
 	</array>
 </dict>

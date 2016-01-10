@@ -64,21 +64,18 @@
 		16B406C31C0DF8B60017152F /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 167E6B991AF2B0B90006D45A /* Fabric.framework */; };
 		16B916B91AD47A5100669776 /* MeditationProgressView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 16B916B81AD47A5100669776 /* MeditationProgressView.xib */; };
 		16B916BB1AD47E2700669776 /* MeditationProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16B916BA1AD47E2700669776 /* MeditationProgressView.swift */; };
-		16BCEFC31ACC7C6500994258 /* meditation_3.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 16BCEFC01ACC7C6500994258 /* meditation_3.mp3 */; };
-		16BCEFC41ACC7C6500994258 /* meditation_1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 16BCEFC11ACC7C6500994258 /* meditation_1.mp3 */; };
-		16BCEFC51ACC7C6500994258 /* meditation_2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 16BCEFC21ACC7C6500994258 /* meditation_2.mp3 */; };
 		16CE6C151ABB55D200CF1220 /* UserDefaultsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16CE6C141ABB55D200CF1220 /* UserDefaultsManager.swift */; };
 		16D5DF641AC0B8D3004B34C6 /* Exercise.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16D5DF631AC0B8D3004B34C6 /* Exercise.swift */; };
 		16D5DF661AC0B927004B34C6 /* Meditation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16D5DF651AC0B927004B34C6 /* Meditation.swift */; };
-		301236631C023EEF00567AFF /* Just_BeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 301236621C023EEF00567AFF /* Just_BeTests.swift */; };
-		3012366D1C02486700567AFF /* userTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3012366C1C02486700567AFF /* userTest.swift */; };
-		301236731C0253B600567AFF /* DayTransform.swift in Sources */ = {isa = PBXBuildFile; fileRef = 162CDE5D1ADF141E0047086D /* DayTransform.swift */; };
-		301236741C0253B900567AFF /* DateTimeTransform.swift in Sources */ = {isa = PBXBuildFile; fileRef = 162CDE5F1ADF17210047086D /* DateTimeTransform.swift */; };
-		301236751C0253BC00567AFF /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16AFFE021A9161E5002C58D8 /* User.swift */; };
-		301236761C0253C200567AFF /* TimeTransform.swift in Sources */ = {isa = PBXBuildFile; fileRef = 162CDE611ADF1B120047086D /* TimeTransform.swift */; };
-		301236771C0253C400567AFF /* GenderTransform.swift in Sources */ = {isa = PBXBuildFile; fileRef = 162CDE631ADF2CAD0047086D /* GenderTransform.swift */; };
-		301236781C0253C700567AFF /* DayOfWeekTransform.swift in Sources */ = {isa = PBXBuildFile; fileRef = 162CDE651ADF2CBB0047086D /* DayOfWeekTransform.swift */; };
 		30703DFD1C14D24A00786A1A /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30703DFC1C14D24A00786A1A /* Reachability.swift */; };
+		4C40E38B1C41F09D00F7E56D /* Meditation7.aif in Resources */ = {isa = PBXBuildFile; fileRef = 4C40E3831C41F09D00F7E56D /* Meditation7.aif */; };
+		4C40E38C1C41F09D00F7E56D /* Meditation3.aif in Resources */ = {isa = PBXBuildFile; fileRef = 4C40E3841C41F09D00F7E56D /* Meditation3.aif */; };
+		4C40E38D1C41F09D00F7E56D /* Meditation5.aif in Resources */ = {isa = PBXBuildFile; fileRef = 4C40E3851C41F09D00F7E56D /* Meditation5.aif */; };
+		4C40E38E1C41F09D00F7E56D /* Meditation2.aif in Resources */ = {isa = PBXBuildFile; fileRef = 4C40E3861C41F09D00F7E56D /* Meditation2.aif */; };
+		4C40E38F1C41F09D00F7E56D /* Meditation6.aif in Resources */ = {isa = PBXBuildFile; fileRef = 4C40E3871C41F09D00F7E56D /* Meditation6.aif */; };
+		4C40E3901C41F09D00F7E56D /* Meditation4.aif in Resources */ = {isa = PBXBuildFile; fileRef = 4C40E3881C41F09D00F7E56D /* Meditation4.aif */; };
+		4C40E3911C41F09D00F7E56D /* Meditation8.aif in Resources */ = {isa = PBXBuildFile; fileRef = 4C40E3891C41F09D00F7E56D /* Meditation8.aif */; };
+		4C40E3951C41F1B600F7E56D /* Meditation1.aif in Resources */ = {isa = PBXBuildFile; fileRef = 4C40E3941C41F1B600F7E56D /* Meditation1.aif */; };
 		552B7EC01ABCBC6F00E5A6C8 /* PebbleHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 552B7EBF1ABCBC6F00E5A6C8 /* PebbleHelper.swift */; };
 		558B1C981AB866AA00DD18AC /* ExerciseSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 558B1C971AB866AA00DD18AC /* ExerciseSettingsViewController.swift */; };
 		558B1C9C1AB866DE00DD18AC /* ExerciseSettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 558B1C9B1AB866DE00DD18AC /* ExerciseSettingsViewController.xib */; };
@@ -168,17 +165,18 @@
 		16B406BD1C0DF87C0017152F /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = "Pods/../build/Debug-iphoneos/SwiftyJSON.framework"; sourceTree = "<group>"; };
 		16B916B81AD47A5100669776 /* MeditationProgressView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MeditationProgressView.xib; sourceTree = "<group>"; };
 		16B916BA1AD47E2700669776 /* MeditationProgressView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeditationProgressView.swift; sourceTree = "<group>"; };
-		16BCEFC01ACC7C6500994258 /* meditation_3.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = meditation_3.mp3; sourceTree = "<group>"; };
-		16BCEFC11ACC7C6500994258 /* meditation_1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = meditation_1.mp3; sourceTree = "<group>"; };
-		16BCEFC21ACC7C6500994258 /* meditation_2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = meditation_2.mp3; sourceTree = "<group>"; };
 		16CE6C141ABB55D200CF1220 /* UserDefaultsManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDefaultsManager.swift; sourceTree = "<group>"; };
 		16D5DF631AC0B8D3004B34C6 /* Exercise.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Exercise.swift; sourceTree = "<group>"; };
 		16D5DF651AC0B927004B34C6 /* Meditation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Meditation.swift; sourceTree = "<group>"; };
-		301236601C023EEF00567AFF /* Just BeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Just BeTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		301236621C023EEF00567AFF /* Just_BeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Just_BeTests.swift; sourceTree = "<group>"; };
-		301236641C023EEF00567AFF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		3012366C1C02486700567AFF /* userTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = userTest.swift; path = "Just BeTests/userTest.swift"; sourceTree = SOURCE_ROOT; };
 		30703DFC1C14D24A00786A1A /* Reachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
+		4C40E3831C41F09D00F7E56D /* Meditation7.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = Meditation7.aif; sourceTree = "<group>"; };
+		4C40E3841C41F09D00F7E56D /* Meditation3.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = Meditation3.aif; sourceTree = "<group>"; };
+		4C40E3851C41F09D00F7E56D /* Meditation5.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = Meditation5.aif; sourceTree = "<group>"; };
+		4C40E3861C41F09D00F7E56D /* Meditation2.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = Meditation2.aif; sourceTree = "<group>"; };
+		4C40E3871C41F09D00F7E56D /* Meditation6.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = Meditation6.aif; sourceTree = "<group>"; };
+		4C40E3881C41F09D00F7E56D /* Meditation4.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = Meditation4.aif; sourceTree = "<group>"; };
+		4C40E3891C41F09D00F7E56D /* Meditation8.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = Meditation8.aif; sourceTree = "<group>"; };
+		4C40E3941C41F1B600F7E56D /* Meditation1.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = Meditation1.aif; sourceTree = "<group>"; };
 		552B7EBE1ABCA80900E5A6C8 /* RD-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "RD-Bridging-Header.h"; sourceTree = "<group>"; };
 		552B7EBF1ABCBC6F00E5A6C8 /* PebbleHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PebbleHelper.swift; sourceTree = "<group>"; };
 		558B1C971AB866AA00DD18AC /* ExerciseSettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExerciseSettingsViewController.swift; sourceTree = "<group>"; };
@@ -314,9 +312,14 @@
 		1682D1F01ABCBDFB00D8ED02 /* Audio */ = {
 			isa = PBXGroup;
 			children = (
-				16BCEFC01ACC7C6500994258 /* meditation_3.mp3 */,
-				16BCEFC11ACC7C6500994258 /* meditation_1.mp3 */,
-				16BCEFC21ACC7C6500994258 /* meditation_2.mp3 */,
+				4C40E3941C41F1B600F7E56D /* Meditation1.aif */,
+				4C40E3831C41F09D00F7E56D /* Meditation7.aif */,
+				4C40E3841C41F09D00F7E56D /* Meditation3.aif */,
+				4C40E3851C41F09D00F7E56D /* Meditation5.aif */,
+				4C40E3861C41F09D00F7E56D /* Meditation2.aif */,
+				4C40E3871C41F09D00F7E56D /* Meditation6.aif */,
+				4C40E3881C41F09D00F7E56D /* Meditation4.aif */,
+				4C40E3891C41F09D00F7E56D /* Meditation8.aif */,
 				1682D1F11ABCBE0600D8ED02 /* funkjam.mp3 */,
 			);
 			name = Audio;
@@ -391,16 +394,6 @@
 				552B7EBF1ABCBC6F00E5A6C8 /* PebbleHelper.swift */,
 			);
 			name = Managers;
-			sourceTree = "<group>";
-		};
-		301236611C023EEF00567AFF /* Just BeTests */ = {
-			isa = PBXGroup;
-			children = (
-				301236621C023EEF00567AFF /* Just_BeTests.swift */,
-				301236641C023EEF00567AFF /* Info.plist */,
-				3012366C1C02486700567AFF /* userTest.swift */,
-			);
-			path = "Just BeTests";
 			sourceTree = "<group>";
 		};
 		8CCE55D9E8F57D16A8510D3C /* Frameworks */ = {
@@ -576,25 +569,30 @@
 			buildActionMask = 2147483647;
 			files = (
 				9B58247A1AB654090010A1E5 /* MeditationViewController.xib in Resources */,
-				16BCEFC51ACC7C6500994258 /* meditation_2.mp3 in Resources */,
-				16BCEFC41ACC7C6500994258 /* meditation_1.mp3 in Resources */,
 				9B423E2E1ADD926B00A970A3 /* Questions.plist in Resources */,
 				9B58247E1AB6541F0010A1E5 /* AssessmentViewController.xib in Resources */,
 				16781F6B1AEAFA270056FF30 /* Exercise3View.xib in Resources */,
 				9B5824761AB653A80010A1E5 /* ExerciseViewController.xib in Resources */,
 				164D3F2C1ABB67D800253910 /* Meditations.plist in Resources */,
+				4C40E3951C41F1B600F7E56D /* Meditation1.aif in Resources */,
 				1682D1F21ABCBE0600D8ED02 /* funkjam.mp3 in Resources */,
 				1682D1FA1ABCDF3D00D8ED02 /* MenuViewController.xib in Resources */,
 				9BA23E101A8D21580037D161 /* LaunchScreen.xib in Resources */,
+				4C40E3911C41F09D00F7E56D /* Meditation8.aif in Resources */,
 				166FCE201AC09A9F00E1C932 /* ExerciseCell.xib in Resources */,
 				16B916B91AD47A5100669776 /* MeditationProgressView.xib in Resources */,
-				16BCEFC31ACC7C6500994258 /* meditation_3.mp3 in Resources */,
 				559706E91AB6300200FD794A /* MeditationTimeViewController.xib in Resources */,
 				162AF27C1AFA7C3A0099A81D /* AssessmentNavigationController.xib in Resources */,
 				16385F561AE6AA1C0032CDE5 /* SettingsCell.xib in Resources */,
+				4C40E38C1C41F09D00F7E56D /* Meditation3.aif in Resources */,
+				4C40E38E1C41F09D00F7E56D /* Meditation2.aif in Resources */,
+				4C40E38F1C41F09D00F7E56D /* Meditation6.aif in Resources */,
+				4C40E38D1C41F09D00F7E56D /* Meditation5.aif in Resources */,
 				16AE94C91A8E8CF300FBD6C8 /* LoginViewController.xib in Resources */,
+				4C40E3901C41F09D00F7E56D /* Meditation4.aif in Resources */,
 				16AE94CD1A8E9C9D00FBD6C8 /* SignupViewController.xib in Resources */,
 				9BA23E0D1A8D21580037D161 /* Images.xcassets in Resources */,
+				4C40E38B1C41F09D00F7E56D /* Meditation7.aif in Resources */,
 				558B1C9C1AB866DE00DD18AC /* ExerciseSettingsViewController.xib in Resources */,
 				1628A8551AE74D600008F0F4 /* Exercise1View.xib in Resources */,
 				16385F521AE6A9A00032CDE5 /* SettingsViewController.xib in Resources */,

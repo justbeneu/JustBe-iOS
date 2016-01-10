@@ -14,6 +14,7 @@ class Response: NSObject {
     var questionType: QuestionType!
     var value: AnyObject!
     var emotion: Emotion!
+    var category: String!
     
     let questionTypeIntMap:[QuestionType: Int] = [
         .Boolean: 0,

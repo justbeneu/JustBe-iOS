@@ -32,11 +32,16 @@ extension UIViewController
     {
         get
         {
-            return objc_getAssociatedObject(self, &AssociatedKeys.LoaderCountKey) as? Int
+            guard let count = objc_getAssociatedObject(self, &AssociatedKeys.LoaderCountKey) as? Int else {
+                    return 0;
+                }
+            return count;
+//            return objc_getAssociatedObject(self, &AssociatedKeys.LoaderCountKey) as? Int
         }
+        
         set(newValue)
         {
-            objc_setAssociatedObject(self, &AssociatedKeys.LoaderCountKey, newValue, objc_AssociationPolicy.OBJC_ASSOCIATION_ASSIGN)
+            objc_setAssociatedObject(self, &AssociatedKeys.LoaderCountKey, newValue, objc_AssociationPolicy.OBJC_ASSOCIATION_RETAIN_NONATOMIC)
         }
     }
     

@@ -76,6 +76,14 @@
 		4C40E3901C41F09D00F7E56D /* Meditation4.aif in Resources */ = {isa = PBXBuildFile; fileRef = 4C40E3881C41F09D00F7E56D /* Meditation4.aif */; };
 		4C40E3911C41F09D00F7E56D /* Meditation8.aif in Resources */ = {isa = PBXBuildFile; fileRef = 4C40E3891C41F09D00F7E56D /* Meditation8.aif */; };
 		4C40E3951C41F1B600F7E56D /* Meditation1.aif in Resources */ = {isa = PBXBuildFile; fileRef = 4C40E3941C41F1B600F7E56D /* Meditation1.aif */; };
+		4C76FD9C1C437884005E1C5D /* Meditation2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 4C76FD941C437884005E1C5D /* Meditation2.mp3 */; };
+		4C76FD9D1C437884005E1C5D /* Meditation5.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 4C76FD951C437884005E1C5D /* Meditation5.mp3 */; };
+		4C76FD9E1C437884005E1C5D /* Meditation8.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 4C76FD961C437884005E1C5D /* Meditation8.mp3 */; };
+		4C76FD9F1C437884005E1C5D /* Meditation1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 4C76FD971C437884005E1C5D /* Meditation1.mp3 */; };
+		4C76FDA01C437884005E1C5D /* Meditation6.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 4C76FD981C437884005E1C5D /* Meditation6.mp3 */; };
+		4C76FDA11C437884005E1C5D /* Meditation3.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 4C76FD991C437884005E1C5D /* Meditation3.mp3 */; };
+		4C76FDA21C437884005E1C5D /* Meditation4.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 4C76FD9A1C437884005E1C5D /* Meditation4.mp3 */; };
+		4C76FDA31C437884005E1C5D /* Meditation7.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 4C76FD9B1C437884005E1C5D /* Meditation7.mp3 */; };
 		552B7EC01ABCBC6F00E5A6C8 /* PebbleHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 552B7EBF1ABCBC6F00E5A6C8 /* PebbleHelper.swift */; };
 		558B1C981AB866AA00DD18AC /* ExerciseSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 558B1C971AB866AA00DD18AC /* ExerciseSettingsViewController.swift */; };
 		558B1C9C1AB866DE00DD18AC /* ExerciseSettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 558B1C9B1AB866DE00DD18AC /* ExerciseSettingsViewController.xib */; };
@@ -177,6 +185,14 @@
 		4C40E3881C41F09D00F7E56D /* Meditation4.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = Meditation4.aif; sourceTree = "<group>"; };
 		4C40E3891C41F09D00F7E56D /* Meditation8.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = Meditation8.aif; sourceTree = "<group>"; };
 		4C40E3941C41F1B600F7E56D /* Meditation1.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = Meditation1.aif; sourceTree = "<group>"; };
+		4C76FD941C437884005E1C5D /* Meditation2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Meditation2.mp3; sourceTree = "<group>"; };
+		4C76FD951C437884005E1C5D /* Meditation5.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Meditation5.mp3; sourceTree = "<group>"; };
+		4C76FD961C437884005E1C5D /* Meditation8.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Meditation8.mp3; sourceTree = "<group>"; };
+		4C76FD971C437884005E1C5D /* Meditation1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Meditation1.mp3; sourceTree = "<group>"; };
+		4C76FD981C437884005E1C5D /* Meditation6.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Meditation6.mp3; sourceTree = "<group>"; };
+		4C76FD991C437884005E1C5D /* Meditation3.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Meditation3.mp3; sourceTree = "<group>"; };
+		4C76FD9A1C437884005E1C5D /* Meditation4.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Meditation4.mp3; sourceTree = "<group>"; };
+		4C76FD9B1C437884005E1C5D /* Meditation7.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Meditation7.mp3; sourceTree = "<group>"; };
 		552B7EBE1ABCA80900E5A6C8 /* RD-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "RD-Bridging-Header.h"; sourceTree = "<group>"; };
 		552B7EBF1ABCBC6F00E5A6C8 /* PebbleHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PebbleHelper.swift; sourceTree = "<group>"; };
 		558B1C971AB866AA00DD18AC /* ExerciseSettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExerciseSettingsViewController.swift; sourceTree = "<group>"; };
@@ -312,6 +328,14 @@
 		1682D1F01ABCBDFB00D8ED02 /* Audio */ = {
 			isa = PBXGroup;
 			children = (
+				4C76FD941C437884005E1C5D /* Meditation2.mp3 */,
+				4C76FD951C437884005E1C5D /* Meditation5.mp3 */,
+				4C76FD961C437884005E1C5D /* Meditation8.mp3 */,
+				4C76FD971C437884005E1C5D /* Meditation1.mp3 */,
+				4C76FD981C437884005E1C5D /* Meditation6.mp3 */,
+				4C76FD991C437884005E1C5D /* Meditation3.mp3 */,
+				4C76FD9A1C437884005E1C5D /* Meditation4.mp3 */,
+				4C76FD9B1C437884005E1C5D /* Meditation7.mp3 */,
 				4C40E3941C41F1B600F7E56D /* Meditation1.aif */,
 				4C40E3831C41F09D00F7E56D /* Meditation7.aif */,
 				4C40E3841C41F09D00F7E56D /* Meditation3.aif */,
@@ -568,11 +592,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4C76FDA31C437884005E1C5D /* Meditation7.mp3 in Resources */,
 				9B58247A1AB654090010A1E5 /* MeditationViewController.xib in Resources */,
+				4C76FD9C1C437884005E1C5D /* Meditation2.mp3 in Resources */,
 				9B423E2E1ADD926B00A970A3 /* Questions.plist in Resources */,
 				9B58247E1AB6541F0010A1E5 /* AssessmentViewController.xib in Resources */,
 				16781F6B1AEAFA270056FF30 /* Exercise3View.xib in Resources */,
 				9B5824761AB653A80010A1E5 /* ExerciseViewController.xib in Resources */,
+				4C76FDA11C437884005E1C5D /* Meditation3.mp3 in Resources */,
 				164D3F2C1ABB67D800253910 /* Meditations.plist in Resources */,
 				4C40E3951C41F1B600F7E56D /* Meditation1.aif in Resources */,
 				1682D1F21ABCBE0600D8ED02 /* funkjam.mp3 in Resources */,
@@ -583,15 +610,20 @@
 				16B916B91AD47A5100669776 /* MeditationProgressView.xib in Resources */,
 				559706E91AB6300200FD794A /* MeditationTimeViewController.xib in Resources */,
 				162AF27C1AFA7C3A0099A81D /* AssessmentNavigationController.xib in Resources */,
+				4C76FD9D1C437884005E1C5D /* Meditation5.mp3 in Resources */,
 				16385F561AE6AA1C0032CDE5 /* SettingsCell.xib in Resources */,
+				4C76FD9E1C437884005E1C5D /* Meditation8.mp3 in Resources */,
 				4C40E38C1C41F09D00F7E56D /* Meditation3.aif in Resources */,
 				4C40E38E1C41F09D00F7E56D /* Meditation2.aif in Resources */,
 				4C40E38F1C41F09D00F7E56D /* Meditation6.aif in Resources */,
 				4C40E38D1C41F09D00F7E56D /* Meditation5.aif in Resources */,
 				16AE94C91A8E8CF300FBD6C8 /* LoginViewController.xib in Resources */,
+				4C76FD9F1C437884005E1C5D /* Meditation1.mp3 in Resources */,
+				4C76FDA01C437884005E1C5D /* Meditation6.mp3 in Resources */,
 				4C40E3901C41F09D00F7E56D /* Meditation4.aif in Resources */,
 				16AE94CD1A8E9C9D00FBD6C8 /* SignupViewController.xib in Resources */,
 				9BA23E0D1A8D21580037D161 /* Images.xcassets in Resources */,
+				4C76FDA21C437884005E1C5D /* Meditation4.mp3 in Resources */,
 				4C40E38B1C41F09D00F7E56D /* Meditation7.aif in Resources */,
 				558B1C9C1AB866DE00DD18AC /* ExerciseSettingsViewController.xib in Resources */,
 				1628A8551AE74D600008F0F4 /* Exercise1View.xib in Resources */,

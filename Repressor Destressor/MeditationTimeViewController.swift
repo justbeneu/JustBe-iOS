@@ -12,15 +12,19 @@ class MeditationTimeViewController: UIViewController
 {
     var exerciseDay:DayOfWeek!
     var exerciseTime:NSDate!
-    
+    var sleepTime:NSDate!
+    var wakeUpTime:NSDate!
+
     @IBOutlet weak var doneButton: UIButton!
     @IBOutlet weak var timePicker: UIDatePicker!
     @IBOutlet weak var timeLabel: UILabel!
     
-    init(exerciseDay: DayOfWeek, exerciseTime: NSDate)
+    init(exerciseDay: DayOfWeek, exerciseTime: NSDate, sleepTime: NSDate, wakeUpTime: NSDate)
     {
         self.exerciseDay = exerciseDay
         self.exerciseTime = exerciseTime
+        self.sleepTime = sleepTime
+        self.wakeUpTime = wakeUpTime
         
         super.init(nibName: "MeditationTimeViewController", bundle: nil)
     }
@@ -61,7 +65,9 @@ class MeditationTimeViewController: UIViewController
             
             self.showLoader()
             
-            ServerRequest.sharedInstance.setNotificationSettings(token!, exerciseDay: self.exerciseDay, exerciseTime: self.exerciseTime, meditationTime: self.timePicker.date, always: { () -> () in
+            //wakeUpTime: self.wakeUpTime, sleepTime: self.sleepTime, 
+            
+            ServerRequest.sharedInstance.setNotificationSettings(token!, exerciseDay: self.exerciseDay, exerciseTime: self.exerciseTime, meditationTime: self.timePicker.date, wakeUpTime: self.wakeUpTime, goToSleepTime: self.sleepTime, always: { () -> () in
     
                 }, success: { () -> Void in
                     self.hideLoader()

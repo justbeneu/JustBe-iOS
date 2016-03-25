@@ -85,7 +85,7 @@ class SettingsViewController: UIViewController, UITableViewDataSource, UITableVi
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int
     {
-        return 6
+        return 11
     }
     
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat
@@ -99,47 +99,56 @@ class SettingsViewController: UIViewController, UITableViewDataSource, UITableVi
 
         switch indexPath.row
         {
-            /*
+            
         case 0:
-            //cell.label.text = "First Name"
-            //cell.value.text = self.user.firstName
+            cell.label.text = "First Name"
+            cell.value.text = self.user.firstName
             break
         case 1:
-            //cell.label.text = "Last Name"
-            //cell.value.text = self.user.lastName
+            cell.label.text = "Last Name"
+            cell.value.text = self.user.lastName
             break
-*/
-        case 0:
+        case 2:
             cell.label.text = "Username"
             cell.value.text = self.user.username
             break
-            /*
         case 3:
-            //cell.label.text = "Email"
-            //cell.value.text = self.user.email
+            cell.label.text = "Email"
+            cell.value.text = self.user.email
             break
-*/
-        case 1:
+        case 4:
             cell.label.text = "Exercise Day"
             cell.value.text = self.user.exerciseDayOfWeek?.description
             break
-        case 2:
+        case 5:
             cell.label.text = "Exercise Time"
             let timeFormatter = NSDateFormatter()
             timeFormatter.dateFormat = "h:mm a";
             cell.value.text = timeFormatter.stringFromDate(self.user.exerciseTime!)
             break
-        case 3:
+        case 6:
             cell.label.text = "Meditation Time"
             let timeFormatter = NSDateFormatter()
             timeFormatter.dateFormat = "h:mm a";
             cell.value.text = timeFormatter.stringFromDate(self.user.meditationTime!)
             break
-        case 4:
+        case 7:
+            cell.label.text = "WakeUp Time"
+            let timeFormatter = NSDateFormatter()
+            timeFormatter.dateFormat = "h:mm a";
+            cell.value.text = timeFormatter.stringFromDate(self.user.wakeUpTime!)
+            break
+        case 8:
+            cell.label.text = "Sleep Time"
+            let timeFormatter = NSDateFormatter()
+            timeFormatter.dateFormat = "h:mm a";
+            cell.value.text = timeFormatter.stringFromDate(self.user.goToSleepTime!)
+            break
+        case 9:
             cell.label.text = "Send Feedback"
             cell.label.font = UIFont.boldSystemFontOfSize(cell.label.font.pointSize)
             break
-        case 5:
+        case 10:
             cell.label.text = "Log Out"
             cell.label.font = UIFont.boldSystemFontOfSize(cell.label.font.pointSize)
             cell.label.textColor = UIColor.orangeText()
@@ -162,10 +171,10 @@ class SettingsViewController: UIViewController, UITableViewDataSource, UITableVi
     {
         switch indexPath.row
         {
-        case 4:
+        case 9:
             self.sendEmail()
             break
-        case 5:
+        case 10:
             self.logOut()
             break
         default:

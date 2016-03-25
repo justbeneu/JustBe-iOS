@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9059" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9532" systemVersion="14F1605" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
     </dependencies>
     <objects>
@@ -21,7 +21,6 @@
             <subviews>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="At what time would you like to do your daily meditation?" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F9g-Dr-dQg">
                     <rect key="frame" x="10" y="32" width="300" height="40"/>
-                    <animations/>
                     <constraints>
                         <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="300" id="PLb-3G-n2h"/>
                         <constraint firstAttribute="height" constant="40" id="ScN-QC-lQ2"/>
@@ -34,7 +33,6 @@
                 </label>
                 <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="time" minuteInterval="1" useCurrentDate="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tod-fs-uIe">
                     <rect key="frame" x="10" y="96" width="300" height="162"/>
-                    <animations/>
                     <constraints>
                         <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="162" id="CkI-iQ-tzp"/>
                         <constraint firstAttribute="height" constant="162" id="DI5-Mi-Zc2"/>
@@ -47,7 +45,6 @@
                 </datePicker>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vh9-f8-6yV">
                     <rect key="frame" x="16" y="290" width="288" height="44"/>
-                    <animations/>
                     <color key="backgroundColor" red="0.18880958019999999" green="1" blue="0.22477829020000001" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
                         <constraint firstAttribute="width" secondItem="vh9-f8-6yV" secondAttribute="height" multiplier="146:11" id="Bn4-ZJ-qDr"/>
@@ -78,7 +75,6 @@
                     </connections>
                 </button>
             </subviews>
-            <animations/>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstItem="Tod-fs-uIe" firstAttribute="top" secondItem="F9g-Dr-dQg" secondAttribute="bottom" constant="24" id="Ao4-ra-EgD"/>
@@ -89,7 +85,7 @@
                 <constraint firstAttribute="centerX" secondItem="Tod-fs-uIe" secondAttribute="centerX" id="han-Rb-a9u"/>
                 <constraint firstItem="vh9-f8-6yV" firstAttribute="top" secondItem="Tod-fs-uIe" secondAttribute="bottom" constant="32" id="xUC-ld-NgH"/>
             </constraints>
-            <point key="canvasLocation" x="325" y="294"/>
+            <point key="canvasLocation" x="404" y="277"/>
         </view>
     </objects>
 </document>

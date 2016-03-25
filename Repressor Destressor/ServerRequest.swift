@@ -5,11 +5,14 @@
 //  Created by Gavin King on 2/15/15.
 //  Copyright (c) 2015 Group 2. All rights reserved.
 //
+//  Modified by Bhavin Haresh Vora on 3/24/16.
+//  Copyright © 2016 Group 2. All rights reserved.
 
 import Foundation
 import Alamofire
 import ObjectMapper
 import SwiftyJSON
+import UIKit
 
 typealias SuccessBlock = (response: [String: AnyObject]?) -> ()
 typealias FailureBlock = (error: NSError, message: String?)-> ()
@@ -246,7 +249,7 @@ class ServerRequest
                     let subresponse = response.response
                     let result = response.result
                     let request = response.request
-                
+                    
                     if let JSON = result.value {
                         print("JSON: \(JSON)")
                     }
@@ -259,11 +262,17 @@ class ServerRequest
                             /*let errorDictionary:[String: AnyObject]? = data["error"] as? [String: AnyObject]
                             let errorMessage:String? = error.valueForKey("message") as! String
 */
+//                            print(error.description + "qqqqqqqqqqqqqqqqqqq")
+                            
                             if(error.description.lowercaseString.rangeOfString("JSON could not be serialized. Input data was nil or zero length.") != nil) {
                                 failure!(error: error, message: (error as NSError).localizedDescription)
                                 print("FAILED:\n" + error.description)
                             }
-                            else { return }
+                            else {
+                                failure!(error: error, message: (error as NSError).localizedDescription)
+                                print("FAILEEEEEEEED:\n" + error.description + "FAILEEEEEEEED:\n")
+                                return
+                        }
                         // TODO: on failure STOP GOING
                     }
                     
@@ -284,9 +293,13 @@ class ServerRequest
                     //                    failure!(error: error, message: errorMessage)
                     //                }
             }
-            
+        
+        
             debugPrint(request)
-            print("this is the last thing in Get")
+        
+
+        print("this is the last thing in Get")
+        return
 //        }
     }
     
@@ -327,14 +340,19 @@ class ServerRequest
             
         }, failure: failure)
     }
+
     
-    func setNotificationSettings(token: String, exerciseDay: DayOfWeek, exerciseTime:NSDate, meditationTime:NSDate, always: AlwaysBlock?, success: () -> Void, failure: FailureBlock?)
+    
+    
+    func setNotificationSettings(token: String, exerciseDay: DayOfWeek, exerciseTime:NSDate, meditationTime:NSDate,wakeUpTime:NSDate,goToSleepTime:NSDate, always: AlwaysBlock?, success: () -> Void, failure: FailureBlock?)
     {
         var params:[String: AnyObject] = [:]
         params["apns_token"] = token
         params["exercise_day_of_week"] = exerciseDay.rawValue
         params["exercise_time"] = TimeTransform().transformToJSON(exerciseTime)
         params["meditation_time"] = TimeTransform().transformToJSON(meditationTime)
+        params["wake_up_time"] = TimeTransform().transformToJSON(wakeUpTime)
+        params["go_to_sleep_time"] = TimeTransform().transformToJSON(goToSleepTime)
         print("Notifications set to:", params.description)
         ServerRequest.sharedInstance.patch("user_profile/", params: params, always: always, success: {
             (response) -> () in
@@ -344,6 +362,8 @@ class ServerRequest
             user.exerciseDayOfWeek = exerciseDay
             user.exerciseTime = exerciseTime
             user.meditationTime = meditationTime
+            user.wakeUpTime = wakeUpTime
+            user.goToSleepTime = goToSleepTime
             
             UserDefaultsManager.sharedInstance.setLoggedInUser(user)
             
@@ -351,6 +371,7 @@ class ServerRequest
             
             }, failure: failure)
     }
+
     
     func logOut(always: AlwaysBlock?, success: () -> Void, failure: () -> ())
     {

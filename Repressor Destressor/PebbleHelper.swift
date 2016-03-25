@@ -49,7 +49,7 @@ class PebbleHelper: NSObject, PBPebbleCentralDelegate, PBDataLoggingServiceDeleg
     override init() {
         super.init()
         PBPebbleCentral.defaultCentral().delegate = self
-        PBPebbleCentral.defaultCentral().dataLoggingService.delegate = self
+//        PBPebbleCentral.defaultCentral().dataLoggingServiceForAppUUID.delegate = self
         self.watch = PBPebbleCentral.defaultCentral().lastConnectedWatch()
         if (self.watch != nil) {
             print("Pebble connected: \(self.watch!.name)")

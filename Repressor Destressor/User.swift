@@ -82,6 +82,8 @@ class User: Mappable
     var exerciseDayOfWeek: DayOfWeek?
     var exerciseTime: NSDate?
     var createdAt: NSDate?
+    var wakeUpTime: NSDate?
+    var goToSleepTime: NSDate?
     
     init(){}
     
@@ -104,5 +106,7 @@ class User: Mappable
         exerciseDayOfWeek <- (mapper["exercise_day_of_week"], DayOfWeekTransform())
         exerciseTime <- (mapper["exercise_time"], TimeTransform())
         createdAt <- (mapper["created_at"], DateTimeTransform())
+        wakeUpTime <- (mapper["wake_up_time"], TimeTransform())
+        goToSleepTime <- (mapper["go_to_sleep_time"], TimeTransform())
     }
 }

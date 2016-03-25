@@ -63,7 +63,7 @@ class Response: NSObject {
         var json = [
             "assessment_id": assessmentId,
             "question_id": questionId,
-            "category" : category,
+            //"category" : category,
             "type": questionTypeInt,
             questionType.rawValue.lowercaseString: value!
         ]

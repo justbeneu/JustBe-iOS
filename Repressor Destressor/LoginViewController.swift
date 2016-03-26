@@ -42,8 +42,8 @@ class LoginViewController: UIViewController
 
     @IBAction func logIn(sender: UIButton)
     {
-        let username = self.usernameField.text?.trim()
-        let password = self.passwordField.text
+//        let username = self.usernameField.text?.trim()
+//        let password = self.passwordField.text
         
   //      if (username != "" && password != "" && username != nil && password != nil)
   //      {
@@ -69,8 +69,10 @@ class LoginViewController: UIViewController
         
         
         let unamelen = uname.characters.count
+        print("xxxxxxxxxxx")
+        print(unamelen)
         
-        if(unamelen > 6 || unamelen < 25){
+        if(unamelen >= 6 && unamelen <= 25){
             print("User name is valid in length")
         } else {
             let alert = UIAlertController(title: "Error", message: "Enter User Name between 6 to 25 characters Use only a-z/A-Z alphabets", preferredStyle: UIAlertControllerStyle.Alert)
@@ -95,7 +97,7 @@ class LoginViewController: UIViewController
         
         let pwordlen = pword.characters.count
         
-        if(pwordlen > 6 || pwordlen < 25){
+        if(pwordlen >= 6 && pwordlen <= 25){
             print("Password is valid in length")
         } else {
             let alert = UIAlertController(title: "Error", message: "Enter Password between 6 to 25 characters", preferredStyle: UIAlertControllerStyle.Alert)
@@ -115,7 +117,7 @@ class LoginViewController: UIViewController
         
             self.showLoader()
         
-            ServerRequest.sharedInstance.logIn(username!, password: password!, always: { () -> () in
+        ServerRequest.sharedInstance.logIn(self.usernameField.text! , password: self.passwordField.text! , always: { () -> () in
                 print("hiding in Login")
             }, success: { (user) -> Void in
                 self.hideLoader()

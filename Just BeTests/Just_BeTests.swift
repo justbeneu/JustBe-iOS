@@ -7,8 +7,12 @@
 //
 
 import XCTest
+import UIKit
+
+//@testable import Just_Be
 
 class Just_BeTests: XCTestCase {
+    
     let x = " sss"
     override func setUp() {
         super.setUp()
@@ -187,6 +191,31 @@ class Just_BeTests: XCTestCase {
             toDate: today,
             options: NSCalendarOptions(rawValue: 0))
         XCTAssertEqual(today.getDateAfterDays(1), tomorrow)
+        
     }
     
+    //test day transform, takes in anything and return a NSDate if satisfied
+/*    func testfn() {
+        let s = "Bhavin" // change to your date format
+        let signUpView = SignupViewController()
+        let u = signUpView.validateName(s);
+        XCTAssertFalse(u)
+    }
+*/
+    
+   // var vc:SignUpViewController!
+    
+    
+    
+/*    func testFn(){
+        
+        let s = "#$%"
+        let u = s.containsValidCharacters()
+        
+
+    }*/
+    
+    
+    
+
 }

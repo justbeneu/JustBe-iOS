@@ -224,7 +224,7 @@ class SignupViewController: UIViewController
         
         let fnamelen = fname.characters.count
         
-        if(fnamelen > 1 || fnamelen < 25){
+        if(fnamelen >= 1 && fnamelen <= 25){
             print("First name is valid in length")
         } else {
             let alert = UIAlertController(title: "Error", message: "Enter First Name between 1 to 25 characters", preferredStyle: UIAlertControllerStyle.Alert)
@@ -250,7 +250,7 @@ class SignupViewController: UIViewController
         
         let lnamelen = lname.characters.count
         
-        if(lnamelen > 1 || lnamelen < 25){
+        if(lnamelen >= 1 && lnamelen <= 25){
             print("Last name is valid in length")
         } else {
             let alert = UIAlertController(title: "Error", message: "Enter Last Name between 1 to 25 characters", preferredStyle: UIAlertControllerStyle.Alert)
@@ -275,7 +275,7 @@ class SignupViewController: UIViewController
         
         let unamelen = uname.characters.count
         
-        if(unamelen > 6 || unamelen < 25){
+        if(unamelen >= 6 && unamelen <= 25){
             print("User name is valid in length")
         } else {
             let alert = UIAlertController(title: "Error", message: "Enter User Name between 6 to 25 characters", preferredStyle: UIAlertControllerStyle.Alert)
@@ -300,7 +300,7 @@ class SignupViewController: UIViewController
         
         let pwordlen = pword.characters.count
         
-        if(pwordlen > 6 || pwordlen < 25){
+        if(pwordlen >= 6 && pwordlen <= 25){
             print("Password is valid in length")
         } else {
             let alert = UIAlertController(title: "Error", message: "Enter Password between 6 to 25 characters", preferredStyle: UIAlertControllerStyle.Alert)
